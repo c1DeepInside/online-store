@@ -5,7 +5,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const EslintPlugin = require('eslint-webpack-plugin');
 
 const baseConfig = {
-    entry: path.resolve(__dirname, './src/index'),
+    entry: {
+        main: path.resolve(__dirname, './src/index'),
+        cart: path.resolve(__dirname, './src/pages/cart-page/index')
+    },
     mode: 'development',
     module: {
         rules: [
@@ -29,14 +32,19 @@ const baseConfig = {
         extensions: ['.ts', '.js'],
     },
     output: {
-        filename: 'index.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, '../dist'),
+        library: '[name]',
         assetModuleFilename: './src/assets/[name].[ext]'
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html'),
             filename: 'index.html',
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/pages/cart-page/cart-page.html'),
+            filename: 'cart-page.html',
         }),
         new CleanWebpackPlugin(),
         new EslintPlugin({ extensions: 'ts' }),
