@@ -5,13 +5,20 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const EslintPlugin = require('eslint-webpack-plugin');
 
 const baseConfig = {
-    entry: path.resolve(__dirname, './src/index'),
+    entry: {
+        main: path.resolve(__dirname, './src/pages/main/main'),
+        cart: path.resolve(__dirname, './src/pages/cart-page/index')
+    },
     mode: 'development',
     module: {
         rules: [
             {
-                test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
+                test: /\.(s[ac]ss|css)$/i, 
+                use: [
+                  "style-loader",
+                  "css-loader",
+                  "sass-loader",
+                ],
             },
             {   test: /\.ts$/i, 
                 use: 'ts-loader' },
@@ -29,14 +36,20 @@ const baseConfig = {
         extensions: ['.ts', '.js'],
     },
     output: {
-        filename: 'index.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, '../dist'),
         assetModuleFilename: './src/assets/[name].[ext]'
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/index.html'),
+            template: path.resolve(__dirname, './src/pages/main/main.html'),
             filename: 'index.html',
+            chunks: ['main']
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/pages/cart-page/cart-page.html'),
+            filename: 'cart-page.html',
+            chunks: ['cart']
         }),
         new CleanWebpackPlugin(),
         new EslintPlugin({ extensions: 'ts' }),
