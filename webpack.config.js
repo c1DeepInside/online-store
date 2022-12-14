@@ -7,7 +7,7 @@ const EslintPlugin = require('eslint-webpack-plugin');
 const baseConfig = {
     entry: {
         main: path.resolve(__dirname, './src/pages/main/main'),
-        cart: path.resolve(__dirname, './src/pages/cart-page/index')
+        cart: path.resolve(__dirname, './src/pages/cart-page/cart')
     },
     mode: 'development',
     module: {
