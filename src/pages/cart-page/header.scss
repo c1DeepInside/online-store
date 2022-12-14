@@ -20,8 +20,8 @@ $red: #CC0605;
 }
 
 .logo_link {
-  width: 70%;
-  height: 70%;
+  width: 280px;
+  height: 80px;
 }
 
 .logo {
@@ -79,4 +79,26 @@ $red: #CC0605;
 .total_products,
 .total_cost {
   color: $red; 
+}
+
+@media screen and (max-width: 660px){
+  .header {
+    height: 190px;
+    flex-wrap: wrap;
+  }
+
+  .space_wrap {
+    display: none;
+  }
+
+  .logo_wrap {
+    height: 100px;
+    width: 100%;
+  }
+
+  .cart_wrap {
+    height: 90px;
+    width: 100%;
+  }
+
 }
