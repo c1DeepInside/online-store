@@ -1,7 +1,8 @@
-$gray: #e3e1de;
-$textColor: #212020;
-$font: 'Poppins', sans-serif;
-$red: #CC0605;
+$MAIN_FONT: 'Poppins', sans-serif;
+$MAIN_COLOR_PAGE: #CC0605;
+$MAIN_COLOR_FONTS: #212020;
+$SUB_COLOR_PAGE: #e3e1de;
+$SUB_COLOR_FONTS: #717070;
 
 .header {
   height: 120px;
@@ -11,7 +12,7 @@ $red: #CC0605;
 
 .logo_wrap {
   width: 400px;
-  border: $gray solid 1px;
+  border: $SUB_COLOR_PAGE solid 1px;
   border-top: none;
   border-left: none;
   display: flex;
@@ -22,6 +23,11 @@ $red: #CC0605;
 .logo_link {
   width: 280px;
   height: 80px;
+  transition: 0.5s;
+}
+
+.logo_link:hover {
+  transform: scale(1.05);
 }
 
 .logo {
@@ -33,13 +39,13 @@ $red: #CC0605;
 }
 
 .space_wrap {
-  border-bottom: $gray solid 1px;
+  border-bottom: $SUB_COLOR_PAGE solid 1px;
   flex-grow: 1;
 }
 
 .cart_wrap {
   width: 260px;
-  border: $gray solid 1px;
+  border: $SUB_COLOR_PAGE solid 1px;
   border-top: none;
   border-right: none;
   display: flex;
@@ -54,15 +60,20 @@ $red: #CC0605;
   justify-content: center;
   align-items: center;
   gap: 10px;
+  transition: 0.5s;
+}
+
+.cart_link:hover {
+  transform: scale(1.05);
 }
 
 .cart_link:visited {
-  color: $textColor;
+  color: $MAIN_COLOR_FONTS;
 }
 
 .cart_total {
-  color: $textColor;
-  font-family: $font;
+  color: $MAIN_COLOR_FONTS;
+  font-family: $MAIN_FONT;
   font-size: 18px;
   margin: 0;
   font-weight: 600;
@@ -78,7 +89,7 @@ $red: #CC0605;
 
 .total_products,
 .total_cost {
-  color: $red; 
+  color: $MAIN_COLOR_PAGE; 
 }
 
 @media screen and (max-width: 660px){

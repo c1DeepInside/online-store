@@ -1,0 +1,170 @@
+$MAIN_FONT: 'Poppins', sans-serif;
+$MAIN_COLOR_PAGE: #CC0605;
+$MAIN_COLOR_FONTS: #212020;
+$SUB_COLOR_PAGE: #e3e1de;
+$SUB_COLOR_FONTS: #717070;
+
+.main {
+  display: flex;
+  padding: 30px 150px;
+  gap: 20px;
+  font-family: $MAIN_FONT;
+  color: $MAIN_COLOR_FONTS;
+}
+
+.cart_param {
+  display: flex;
+  height: 60px;
+  align-items: center;
+}
+
+.cart_h2 {
+  margin: 0;
+  margin-left: 20px;
+}
+
+.cart {
+  margin: auto;
+  width: calc(100% - 320px);
+  border: $SUB_COLOR_PAGE solid 1px;
+}
+
+.cart p {
+  margin: 0;
+}
+
+.img_wrap {
+  display: flex;
+  align-items: center;
+}
+
+.item_name {
+  font-weight: 600;
+}
+
+.item_info_wrap {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.item_stock {
+  color: $SUB_COLOR_FONTS;
+  font-weight: 300;
+}
+
+.item_count_wrap {
+  display: flex;
+  width: 150px;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.item_count {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.item_cost {
+  font-weight: 600;
+}
+
+.summary_wrap {
+  width: 300px;
+  border: $SUB_COLOR_PAGE solid 1px;
+  align-self: flex-start;
+}
+
+.item_temp {
+  padding: 10px;
+  border-top: $SUB_COLOR_PAGE solid 1px;
+  display: flex;
+}
+
+.summary_h2_wrap {
+  height: 60px;
+  border-bottom: $SUB_COLOR_PAGE solid 1px;
+  display: flex;
+  align-items: center;
+}
+
+.summary_h2 {
+  margin: 0;
+  margin-left: 20px;
+}
+
+.summary {
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  font-size: 20px;
+}
+
+.summary_count_number,
+.summary_cost_number {
+  font-weight: 600;
+}
+
+.summary p {
+  margin: 0;
+}
+
+.summary_promocode {
+  display: flex;
+  justify-content: center;
+}
+
+#promocode {
+  width: 70%;
+  height: 40px;
+  padding-left: 10px;
+  font-weight: 300;
+  border: $SUB_COLOR_FONTS 1px solid;
+  outline: none;
+}
+
+.summary_arrow {
+  width: 40px;
+  height: 40px;
+  border: $SUB_COLOR_FONTS 1px solid;
+  border-right: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &_arrow {
+    font-size: 36px;
+    cursor: pointer;
+    color: $SUB_COLOR_FONTS;
+    transition: 0.5s;
+  }
+
+  &_arrow:hover {
+    color: $MAIN_COLOR_PAGE;
+  }
+}
+
+.summary_button {
+  cursor: pointer;
+  width: calc(70% + 40px);
+  height: 55px;
+  border: none;
+  background-color: $MAIN_COLOR_PAGE;
+  font-weight: 400;
+  font-size: 22px;
+  color: white;
+  letter-spacing: 3px;
+  transition: 0.5s;
+}
+
+.summary_button:hover {
+  transform: scale(1.05);
+}
+
+
+
