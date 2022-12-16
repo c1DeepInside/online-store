@@ -1,0 +1,113 @@
+@import './variables.scss';
+
+.header {
+  height: 120px;
+  width: 100%;
+  border-bottom: $SUB_COLOR_PAGE solid 1px;
+}
+
+.header_container {
+  display: flex;
+  height: 100%;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.logo_wrap {
+  width: 400px;
+  display: flex;
+  border-right: $SUB_COLOR_PAGE solid 1px;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo_link {
+  width: 280px;
+  height: 80px;
+  transition: 0.5s;
+}
+
+.logo_link:hover {
+  transform: scale(1.05);
+}
+
+.logo {
+  background: url('../../assets/icons/logo.svg') center;
+  display: block;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.space_wrap {
+  flex-grow: 1;
+}
+
+.cart_wrap {
+  width: 260px;
+  display: flex;
+  border-left: $SUB_COLOR_PAGE solid 1px;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart_link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: 0.5s;
+}
+
+.cart_link:hover {
+  transform: scale(1.05);
+}
+
+.cart_link:visited {
+  color: $MAIN_COLOR_FONTS;
+}
+
+.cart_total {
+  color: $MAIN_COLOR_FONTS;
+  font-family: $MAIN_FONT;
+  font-size: 18px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.cart_icon {
+  background: url('../../assets/icons/cart.svg') center;
+  display: block;
+  background-size: cover;
+  width: 50px;
+  height: 45px;
+}
+
+.total_products,
+.total_cost {
+  color: $MAIN_COLOR_PAGE; 
+}
+
+@media screen and (max-width: 660px){
+  .header {
+    height: 190px;
+    flex-wrap: wrap;
+  }
+
+  .space_wrap {
+    display: none;
+  }
+
+  .logo_wrap {
+    height: 100px;
+    width: 100%;
+  }
+
+  .cart_wrap {
+    height: 90px;
+    width: 100%;
+  }
+
+}
