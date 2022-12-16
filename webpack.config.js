@@ -1,14 +1,30 @@
+const fs = require('fs');
 const path = require('path');
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const EslintPlugin = require('eslint-webpack-plugin');
 
+function getChunk(page) {
+    const parts = page.split('-')
+    return parts.map(
+        (part, idx) => 
+            idx === 0 ? part : `${part[0].toUpperCase()}${part.slice(1)}`
+    ).join('')
+}
+
+function getPages() {
+    const pagesPath = path.resolve(__dirname, './src/pages');
+    return fs.readdirSync(pagesPath);
+}
+
+const entries = {};
+getPages().forEach(
+    (page) => entries[getChunk(page)] = path.resolve(__dirname, `./src/pages/${page}/index`)
+)
+
 const baseConfig = {
-    entry: {
-        main: path.resolve(__dirname, './src/pages/main/main'),
-        cart: path.resolve(__dirname, './src/pages/cart-page/index')
-    },
+    entry: {...entries},
     mode: 'development',
     module: {
         rules: [
@@ -41,21 +57,13 @@ const baseConfig = {
         assetModuleFilename: './src/assets/[name].[ext]'
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/pages/main/main.html'),
-            filename: 'index.html',
-            chunks: ['main']
-        }),
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/pages/cart-page/cart-page.html'),
-            filename: 'cart-page.html',
-            chunks: ['cart']
-        }),
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/pages/main/main.html'),
-            filename: 'main.html',
-            chunks: ['main']
-        }),
+        ...getPages().map((page) => (
+            new HtmlWebpackPlugin({
+                template: path.resolve(__dirname, `./src/pages/${page}/${page}.html`),
+                filename: `${page}.html`,
+                chunks: [getChunk(page)]
+            })
+        )),
         new CleanWebpackPlugin(),
         new EslintPlugin({ extensions: 'ts' }),
     ],
