@@ -1,13 +1,576 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Marhey&family=Poppins:wght@100;200;300;400;500;700&family=Ubuntu:wght@300;400;700&display=swap"
+    rel="stylesheet">
   <title>Document</title>
 </head>
+
 <body>
-  <p>dsfsdf</p>
-  <a href="./cart-page.html">dsfsdf</a>
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <div class="logo_wrap">
+          <a class="logo_link" href="./index.html"><span class="logo"></span>
+          </a>
+        </div>
+        <div class="space_wrap"></div>
+        <div class="cart_wrap">
+          <a class="cart_link" href="./cart-page.html">
+            <span class="cart_icon"></span>
+            <p class="cart_total">
+              <span class="total_products">3</span> Products - <span class="total_cost">1000$</span>
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <main class="main">
+      <div class="filters">
+
+        <div class="filters__price">
+          <h3 class="filters-title">Price</h3>
+
+          <div class="form__prices">
+            <div class="form__prices-container">
+              <div class="form__prices-title">From</div>
+              <input class="form__prices-input" type="number" id="fromInput" value="10" min="0" max="100" />
+            </div>
+
+            <div class="form__prices-container">
+              <div class="form__prices-title">Up to</div>
+              <input class="form__prices-input" type="number" id="toInput" value="40" min="0" max="100" />
+            </div>
+          </div>
+
+          <div class="sliders-control">
+            <input class="sliders-control__input" id="from-Slider" type="range" value="10" min="0" max="100" />
+            <input class="sliders-control__input" id="to-Slider" type="range" value="40" min="0" max="100" />
+          </div>
+        </div>
+
+        <div class="filters__price">
+          <h3 class="filters-title">Price</h3>
+
+          <div class="form__prices">
+            <div class="form__prices-container">
+              <div class="form__prices-title">From</div>
+              <input class="form__prices-input" type="number" id="fromInput" value="10" min="0" max="100" />
+            </div>
+
+            <div class="form__prices-container">
+              <div class="form__prices-title">Up to</div>
+              <input class="form__prices-input" type="number" id="toInput" value="40" min="0" max="100" />
+            </div>
+          </div>
+
+          <div class="sliders-control">
+            <input class="sliders-control__input" id="from-Slider" type="range" value="10" min="0" max="100" />
+            <input class="sliders-control__input" id="to-Slider" type="range" value="40" min="0" max="100" />
+          </div>
+        </div>
+
+        <div class="filters__theme">
+          <h3 class="filters-title">Theme</h3>
+          <label class="filters__theme-item">cat food(12)
+            <input class="checkbox" type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+          </label>
+          <label class="filters__theme-item">cat food(12)
+            <input class="checkbox" type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="filters__theme-item">cat food(12)
+            <input class="checkbox" type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="filters__theme-item">cat food(12)
+            <input class="checkbox" type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+
+        <div class="filters__theme">
+          <h3 class="filters-title">Theme</h3>
+          <label class="filters__theme-item">cat food(12)
+            <input class="checkbox" type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+          </label>
+          <label class="filters__theme-item">cat food(12)
+            <input class="checkbox" type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="filters__theme-item">cat food(12)
+            <input class="checkbox" type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="filters__theme-item">cat food(12)
+            <input class="checkbox" type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+
+        <div class="filters__control-panel">
+          <button class="filters__btn">APPLY FILTER</button>
+          <div class="trash-container">
+            <svg class="trash" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+              <g data-name="1" id="_1">
+                <path
+                  d="M356.65,450H171.47a41,41,0,0,1-40.9-40.9V120.66a15,15,0,0,1,15-15h237a15,15,0,0,1,15,15V409.1A41,41,0,0,1,356.65,450ZM160.57,135.66V409.1a10.91,10.91,0,0,0,10.9,10.9H356.65a10.91,10.91,0,0,0,10.91-10.9V135.66Z" />
+                <path
+                  d="M327.06,135.66h-126a15,15,0,0,1-15-15V93.4A44.79,44.79,0,0,1,230.8,48.67h66.52A44.79,44.79,0,0,1,342.06,93.4v27.26A15,15,0,0,1,327.06,135.66Zm-111-30h96V93.4a14.75,14.75,0,0,0-14.74-14.73H230.8A14.75,14.75,0,0,0,216.07,93.4Z" />
+                <path d="M264.06,392.58a15,15,0,0,1-15-15V178.09a15,15,0,1,1,30,0V377.58A15,15,0,0,1,264.06,392.58Z" />
+                <path d="M209.9,392.58a15,15,0,0,1-15-15V178.09a15,15,0,0,1,30,0V377.58A15,15,0,0,1,209.9,392.58Z" />
+                <path d="M318.23,392.58a15,15,0,0,1-15-15V178.09a15,15,0,0,1,30,0V377.58A15,15,0,0,1,318.23,392.58Z" />
+                <path d="M405.81,135.66H122.32a15,15,0,0,1,0-30H405.81a15,15,0,0,1,0,30Z" />
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="catalog">
+        <div class="catalog__search">
+          <h1 class="catalog__title">Catalog</h1>
+
+          <div class="catalog__filters">
+            <form class="search" action="">
+              <button class="search__btn">
+                <svg class="search__btn-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M29.71,28.29l-6.5-6.5-.07,0a12,12,0,1,0-1.39,1.39s0,.05,0,.07l6.5,6.5a1,1,0,0,0,1.42,0A1,1,0,0,0,29.71,28.29ZM14,24A10,10,0,1,1,24,14,10,10,0,0,1,14,24Z" />
+                </svg>
+              </button>
+              <input class="search__input" type="search" placeholder="Search amount 100+ products">
+            </form>
+
+            <div class="filters-select">
+              <select class="select">
+                <option value="0">Sort options:</option>
+                <option value="1">by preice</option>
+                <option value="2">by rating</option>
+                <option value="3">by discount</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="catalog__goods">
+          <div class="goods__item">
+            <div class="goods__item-img">
+              <img class="goods-img"
+                src="https://static.insales-cdn.com/images/products/1/3642/322842170/400_PB_cat_IP_Chicken_Turkey.png"
+                alt="cat food">
+            </div>
+
+            <div class="goods__item-text">
+              <div class="goods__item-in-stock">
+                Quantity in stock: 12
+              </div>
+
+              <div class="goods__item-about">
+                ProBalance Immuno cat food with chicken and turkey
+              </div>
+
+              <div class="goods__item-price">
+                <div class="price">
+                  <p class="price__title">Price:</p>
+                  <h3>400$</h3>
+                </div>
+                <div class="price__icon">
+                  <svg class="cart" baseProfile="tiny" height="24px" version="1.2" viewBox="0 0 24 24" width="24px"
+                    xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Layer_1">
+                      <g>
+                        <path
+                          d="M20.756,5.345C20.565,5.126,20.29,5,20,5H6.181L5.986,3.836C5.906,3.354,5.489,3,5,3H2.75c-0.553,0-1,0.447-1,1    s0.447,1,1,1h1.403l1.86,11.164c0.008,0.045,0.031,0.082,0.045,0.124c0.016,0.053,0.029,0.103,0.054,0.151    c0.032,0.066,0.075,0.122,0.12,0.179c0.031,0.039,0.059,0.078,0.095,0.112c0.058,0.054,0.125,0.092,0.193,0.13    c0.038,0.021,0.071,0.049,0.112,0.065C6.748,16.972,6.87,17,6.999,17C7,17,18,17,18,17c0.553,0,1-0.447,1-1s-0.447-1-1-1H7.847    l-0.166-1H19c0.498,0,0.92-0.366,0.99-0.858l1-7C21.031,5.854,20.945,5.563,20.756,5.345z M18.847,7l-0.285,2H15V7H18.847z M14,7    v2h-3V7H14z M14,10v2h-3v-2H14z M10,7v2H7C6.947,9,6.899,9.015,6.852,9.03L6.514,7H10z M7.014,10H10v2H7.347L7.014,10z M15,12v-2    h3.418l-0.285,2H15z" />
+                        <circle cx="8.5" cy="19.5" r="1.5" />
+                        <circle cx="17.5" cy="19.5" r="1.5" />
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="goods__item">
+            <div class="goods__item-img">
+              <img class="goods-img"
+                src="https://static.insales-cdn.com/images/products/1/3642/322842170/400_PB_cat_IP_Chicken_Turkey.png"
+                alt="cat food">
+            </div>
+
+            <div class="goods__item-text">
+              <div class="goods__item-in-stock">
+                Quantity in stock: 12
+              </div>
+
+              <div class="goods__item-about">
+                ProBalance Immuno cat food with chicken and turkey
+              </div>
+
+              <div class="goods__item-price">
+                <div class="price">
+                  <p class="price__title">Price:</p>
+                  <h3>400$</h3>
+                </div>
+                <div class="price__icon">
+                  <svg class="cart" baseProfile="tiny" height="24px" version="1.2" viewBox="0 0 24 24" width="24px"
+                    xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Layer_1">
+                      <g>
+                        <path
+                          d="M20.756,5.345C20.565,5.126,20.29,5,20,5H6.181L5.986,3.836C5.906,3.354,5.489,3,5,3H2.75c-0.553,0-1,0.447-1,1    s0.447,1,1,1h1.403l1.86,11.164c0.008,0.045,0.031,0.082,0.045,0.124c0.016,0.053,0.029,0.103,0.054,0.151    c0.032,0.066,0.075,0.122,0.12,0.179c0.031,0.039,0.059,0.078,0.095,0.112c0.058,0.054,0.125,0.092,0.193,0.13    c0.038,0.021,0.071,0.049,0.112,0.065C6.748,16.972,6.87,17,6.999,17C7,17,18,17,18,17c0.553,0,1-0.447,1-1s-0.447-1-1-1H7.847    l-0.166-1H19c0.498,0,0.92-0.366,0.99-0.858l1-7C21.031,5.854,20.945,5.563,20.756,5.345z M18.847,7l-0.285,2H15V7H18.847z M14,7    v2h-3V7H14z M14,10v2h-3v-2H14z M10,7v2H7C6.947,9,6.899,9.015,6.852,9.03L6.514,7H10z M7.014,10H10v2H7.347L7.014,10z M15,12v-2    h3.418l-0.285,2H15z" />
+                        <circle cx="8.5" cy="19.5" r="1.5" />
+                        <circle cx="17.5" cy="19.5" r="1.5" />
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="goods__item">
+            <div class="goods__item-img">
+              <img class="goods-img"
+                src="https://static.insales-cdn.com/images/products/1/3642/322842170/400_PB_cat_IP_Chicken_Turkey.png"
+                alt="cat food">
+            </div>
+
+            <div class="goods__item-text">
+              <div class="goods__item-in-stock">
+                Quantity in stock: 12
+              </div>
+
+              <div class="goods__item-about">
+                ProBalance Immuno cat food with chicken and turkey
+              </div>
+
+              <div class="goods__item-price">
+                <div class="price">
+                  <p class="price__title">Price:</p>
+                  <h3>400$</h3>
+                </div>
+                <div class="price__icon">
+                  <svg class="cart" baseProfile="tiny" height="24px" version="1.2" viewBox="0 0 24 24" width="24px"
+                    xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Layer_1">
+                      <g>
+                        <path
+                          d="M20.756,5.345C20.565,5.126,20.29,5,20,5H6.181L5.986,3.836C5.906,3.354,5.489,3,5,3H2.75c-0.553,0-1,0.447-1,1    s0.447,1,1,1h1.403l1.86,11.164c0.008,0.045,0.031,0.082,0.045,0.124c0.016,0.053,0.029,0.103,0.054,0.151    c0.032,0.066,0.075,0.122,0.12,0.179c0.031,0.039,0.059,0.078,0.095,0.112c0.058,0.054,0.125,0.092,0.193,0.13    c0.038,0.021,0.071,0.049,0.112,0.065C6.748,16.972,6.87,17,6.999,17C7,17,18,17,18,17c0.553,0,1-0.447,1-1s-0.447-1-1-1H7.847    l-0.166-1H19c0.498,0,0.92-0.366,0.99-0.858l1-7C21.031,5.854,20.945,5.563,20.756,5.345z M18.847,7l-0.285,2H15V7H18.847z M14,7    v2h-3V7H14z M14,10v2h-3v-2H14z M10,7v2H7C6.947,9,6.899,9.015,6.852,9.03L6.514,7H10z M7.014,10H10v2H7.347L7.014,10z M15,12v-2    h3.418l-0.285,2H15z" />
+                        <circle cx="8.5" cy="19.5" r="1.5" />
+                        <circle cx="17.5" cy="19.5" r="1.5" />
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="goods__item">
+            <div class="goods__item-img">
+              <img class="goods-img"
+                src="https://static.insales-cdn.com/images/products/1/3642/322842170/400_PB_cat_IP_Chicken_Turkey.png"
+                alt="cat food">
+            </div>
+
+            <div class="goods__item-text">
+              <div class="goods__item-in-stock">
+                Quantity in stock: 12
+              </div>
+
+              <div class="goods__item-about">
+                ProBalance Immuno cat food with chicken and turkey
+              </div>
+
+              <div class="goods__item-price">
+                <div class="price">
+                  <p class="price__title">Price:</p>
+                  <h3>400$</h3>
+                </div>
+                <div class="price__icon">
+                  <svg class="cart" baseProfile="tiny" height="24px" version="1.2" viewBox="0 0 24 24" width="24px"
+                    xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Layer_1">
+                      <g>
+                        <path
+                          d="M20.756,5.345C20.565,5.126,20.29,5,20,5H6.181L5.986,3.836C5.906,3.354,5.489,3,5,3H2.75c-0.553,0-1,0.447-1,1    s0.447,1,1,1h1.403l1.86,11.164c0.008,0.045,0.031,0.082,0.045,0.124c0.016,0.053,0.029,0.103,0.054,0.151    c0.032,0.066,0.075,0.122,0.12,0.179c0.031,0.039,0.059,0.078,0.095,0.112c0.058,0.054,0.125,0.092,0.193,0.13    c0.038,0.021,0.071,0.049,0.112,0.065C6.748,16.972,6.87,17,6.999,17C7,17,18,17,18,17c0.553,0,1-0.447,1-1s-0.447-1-1-1H7.847    l-0.166-1H19c0.498,0,0.92-0.366,0.99-0.858l1-7C21.031,5.854,20.945,5.563,20.756,5.345z M18.847,7l-0.285,2H15V7H18.847z M14,7    v2h-3V7H14z M14,10v2h-3v-2H14z M10,7v2H7C6.947,9,6.899,9.015,6.852,9.03L6.514,7H10z M7.014,10H10v2H7.347L7.014,10z M15,12v-2    h3.418l-0.285,2H15z" />
+                        <circle cx="8.5" cy="19.5" r="1.5" />
+                        <circle cx="17.5" cy="19.5" r="1.5" />
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="goods__item">
+            <div class="goods__item-img">
+              <img class="goods-img"
+                src="https://static.insales-cdn.com/images/products/1/3642/322842170/400_PB_cat_IP_Chicken_Turkey.png"
+                alt="cat food">
+            </div>
+
+            <div class="goods__item-text">
+              <div class="goods__item-in-stock">
+                Quantity in stock: 12
+              </div>
+
+              <div class="goods__item-about">
+                ProBalance Immuno cat food with chicken and turkey
+              </div>
+
+              <div class="goods__item-price">
+                <div class="price">
+                  <p class="price__title">Price:</p>
+                  <h3>400$</h3>
+                </div>
+                <div class="price__icon">
+                  <svg class="cart" baseProfile="tiny" height="24px" version="1.2" viewBox="0 0 24 24" width="24px"
+                    xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Layer_1">
+                      <g>
+                        <path
+                          d="M20.756,5.345C20.565,5.126,20.29,5,20,5H6.181L5.986,3.836C5.906,3.354,5.489,3,5,3H2.75c-0.553,0-1,0.447-1,1    s0.447,1,1,1h1.403l1.86,11.164c0.008,0.045,0.031,0.082,0.045,0.124c0.016,0.053,0.029,0.103,0.054,0.151    c0.032,0.066,0.075,0.122,0.12,0.179c0.031,0.039,0.059,0.078,0.095,0.112c0.058,0.054,0.125,0.092,0.193,0.13    c0.038,0.021,0.071,0.049,0.112,0.065C6.748,16.972,6.87,17,6.999,17C7,17,18,17,18,17c0.553,0,1-0.447,1-1s-0.447-1-1-1H7.847    l-0.166-1H19c0.498,0,0.92-0.366,0.99-0.858l1-7C21.031,5.854,20.945,5.563,20.756,5.345z M18.847,7l-0.285,2H15V7H18.847z M14,7    v2h-3V7H14z M14,10v2h-3v-2H14z M10,7v2H7C6.947,9,6.899,9.015,6.852,9.03L6.514,7H10z M7.014,10H10v2H7.347L7.014,10z M15,12v-2    h3.418l-0.285,2H15z" />
+                        <circle cx="8.5" cy="19.5" r="1.5" />
+                        <circle cx="17.5" cy="19.5" r="1.5" />
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="goods__item">
+            <div class="goods__item-img">
+              <img class="goods-img"
+                src="https://static.insales-cdn.com/images/products/1/3642/322842170/400_PB_cat_IP_Chicken_Turkey.png"
+                alt="cat food">
+            </div>
+
+            <div class="goods__item-text">
+              <div class="goods__item-in-stock">
+                Quantity in stock: 12
+              </div>
+
+              <div class="goods__item-about">
+                ProBalance Immuno cat food with chicken and turkey
+              </div>
+
+              <div class="goods__item-price">
+                <div class="price">
+                  <p class="price__title">Price:</p>
+                  <h3>400$</h3>
+                </div>
+                <div class="price__icon">
+                  <svg class="cart" baseProfile="tiny" height="24px" version="1.2" viewBox="0 0 24 24" width="24px"
+                    xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Layer_1">
+                      <g>
+                        <path
+                          d="M20.756,5.345C20.565,5.126,20.29,5,20,5H6.181L5.986,3.836C5.906,3.354,5.489,3,5,3H2.75c-0.553,0-1,0.447-1,1    s0.447,1,1,1h1.403l1.86,11.164c0.008,0.045,0.031,0.082,0.045,0.124c0.016,0.053,0.029,0.103,0.054,0.151    c0.032,0.066,0.075,0.122,0.12,0.179c0.031,0.039,0.059,0.078,0.095,0.112c0.058,0.054,0.125,0.092,0.193,0.13    c0.038,0.021,0.071,0.049,0.112,0.065C6.748,16.972,6.87,17,6.999,17C7,17,18,17,18,17c0.553,0,1-0.447,1-1s-0.447-1-1-1H7.847    l-0.166-1H19c0.498,0,0.92-0.366,0.99-0.858l1-7C21.031,5.854,20.945,5.563,20.756,5.345z M18.847,7l-0.285,2H15V7H18.847z M14,7    v2h-3V7H14z M14,10v2h-3v-2H14z M10,7v2H7C6.947,9,6.899,9.015,6.852,9.03L6.514,7H10z M7.014,10H10v2H7.347L7.014,10z M15,12v-2    h3.418l-0.285,2H15z" />
+                        <circle cx="8.5" cy="19.5" r="1.5" />
+                        <circle cx="17.5" cy="19.5" r="1.5" />
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__logo">
+          <a href="./index.html">
+            <img class="pet-logo" src="/src/assets/icons/logotype.svg" alt="logotype">
+          </a>
+          <p class="pet-logo__about">the largest chain of pet stores and online store with delivery</p>
+        </div>
+
+        <div class="footer__logo-chool">
+          <a href="https://rs.school/js/">
+            <svg class="rs-chool" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 552.8 205.3">
+              <style>
+                .st0 {
+                  fill: #fff
+                }
+
+                .st1 {
+                  clip-path: url(#SVGID_2_)
+                }
+
+                .st2 {
+                  clip-path: url(#SVGID_4_)
+                }
+
+                .st3 {
+                  clip-path: url(#SVGID_6_)
+                }
+
+                .st4 {
+                  clip-path: url(#SVGID_8_)
+                }
+
+                .st5 {
+                  fill: #fff;
+                  stroke: #000;
+                  stroke-width: 4;
+                  stroke-miterlimit: 10
+                }
+
+                .st6 {
+                  clip-path: url(#SVGID_8_)
+                }
+
+                .st6,
+                .st7 {
+                  fill: none;
+                  stroke: #000;
+                  stroke-width: 4;
+                  stroke-miterlimit: 10
+                }
+
+                .st8,
+                .st9 {
+                  clip-path: url(#SVGID_10_)
+                }
+
+                .st9 {
+                  fill: none;
+                  stroke: #000;
+                  stroke-width: 4;
+                  stroke-miterlimit: 10
+                }
+              </style>
+              <title>rs_school_js</title>
+              <path
+                d="M285.4 68l26.3-1.7c.6 4.3 1.7 7.5 3.5 9.8 2.9 3.6 6.9 5.4 12.2 5.4 3.9 0 7-.9 9.1-2.8 2-1.5 3.2-3.9 3.2-6.4 0-2.4-1.1-4.7-3-6.2-2-1.8-6.7-3.6-14.1-5.2-12.1-2.7-20.8-6.3-25.9-10.9-5.1-4.3-8-10.6-7.8-17.3 0-4.6 1.4-9.2 4-13 3-4.3 7.1-7.7 12-9.6 5.3-2.3 12.7-3.5 22-3.5 11.4 0 20.1 2.1 26.1 6.4 6 4.2 9.6 11 10.7 20.3l-26 1.5c-.7-4-2.1-6.9-4.4-8.8s-5.3-2.8-9.2-2.8c-3.2 0-5.6.7-7.2 2-1.5 1.2-2.5 3-2.4 5 0 1.5.8 2.9 2 3.8 1.3 1.2 4.4 2.3 9.3 3.3 12.1 2.6 20.7 5.2 26 7.9 5.3 2.7 9.1 6 11.4 9.9 2.4 4 3.6 8.6 3.5 13.3 0 5.6-1.6 11.2-4.8 15.9-3.3 4.9-7.9 8.7-13.3 11-5.7 2.5-12.9 3.8-21.5 3.8-15.2 0-25.7-2.9-31.6-8.8S286.1 77 285.4 68zM6.3 97.6V8.2h46.1c8.5 0 15.1.7 19.6 2.2 4.4 1.4 8.3 4.3 10.9 8.2 2.9 4.3 4.3 9.3 4.2 14.5.3 8.8-4.2 17.2-11.9 21.6-3 1.7-6.3 2.9-9.7 3.5 2.5.7 5 1.9 7.2 3.3 1.7 1.4 3.1 3 4.4 4.7 1.5 1.7 2.8 3.6 3.9 5.6l13.4 25.9H63L48.2 70.2c-1.9-3.5-3.5-5.8-5-6.9-2-1.4-4.4-2.1-6.8-2.1H34v36.3H6.3zM34 44.4h11.7c2.5-.2 4.9-.6 7.3-1.2 1.8-.3 3.4-1.3 4.5-2.8 2.7-3.6 2.3-8.7-1-11.8-1.8-1.5-5.3-2.3-10.3-2.3H34v18.1zM0 174.2l26.3-1.7c.6 4.3 1.7 7.5 3.5 9.8 2.8 3.6 6.9 5.5 12.2 5.5 3.9 0 7-.9 9.1-2.8 2-1.6 3.2-3.9 3.2-6.4 0-2.4-1.1-4.7-3-6.2-2-1.8-6.7-3.6-14.2-5.2-12.1-2.7-20.8-6.3-25.9-10.9-5.1-4.3-8-10.6-7.8-17.3 0-4.6 1.4-9.2 4-13 3-4.3 7.1-7.7 12-9.6 5.3-2.3 12.7-3.5 22-3.5 11.4 0 20.1 2.1 26.1 6.4s9.5 11 10.6 20.3l-26 1.5c-.7-4-2.1-6.9-4.4-8.8-2.2-1.9-5.3-2.8-9.2-2.7-3.2 0-5.6.7-7.2 2.1-1.6 1.2-2.5 3-2.4 5 0 1.5.8 2.9 2 3.8 1.3 1.2 4.4 2.3 9.3 3.3 12.1 2.6 20.7 5.2 26 7.9 5.3 2.7 9.1 6 11.4 9.9 2.4 4 3.6 8.6 3.6 13.2 0 5.6-1.7 11.1-4.8 15.8-3.3 4.9-7.9 8.7-13.3 11-5.7 2.5-12.9 3.8-21.5 3.8-15.2 0-25.7-2.9-31.6-8.8-5.9-6-9.2-13.4-10-22.4z" />
+              <path
+                d="M133 167.2l24.2 7.3c-1.3 6.1-4 11.9-7.7 17-3.4 4.5-7.9 8-13 10.3-5.2 2.3-11.8 3.5-19.8 3.5-9.7 0-17.7-1.4-23.8-4.2-6.2-2.8-11.5-7.8-16-14.9-4.5-7.1-6.7-16.2-6.7-27.3 0-14.8 3.9-26.2 11.8-34.1s19-11.9 33.4-11.9c11.3 0 20.1 2.3 26.6 6.8 6.4 4.6 11.2 11.6 14.4 21l-24.4 5.4c-.6-2.1-1.5-4.2-2.7-6-1.5-2.1-3.4-3.7-5.7-4.9-2.3-1.2-4.9-1.7-7.5-1.7-6.3 0-11.1 2.5-14.4 7.6-2.5 3.7-3.8 9.6-3.8 17.6 0 9.9 1.5 16.7 4.5 20.4 3 3.7 7.2 5.5 12.7 5.5 5.3 0 9.3-1.5 12-4.4 2.7-3.1 4.7-7.4 5.9-13zm56.5-52.8h27.6v31.3h30.2v-31.3h27.8v89.4h-27.8v-36.2h-30.2v36.2h-27.6v-89.4z" />
+              <path
+                d="M271.3 159.1c0-14.6 4.1-26 12.2-34.1 8.1-8.1 19.5-12.2 34-12.2 14.9 0 26.3 4 34.4 12S364 144 364 158.4c0 10.5-1.8 19-5.3 25.7-3.4 6.6-8.7 12-15.2 15.6-6.7 3.7-15 5.6-24.9 5.6-10.1 0-18.4-1.6-25-4.8-6.8-3.4-12.4-8.7-16.1-15.2-4.1-7-6.2-15.7-6.2-26.2zm27.6.1c0 9 1.7 15.5 5 19.5 3.3 3.9 7.9 5.9 13.7 5.9 5.9 0 10.5-1.9 13.8-5.8s4.9-10.8 4.9-20.8c0-8.4-1.7-14.6-5.1-18.4-3.4-3.9-8-5.8-13.8-5.8-5.1-.2-10 2-13.4 5.9-3.4 3.9-5.1 10.4-5.1 19.5zm93.4-.1c0-14.6 4.1-26 12.2-34.1 8.1-8.1 19.5-12.2 34-12.2 14.9 0 26.4 4 34.4 12S485 144 485 158.4c0 10.5-1.8 19-5.3 25.7-3.4 6.6-8.7 12-15.2 15.6-6.7 3.7-15 5.6-24.9 5.6-10.1 0-18.4-1.6-25-4.8-6.8-3.4-12.4-8.7-16.1-15.2-4.1-7-6.2-15.7-6.2-26.2zm27.6.1c0 9 1.7 15.5 5 19.5 3.3 3.9 7.9 5.9 13.7 5.9 5.9 0 10.5-1.9 13.8-5.8 3.3-3.9 4.9-10.8 4.9-20.8 0-8.4-1.7-14.6-5.1-18.4-3.4-3.9-8-5.8-13.8-5.8-5.1-.2-10.1 2-13.4 5.9-3.4 3.9-5.1 10.4-5.1 19.5z" />
+              <path d="M482.1 114.4h27.6v67.4h43.1v22H482v-89.4z" />
+              <ellipse transform="rotate(-37.001 420.46 67.88)" class="st0" cx="420.5" cy="67.9" rx="63" ry="51.8" />
+              <defs>
+                <ellipse id="SVGID_1_" transform="rotate(-37.001 420.46 67.88)" cx="420.5" cy="67.9" rx="63"
+                  ry="51.8" />
+              </defs>
+              <clipPath id="SVGID_2_">
+                <use xlink:href="#SVGID_1_" overflow="visible" />
+              </clipPath>
+              <g class="st1">
+                <path transform="rotate(-37.001 420.82 68.353)" class="st0" d="M330.9-14.2h179.8v165.1H330.9z" />
+                <g id="Layer_2_1_">
+                  <defs>
+                    <path id="SVGID_3_" transform="rotate(-37.001 420.82 68.353)" d="M330.9-14.2h179.8v165.1H330.9z" />
+                  </defs>
+                  <clipPath id="SVGID_4_">
+                    <use xlink:href="#SVGID_3_" overflow="visible" />
+                  </clipPath>
+                  <g id="Layer_1-2" class="st2">
+                    <ellipse transform="rotate(-37.001 420.46 67.88)" class="st0" cx="420.5" cy="67.9" rx="63"
+                      ry="51.8" />
+                    <defs>
+                      <ellipse id="SVGID_5_" transform="rotate(-37.001 420.46 67.88)" cx="420.5" cy="67.9" rx="63"
+                        ry="51.8" />
+                    </defs>
+                    <clipPath id="SVGID_6_">
+                      <use xlink:href="#SVGID_5_" overflow="visible" />
+                    </clipPath>
+                    <g class="st3">
+                      <path transform="rotate(-37 420.799 68.802)" class="st0" d="M357.8 17h125.9v103.7H357.8z" />
+                      <defs>
+                        <path id="SVGID_7_" transform="rotate(-37 420.799 68.802)" d="M357.8 17h125.9v103.7H357.8z" />
+                      </defs>
+                      <clipPath id="SVGID_8_">
+                        <use xlink:href="#SVGID_7_" overflow="visible" />
+                      </clipPath>
+                      <g class="st4">
+                        <ellipse transform="rotate(-37.001 420.46 67.88)" class="st5" cx="420.5" cy="67.9" rx="63"
+                          ry="51.8" />
+                      </g>
+                      <path transform="rotate(-37 420.799 68.802)" class="st6" d="M357.8 17h125.9v103.7H357.8z" />
+                      <ellipse transform="rotate(-37.001 420.46 67.88)" class="st7" cx="420.5" cy="67.9" rx="63"
+                        ry="51.8" />
+                      <path transform="rotate(-37 420.799 68.802)" class="st0" d="M357.8 17h125.9v103.7H357.8z" />
+                      <defs>
+                        <path id="SVGID_9_" transform="rotate(-37 420.799 68.802)" d="M357.8 17h125.9v103.7H357.8z" />
+                      </defs>
+                      <clipPath id="SVGID_10_">
+                        <use xlink:href="#SVGID_9_" overflow="visible" />
+                      </clipPath>
+                      <g class="st8">
+                        <ellipse transform="rotate(-37.001 420.46 67.88)" class="st5" cx="420.5" cy="67.9" rx="63"
+                          ry="51.8" />
+                      </g>
+                      <path transform="rotate(-37 420.799 68.802)" class="st9" d="M357.8 17h125.9v103.7H357.8z" />
+                      <path transform="rotate(-37.001 420.82 68.353)" class="st7" d="M330.9-14.2h179.8v165.1H330.9z" />
+                    </g>
+                    <ellipse transform="rotate(-37.001 420.46 67.88)" class="st7" cx="420.5" cy="67.9" rx="63"
+                      ry="51.8" />
+                    <path
+                      d="M392.4 61.3l10-7 12.3 17.5c2.1 2.8 3.7 5.8 4.9 9.1.7 2.5.5 5.2-.5 7.6-1.3 3-3.4 5.5-6.2 7.3-3.3 2.3-6.1 3.6-8.5 4-2.3.4-4.7 0-6.9-1-2.4-1.2-4.5-2.9-6.1-5.1l8.6-8c.7 1.1 1.6 2.1 2.6 2.9.7.5 1.5.8 2.4.8.7 0 1.4-.3 1.9-.7 1-.6 1.7-1.8 1.6-3-.3-1.7-1-3.4-2.1-4.7l-14-19.7zm30 11.1l9.1-7.2c1 1.2 2.3 2.1 3.7 2.6 2 .6 4.1.2 5.8-1.1 1.2-.8 2.2-1.9 2.6-3.3.6-1.8-.4-3.8-2.2-4.4-.3-.1-.6-.2-.9-.2-1.2-.1-3.3.4-6.4 1.7-5.1 2.1-9.1 2.9-12.1 2.6-2.9-.3-5.6-1.8-7.2-4.3-1.2-1.7-1.8-3.7-1.9-5.7 0-2.3.6-4.6 1.9-6.5 1.9-2.7 4.2-5 7-6.8 4.2-2.9 7.9-4.3 11.1-4.3 3.2 0 6.2 1.5 9 4.6l-9 7.1c-1.8-2.3-5.2-2.8-7.5-1l-.3.3c-1 .6-1.7 1.5-2.1 2.6-.3.8-.1 1.7.4 2.4.4.5 1 .9 1.7.9.8.1 2.2-.3 4.2-1.2 5-2.1 8.8-3.3 11.4-3.7 2.2-.4 4.5-.2 6.6.7 1.9.8 3.5 2.2 4.6 3.9 1.4 2 2.2 4.4 2.3 6.9.1 2.6-.6 5.1-2 7.3-1.8 2.7-4.1 5-6.8 6.8-5.5 3.8-10 5.4-13.6 4.8-3.9-.6-7.1-2.6-9.4-5.5z" />
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </a>
+        </div>
+
+        <div class="footer__contacts">
+          <div class="footer__icons">
+            <a href="https://github.com/Parazakatafanny">
+              <svg class="footer__icon-item" height="512px" id="Layer_1" style="enable-background:new 0 0 512 512;"
+                version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g>
+                  <path class="st0"
+                    d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z" />
+                </g>
+              </svg>
+            </a>
+
+            <a href="https://github.com/c1DeepInside">
+              <svg class="footer__icon-item" height="512px" id="Layer_1" style="enable-background:new 0 0 512 512;"
+                version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g>
+                  <path class="st0"
+                    d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z" />
+                </g>
+              </svg>
+            </a>
+          </div>
+
+          <div class="footer__contacts-about">
+            <a href="https://github.com/Parazakatafanny" class="footer__contacts-item">parazakatafanny</a>
+            <a href="https://github.com/c1DeepInside" class="footer__contacts-item">c1DeepInside</a>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </footer>
 </body>
+
 </html>

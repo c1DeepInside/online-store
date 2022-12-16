@@ -51,6 +51,11 @@ const baseConfig = {
             filename: 'cart-page.html',
             chunks: ['cart']
         }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/pages/main/main.html'),
+            filename: 'main.html',
+            chunks: ['main']
+        }),
         new CleanWebpackPlugin(),
         new EslintPlugin({ extensions: 'ts' }),
     ],
