@@ -1,4 +1,1 @@
-import '../../normalize.css';
-import './style.scss';
-
-console.log('4');
+import './styles/style.scss';
