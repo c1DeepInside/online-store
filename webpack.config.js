@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const EslintPlugin = require('eslint-webpack-plugin');
 
-
 function getChunk(page) {
     const parts = page.split('-')
     return parts.map(
@@ -73,9 +72,9 @@ const baseConfig = {
     },
 };
 
-
 module.exports = ({ mode }) => {
     const isProductionMode = mode === 'prod';
     const envConfig = isProductionMode ? require('./webpack.prod.config') : require('./webpack.dev.config');
+
     return merge(baseConfig, envConfig);
 };
