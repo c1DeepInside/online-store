@@ -1,4 +1,4 @@
-import './style.scss';
+import './styles/style.scss';
 
 const buyButton: HTMLElement = <HTMLElement>document.querySelector('.summary_button');
 const modalOverlay: HTMLElement = <HTMLElement>document.querySelector('.overlay_wrap');
@@ -12,7 +12,7 @@ buyButton.addEventListener('click', (): void => {
 
 cross.addEventListener('click', closeOverlay);
 
-modalOverlay.addEventListener('click',closeOverlay);
+modalOverlay.addEventListener('click', closeOverlay);
 
 function closeOverlay(): void {
   modalOverlay.classList.remove('active');

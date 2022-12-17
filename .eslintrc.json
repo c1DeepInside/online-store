@@ -1,4 +1,5 @@
 {
+    "endOfLine": "off",
     "parser": "@typescript-eslint/parser",
     "plugins": ["prettier", "import", "@typescript-eslint"],
     "extends": [
@@ -9,8 +10,7 @@
     ],
     "parserOptions": {
         "ecmaVersion": 2020,
-        "sourceType": "module",
-        "endOfLine": "off"
+        "sourceType": "module"
     },
     "env": {
         "es6": true,
