@@ -1,0 +1,284 @@
+@import './variables.scss';
+
+.main {
+  display: flex;
+  margin: auto;
+  max-width: 1400px;
+  padding: 30px 40px;
+  gap: 20px;
+  font-family: $MAIN_FONT;
+  color: $MAIN_COLOR_FONTS;
+  min-height: calc(100vh - 300px - 120px);
+}
+
+.cart_param {
+  display: flex;
+  height: 60px;
+  align-items: center;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.item_per_wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+p {
+  margin: 0;
+}
+
+.cart_h2 {
+  flex-grow: 1;
+  margin: 0;
+}
+
+.cart_page_wrap {
+  display: flex;
+  align-items: center;
+}
+
+.cart_page_text {
+  margin-right: 10px;
+}
+
+.item_per_text,
+.cart_page_text {
+  color: $SUB_COLOR_FONTS;
+}
+
+.cart_page_minus_wrap,
+.cart_page_plus_wrap {
+  width: 30px;
+  height: 30px;
+  border: $SUB_COLOR_PAGE 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart_page_minus,
+.cart_page_plus {
+  font-weight: 300;
+  font-size: 30px;
+  cursor: pointer;
+  color: $SUB_COLOR_FONTS;
+
+  &:hover {
+    color: $MAIN_COLOR_PAGE;
+  }
+}
+
+.cart_page,
+.item_per_page {
+  width: 50px;
+  height: 30px;
+  font-weight: 600;
+  font-size: 20px;
+  border: $SUB_COLOR_PAGE 1px solid;
+  outline: none;
+  text-align: center;
+}
+
+.cart_page {
+  border-left: none;
+  border-right: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart {
+  width: calc(100% - 320px);
+  border: $SUB_COLOR_PAGE solid 1px;
+  align-self: flex-start;
+}
+
+.img_wrap {
+  display: flex;
+  align-items: center;
+}
+
+.item_img {
+  width: 110px;
+  height: 110px;
+}
+
+.item_name {
+  font-weight: 600;
+}
+
+.item_info_wrap {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.item_stock {
+  color: $SUB_COLOR_FONTS;
+  font-weight: 300;
+}
+
+.item_count_wrap {
+  display: flex;
+  width: 150px;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.item_count_param {
+  display: flex;
+}
+
+.item_count {
+  width: 50px;
+  height: 30px;
+  font-weight: 600;
+  font-size: 20px;
+  border: $SUB_COLOR_PAGE 1px solid;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  text-align: center;
+}
+
+.item_per_page::-webkit-outer-spin-button,
+.item_per_page::-webkit-inner-spin-button,
+.item_count::-webkit-outer-spin-button,
+.item_count::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.item_per_page,
+.item_count {
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
+.item_count_minus_wrap,
+.item_count_plus_wrap {
+  width: 30px;
+  height: 30px;
+  border: $SUB_COLOR_PAGE 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item_count_minus,
+.item_count_plus {
+  font-weight: 300;
+  font-size: 30px;
+  cursor: pointer;
+  color: $SUB_COLOR_FONTS;
+
+  &:hover {
+    color: $MAIN_COLOR_PAGE;
+  }
+}
+
+.item_cost {
+  font-weight: 600;
+}
+
+.summary_wrap {
+  width: 300px;
+  border: $SUB_COLOR_PAGE solid 1px;
+  align-self: flex-start;
+}
+
+.item_temp {
+  padding: 10px;
+  border-top: $SUB_COLOR_PAGE solid 1px;
+  display: flex;
+}
+
+.summary_h2_wrap {
+  height: 60px;
+  border-bottom: $SUB_COLOR_PAGE solid 1px;
+  display: flex;
+  align-items: center;
+}
+
+.summary_h2 {
+  margin: 0;
+  margin-left: 20px;
+}
+
+.summary {
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  font-size: 20px;
+}
+
+.summary_count_number,
+.summary_cost_number {
+  font-weight: 600;
+}
+
+.summary p {
+  margin: 0;
+}
+
+.summary_promocode {
+  display: flex;
+  justify-content: center;
+}
+
+#promocode {
+  width: 70%;
+  height: 40px;
+  padding-left: 10px;
+  font-weight: 300;
+  border: $SUB_COLOR_PAGE 1px solid;
+  outline: none;
+}
+
+.summary_arrow {
+  width: 40px;
+  height: 40px;
+  border: $SUB_COLOR_PAGE 1px solid;
+  border-right: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &_arrow {
+    font-size: 36px;
+    cursor: pointer;
+    color: $SUB_COLOR_FONTS;
+    transition: 0.5s;
+  }
+
+  &_arrow:hover {
+    color: $MAIN_COLOR_PAGE;
+  }
+}
+
+.summary_button {
+  cursor: pointer;
+  width: calc(70% + 40px);
+  height: 55px;
+  border: none;
+  background-color: $MAIN_COLOR_PAGE;
+  font-weight: 400;
+  font-size: 22px;
+  color: white;
+  letter-spacing: 3px;
+  transition: 0.5s;
+}
+
+.summary_button:hover {
+  transform: scale(1.05);
+}
+
+
+

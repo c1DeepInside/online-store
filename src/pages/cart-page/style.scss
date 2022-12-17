@@ -1,4 +1,5 @@
-p {
-  background-color: brown;
-  margin: 10px;
-}
+@import '../../normalize.css';
+@import './header.scss';
+@import './cart-page.scss';
+@import './footer.scss';
+@import './modal.scss';
