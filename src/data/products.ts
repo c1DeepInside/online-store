@@ -385,9 +385,9 @@ export const products: Product[] = [
     "stock": 27,
     "brand": "Petmax",
     "category": "Cat Toys",
-    "thumbnail": "https://4lapy.ru/resize/80x80/upload/iblock/dcb/dcb5c33e397cecd0e8a2558abc99d5f9.jpg",
+    "thumbnail": "https://4lapy.ru/resize/480x480/upload/iblock/f0d/f0d1e558e9e8fedc166fd0bd489ae3a9.jpg",
     "images": [
-      "https://4lapy.ru/resize/80x80/upload/iblock/dcb/dcb5c33e397cecd0e8a2558abc99d5f9.jpg",
+      "https://4lapy.ru/resize/480x480/upload/iblock/f0d/f0d1e558e9e8fedc166fd0bd489ae3a9.jpg",
       "https://4lapy.ru/resize/480x480/upload/iblock/1b5/1b52d18e3a8e39e33bc69e1230c943a9.jpg",
       "https://4lapy.ru/resize/480x480/upload/iblock/5dd/5ddb9fbbcf6780fd7404bf78e5e4b6fc.jpg",
     ]
@@ -402,9 +402,9 @@ export const products: Product[] = [
     "stock": 18,
     "brand": "Petmax",
     "category": "Cat Toys",
-    "thumbnail": "https://4lapy.ru/resize/80x80/upload/iblock/2f8/2f8a9562e20f5a24214e80425dfcc570.jpg",
+    "thumbnail": "https://4lapy.ru/resize/480x480/upload/iblock/2f8/2f8a9562e20f5a24214e80425dfcc570.jpg",
     "images": [
-      "https://4lapy.ru/resize/80x80/upload/iblock/2f8/2f8a9562e20f5a24214e80425dfcc570.jpg",
+      "https://4lapy.ru/resize/480x480/upload/iblock/2f8/2f8a9562e20f5a24214e80425dfcc570.jpg",
       "https://4lapy.ru/resize/480x480/upload/iblock/50b/50be8b0d50aeb6bc0156e3d6fe8e7b66.jpg",
       "https://4lapy.ru/resize/480x480/upload/iblock/4a3/4a3d9de3044f9b61d55ba12395e0ffd4.jpg",
     ]
@@ -419,9 +419,9 @@ export const products: Product[] = [
     "stock": 5,
     "brand": "Petmax",
     "category": "Cat Houses",
-    "thumbnail": "https://4lapy.ru/resize/80x80/upload/iblock/80d/80d473744b88b89f4d6753c5d2307672.jpg",
+    "thumbnail": "https://4lapy.ru/resize/480x480/upload/iblock/80d/80d473744b88b89f4d6753c5d2307672.jpg",
     "images": [
-      "https://4lapy.ru/resize/80x80/upload/iblock/80d/80d473744b88b89f4d6753c5d2307672.jpg",
+      "https://4lapy.ru/resize/480x480/upload/iblock/80d/80d473744b88b89f4d6753c5d2307672.jpg",
       "https://4lapy.ru/resize/480x480/upload/iblock/0ce/0ceb5455bff49c5f774ade35c5028177.jpg",
       "https://4lapy.ru/resize/480x480/upload/iblock/8d0/8d051082247bc755c4911dbc17893703.jpg",
     ]
