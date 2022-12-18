@@ -1,6 +1,6 @@
-import { products } from "../../../data/products";
+import { Product } from "../../../data/interfaces";
 
-export function renderGoods() {
+export function renderGoods(products: Product[]) {
     const catalog: HTMLDivElement = document.querySelector('.catalog__goods')!;
 
     products.forEach((product) => {
