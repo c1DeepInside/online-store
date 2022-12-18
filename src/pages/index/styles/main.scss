@@ -6,7 +6,10 @@
 
 .main {
     width: 100%;
-    display: flex;
     font-family: $MAIN_FONT;
     color: $MAIN_COLOR_FONTS;
+    
+    &__inner {
+        display: flex;
+    }
 }

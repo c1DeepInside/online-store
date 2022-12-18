@@ -29,8 +29,13 @@
     &-img {
         display: flex;
         justify-content: center;
+        overflow: hidden;
         width: 100%;
         border-bottom: 1px solid $SUB_COLOR_PAGE;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     &-text {
@@ -47,6 +52,12 @@
     &-about {
         font-weight: 500;
         margin-bottom: 20px;
+        height: 36px;
+        overflow: hidden;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     &-price {
@@ -82,13 +93,11 @@
 }
 
 .goods-img {
-    width: 150px;
+    height: 230px;
 }
 
 .cart {
-    fill: $SUB_COLOR_PAGE;
-
-    &:hover {
-        fill: #f3f1ee;
-    }
+    width: 21px;
+    height: 21px;
+    margin-left: -2px;
 }
