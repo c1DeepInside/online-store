@@ -1,10 +1,13 @@
 import { Product } from "../../../data/interfaces";
+import { sortData } from "./sortData";
 
 export function renderGoods(products: Product[]) {
     const catalog: HTMLDivElement = document.querySelector('.catalog__goods')!;
     catalog.innerHTML = '';
 
-    products.forEach((product) => {
+    const sortProducts = sortData(products);
+
+    sortProducts.forEach((product) => {
         let goodsItem: HTMLDivElement = document.createElement('div');
         goodsItem.classList.add('goods__item');
         catalog.appendChild(goodsItem);

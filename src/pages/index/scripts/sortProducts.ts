@@ -1,5 +1,6 @@
+export let sortVariable: number = 0; 
 
-export function sort(): void {
+export function sortProducts(): void {
   const select: HTMLDivElement = document.querySelector('.select')!;
   const optionsWrap: HTMLDivElement = document.querySelector('.select__options_wrap')!;
   const selectPick: HTMLParagraphElement = document.querySelector('.select__pick')!;
@@ -14,7 +15,7 @@ export function sort(): void {
   });
  
   function showOptions(): void {
-    optionsWrap.classList.add('active_flex');
+    optionsWrap.classList.toggle('active_flex');
   }
 
   function hideOptions(event: Event): void {
@@ -26,6 +27,11 @@ export function sort(): void {
   function pickOption(this: HTMLDivElement): void {
     const pick: HTMLParagraphElement = this.querySelector('.select__option__text')!;
     selectPick.textContent = pick.textContent;
+    for (let i = 0; i < options.length; i++) {
+      if (options[i] == this){
+        sortVariable = i;
+      }
+    }
   }
 }
 

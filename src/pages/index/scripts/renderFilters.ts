@@ -12,6 +12,8 @@ export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId
   const fromSlider: HTMLInputElement = document.querySelector(fromValueId)!;
   const toSlider: HTMLInputElement = document.querySelector(toValueId)!;
 
+  const options = document.querySelectorAll<HTMLDivElement>('.select__option')!;
+  
   /* old debounce
   const render = debounce(() => {
     const filteredProducts = filterProducts(filtersData, products);
@@ -42,5 +44,8 @@ export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId
     element.addEventListener('input', render);
   });
 
+  options.forEach(element => {
+    element.addEventListener('click', render);
+  });
 
 }
