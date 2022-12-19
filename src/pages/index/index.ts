@@ -6,4 +6,5 @@ import { showFilters } from './scripts/showFilters';
 
 renderGoods(products);
 showFilters(products);
-renderFilters();
+renderFilters({ fromSilderId: '#fromInput', toSliderId: '#toInput', fromValueId: '#from-Slider', toValueId: '#to-Slider' });
+renderFilters({ fromSilderId: '#fromInputStock', toSliderId: '#toInputStock', fromValueId: '#from-SliderStock', toValueId: '#to-SliderStock' });
