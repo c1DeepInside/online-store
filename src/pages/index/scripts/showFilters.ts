@@ -1,45 +1,51 @@
 import { Product } from "../../../data/interfaces";
+import { RangeOptions } from "./interfaces";
 
 export function showFilters(products: Product[]) {
-  renderCategory(products);
-  renderPrice(products);
+  renderCheckboxsFilters(products, 'categories', '.filters__categories');
+  renderCheckboxsFilters(products, 'brand', '.filters__brand');
+
+  renderInputsRange(products, 'price', { fromSilderId: '#fromInput', toSliderId: '#toInput', fromValueId: '#from-Slider', toValueId: '#to-Slider' });
+  renderInputsRange(products, 'inStock', { fromSilderId: '#fromInputStock', toSliderId: '#toInputStock', fromValueId: '#from-SliderStock', toValueId: '#to-SliderStock' });
 }
 
-function renderPrice(products: Product[]): void {
-  const price: number[] = products.map(item => item.price);
+function renderInputsRange(products: Product[], filterElem: string, { fromSilderId, toSliderId, fromValueId, toValueId }: RangeOptions) {
+  
+  const selectedCategory: number[] = filterElem === 'price' ? products.map(item => item.price) : products.map(item => item.stock);
 
-  const minPrice: number = 0;
-  const maxPrice: number = Math.max.apply(null, price);
+  const minNumber: number = 0;
+  const maxNumber: number = Math.max.apply(null, selectedCategory);
 
-  const fromPrice: HTMLInputElement = document.querySelector('#fromInput')!;
-  const toPrice: HTMLInputElement = document.querySelector('#toInput')!;
+  const fromPrice: HTMLInputElement = document.querySelector(fromSilderId)!;
+  const toPrice: HTMLInputElement = document.querySelector(toSliderId)!;
 
-  fromPrice.value = minPrice.toString();
-  toPrice.value = maxPrice.toString();
+  fromPrice.value = minNumber.toString();
+  toPrice.value = maxNumber.toString();
 
-  changeMinMax(fromPrice, minPrice, maxPrice);
-  changeMinMax(toPrice, minPrice, maxPrice);
+  changeMinMax(fromPrice, minNumber, maxNumber);
+  changeMinMax(toPrice, minNumber, maxNumber);
 
-  const fromSlider: HTMLInputElement = document.querySelector('#from-Slider')!;
-  const toSlider: HTMLInputElement = document.querySelector('#to-Slider')!;
+  const fromSlider = document.querySelector<HTMLInputElement>(fromValueId)!;
+  const toSlider = document.querySelector<HTMLInputElement>(toValueId)!;
 
-  changeMinMax(fromSlider, minPrice, maxPrice);
-  changeMinMax(toSlider, minPrice, maxPrice);
+  changeMinMax(fromSlider, minNumber, maxNumber);
+  changeMinMax(toSlider, minNumber, maxNumber);
 
-  fromSlider.value = minPrice.toString();
-  toSlider.value = maxPrice.toString();
+  fromSlider.value = minNumber.toString();
+  toSlider.value = maxNumber.toString();
 
-  function changeMinMax(input: HTMLInputElement, min: number, max: number): void {
+  function changeMinMax(input: HTMLInputElement, min: number, max: number) {
     input.min = min.toString();
     input.max = max.toString();
   }
 }
 
-function renderCategory(products: Product[]): void {
-  let categories: string[] = products.map(item => item.category);
+function renderCheckboxsFilters(products: Product[], theme: string, themeBlock: string) {
+  let categories: string[] = theme === 'categories' ? products.map(item => item.category) : products.map(item => item.brand);
+  let classInput = theme === 'categories' ? 'checkbox__categories': 'checkbox__brands';
   categories = [...new Set(categories)]
   
-  const filterCategories: HTMLDivElement = document.querySelector('.filters__categories')!;
+  const filterCategories: HTMLDivElement = document.querySelector(themeBlock)!;
 
   categories.forEach(category => {
     const filterItem: HTMLLabelElement = document.createElement('label');
@@ -48,7 +54,7 @@ function renderCategory(products: Product[]): void {
 
     const inputCheckbox: HTMLInputElement = document.createElement('input');
     inputCheckbox.classList.add('checkbox');
-    inputCheckbox.classList.add('checkbox__categories');
+    inputCheckbox.classList.add(classInput);
     inputCheckbox.id = category;
     inputCheckbox.type = 'checkbox';
     filterItem.appendChild(inputCheckbox);
