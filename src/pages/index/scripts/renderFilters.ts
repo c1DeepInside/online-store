@@ -3,7 +3,7 @@ import { filterProducts } from "./filter";
 import { RangeOptions } from "./interfaces";
 import { renderGoods } from "./render";
 import { getFiltersData } from "./sendFilters";
-import { debounce } from "./utils";
+// import { debounce } from "./utils"; old debounce
 
 export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId }: RangeOptions) {
   const fromPrice: HTMLInputElement = document.querySelector(fromSilderId)!;
@@ -12,15 +12,22 @@ export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId
   const fromSlider: HTMLInputElement = document.querySelector(fromValueId)!;
   const toSlider: HTMLInputElement = document.querySelector(toValueId)!;
 
+  /* old debounce
   const render = debounce(() => {
     const filteredProducts = filterProducts(filtersData, products);
     renderGoods(filteredProducts);
   }, 200);
+*/
 
-  fromSlider.addEventListener('input', render);
-  toSlider.addEventListener('input', render);
-  fromPrice.addEventListener('input', render);
-  toPrice.addEventListener('input', render);
+  function render() {
+    const filteredProducts = filterProducts(filtersData, products);
+    renderGoods(filteredProducts);
+  }
+  
+  fromSlider.addEventListener('mouseup', render);
+  toSlider.addEventListener('mouseup', render);
+  fromPrice.addEventListener('mouseup', render);
+  toPrice.addEventListener('mouseup', render);
 
   const categories = document.querySelectorAll<HTMLInputElement>('.checkbox__categories')!;
   const brands = document.querySelectorAll<HTMLInputElement>('.checkbox__brands')!;
