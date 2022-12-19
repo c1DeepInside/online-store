@@ -52,12 +52,16 @@
           </form>
 
           <div class="filters-select">
-            <select class="select">
-              <option value="0">Sort options:</option>
-              <option value="1">by preice</option>
-              <option value="2">by rating</option>
-              <option value="3">by discount</option>
-            </select>
+            <div class="select">
+              <p class="select__pick">by price ↑</p>
+              <p class="select__arrow">▼</p>
+            </div>
+            <div class="select__options_wrap">
+                <div class="select__option"><p class="select__option__text">by price ↑</p></div>
+                <div class="select__option"><p class="select__option__text">by price ↓</p></div>
+                <div class="select__option"><p class="select__option__text">by stock ↑</p></div>
+                <div class="select__option"><p class="select__option__text">by stock ↓</p></div>
+              </div>
           </div>
         </div>
       </div>
