@@ -11,8 +11,22 @@ export function filterProducts(filterData: FilterData, products: Product[]): Pro
             return false;
         }
 
+        if (product.stock < filterData.inStock.min) {
+            return false;
+        }
+
+        if (product.stock > filterData.inStock.max) {
+            return false;
+        }
+
         if (filterData.categories.length !== 0) {
             if (!filterData.categories.includes(product.category)) {
+                return false;
+            }
+        }
+
+        if (filterData.brand.length !== 0) {
+            if (!filterData.brand.includes(product.brand)) {
                 return false;
             }
         }
