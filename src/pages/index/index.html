@@ -87,23 +87,23 @@
           </div>
   
           <div class="filters__price">
-            <h3 class="filters-title">Price</h3>
+            <h3 class="filters-title">In Stock</h3>
   
             <div class="form__prices">
               <div class="form__prices-container">
                 <div class="form__prices-title">From</div>
-                <input class="form__prices-input" type="number" id="fromInput" value="10" min="0" max="100" />
+                <input class="form__prices-input" type="number" id="fromInputStock" value="0" min="0" max="100" />
               </div>
   
               <div class="form__prices-container">
                 <div class="form__prices-title">Up to</div>
-                <input class="form__prices-input" type="number" id="toInput" value="40" min="0" max="100" />
+                <input class="form__prices-input" type="number" id="toInputStock" value="40" min="0" max="100" />
               </div>
             </div>
   
             <div class="sliders-control">
-              <input class="sliders-control__input" id="from-Slider" type="range" value="10" min="0" max="100" />
-              <input class="sliders-control__input" id="to-Slider" type="range" value="40" min="0" max="100" />
+              <input class="sliders-control__input" id="from-SliderStock" type="range" value="10" min="0" max="100" />
+              <input class="sliders-control__input" id="to-SliderStock" type="range" value="40" min="0" max="100" />
             </div>
           </div>
   
@@ -112,12 +112,9 @@
 
           </div>
   
-          <div class="filters__theme">
-            <h3 class="filters-title">Theme</h3>
-            <label class="filters__theme-item">cat food(12)
-              <input class="checkbox" type="checkbox" checked="checked">
-              <span class="checkmark"></span>
-            </label>
+          <div class="filters__theme filters__brand">
+            <h3 class="filters-title">Brand</h3>
+
           </div>
   
           <div class="filters__control-panel">
