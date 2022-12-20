@@ -21,7 +21,7 @@ export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId
   }, 200);
 */
 
-  function render() {
+  function render(): void {
     const filteredProducts = filterProducts(filtersData, products);
     renderGoods(filteredProducts);
   }

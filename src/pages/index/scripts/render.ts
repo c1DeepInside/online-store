@@ -1,4 +1,5 @@
 import { Product } from "../../../data/interfaces";
+import { changeView } from "./changeView";
 import { itemsFound } from "./itemsFound";
 import { sortData } from "./sortData";
 
@@ -66,4 +67,6 @@ export function renderGoods(products: Product[]) {
         cartIcon.classList.add('cart');
         priceCart.appendChild(cartIcon);
     });
+
+    changeView();
 }
