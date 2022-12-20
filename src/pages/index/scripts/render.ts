@@ -1,9 +1,12 @@
 import { Product } from "../../../data/interfaces";
+import { itemsFound } from "./itemsFound";
 import { sortData } from "./sortData";
 
 export function renderGoods(products: Product[]) {
     const catalog: HTMLDivElement = document.querySelector('.catalog__goods')!;
     catalog.innerHTML = '';
+
+    itemsFound(products);
 
     const sortProducts = sortData(products);
 
