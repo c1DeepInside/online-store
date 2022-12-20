@@ -26,6 +26,10 @@ export function getFiltersData(): FilterData {
 
       return checkedBrand;
     },
+    get search(): string {
+      const searchField = document.querySelector<HTMLInputElement>('.search__input')!;
+      return searchField.value;
+    },
   }
   return filters;
 }

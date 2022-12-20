@@ -9,6 +9,7 @@ export interface FilterData {
         max: number;
     };
     brand: string[];
+    search: string;
 }
 
 export type RangeOptions = {
