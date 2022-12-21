@@ -11,6 +11,8 @@ export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId
   const fromSlider: HTMLInputElement = document.querySelector(fromValueId)!;
   const toSlider: HTMLInputElement = document.querySelector(toValueId)!;
 
+  const tiles: HTMLDivElement = document.querySelector('.view__tiles_wrap')!;
+  const list: HTMLDivElement = document.querySelector('.view__list_wrap')!;
 
   const options = document.querySelectorAll<HTMLDivElement>('.select__option')!;
 
@@ -25,6 +27,8 @@ export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId
     renderGoods(filteredProducts);
   }
   
+  tiles.addEventListener('click', render);
+  list.addEventListener('click', render);
   fromSlider.addEventListener('mouseup', render);
   toSlider.addEventListener('mouseup', render);
   fromPrice.addEventListener('mouseup', render);

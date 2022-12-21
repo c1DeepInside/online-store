@@ -34,6 +34,8 @@ export function getFiltersData(): FilterData {
       const searchField = document.querySelector<HTMLInputElement>('.search__input')!;
       searchField.value = value;
     },
+    view: getView(),
+    sorting: "lek",
     getParams(): string {
       const params = new URLSearchParams();
 
@@ -52,6 +54,10 @@ export function getFiltersData(): FilterData {
       if (this.categories.length > 0) {
         params.append('categories', this.categories.join(','))
       } 
+
+      params.append('view', this.view);
+
+      params.append('sorting', this.sorting);
 
       return '?' + params.toString();
     },
@@ -77,6 +83,14 @@ export function getFiltersData(): FilterData {
 
         if (key == 'search') {
           this.search = value;
+        }
+
+        if (key == 'view') {
+          this.view = value;
+        }
+
+        if (key == 'sorting') {
+          this.sorting = value;
         }
 
         if (key == 'brand') {
@@ -116,6 +130,16 @@ export function getFiltersData(): FilterData {
     }
   }
   return filters;
+}
+
+function getView(): string {
+  const list: HTMLDivElement = document.querySelector('.view__list_wrap')!;
+
+  if (list.classList.contains('active_view')) {
+    return 'list'
+  }
+
+  return 'tiles';
 }
 
 function getSelectedPriceRange({ fromSilderId, toSliderId, fromValueId, toValueId }: RangeOptions): { min: number, max: number } {
