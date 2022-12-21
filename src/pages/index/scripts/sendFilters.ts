@@ -1,4 +1,5 @@
 import { FilterData, RangeOptions } from "./interfaces";
+import { sortS, sortVariable } from "./sortProducts";
 
 export function getFiltersData(): FilterData {
   const filters: FilterData = {
@@ -35,7 +36,7 @@ export function getFiltersData(): FilterData {
       searchField.value = value;
     },
     view: getView(),
-    sorting: "lek",
+    sorting: sortS[sortVariable],
     getParams(): string {
       const params = new URLSearchParams();
 
@@ -126,6 +127,7 @@ export function getFiltersData(): FilterData {
       this.price.max = +maxPrice.max;
       this.inStock.min = 0;
       this.inStock.max = +maxInStock.max;
+      this.view = 'tiles';
 
     }
   }

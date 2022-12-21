@@ -5,6 +5,9 @@ import { renderGoods } from "./render";
 import { getFiltersData } from "./sendFilters";
 
 export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId }: RangeOptions) {
+  const filtersData = getFiltersData();
+  filtersData.setParams(window.location.search);
+
   const fromPrice: HTMLInputElement = document.querySelector(fromSilderId)!;
   const toPrice: HTMLInputElement = document.querySelector(toSliderId)!;
 
@@ -21,6 +24,7 @@ export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId
   const resetFilters: HTMLElement = document.querySelector('.trash-container')!;
 
   function render() {
+    const filtersData = getFiltersData();
     window.history.replaceState({}, '', filtersData.getParams());
 
     const filteredProducts = filterProducts(filtersData, products);
@@ -42,9 +46,6 @@ export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId
 
   const categories = document.querySelectorAll<HTMLInputElement>('.checkbox__categories')!;
   const brands = document.querySelectorAll<HTMLInputElement>('.checkbox__brands')!;
-
-  const filtersData = getFiltersData();
-  filtersData.setParams(window.location.search);
 
   categories.forEach(element => {
     element.addEventListener('input', render);
