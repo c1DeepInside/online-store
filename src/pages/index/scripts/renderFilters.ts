@@ -45,8 +45,9 @@ export function renderFilters(ranges: RangeOptions[]) {
   searchField.addEventListener('input', render);
 
   resetFilters.addEventListener('click', () => {
-    window.history.replaceState({}, '', window.location.origin);
     filtersData.reset();
+    render();
+    window.history.replaceState({}, '', window.location.origin);
   });
 
   const categories = document.querySelectorAll<HTMLInputElement>('.checkbox__categories')!;

@@ -127,8 +127,6 @@ export function getFiltersData(): FilterData {
       this.price.max = +maxPrice.max;
       this.inStock.min = 0;
       this.inStock.max = +maxInStock.max;
-      this.view = 'tiles';
-
     }
   }
   return filters;
