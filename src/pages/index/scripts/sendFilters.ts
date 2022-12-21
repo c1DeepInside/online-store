@@ -30,6 +30,76 @@ export function getFiltersData(): FilterData {
       const searchField = document.querySelector<HTMLInputElement>('.search__input')!;
       return searchField.value;
     },
+    set search(value: string) {
+      const searchField = document.querySelector<HTMLInputElement>('.search__input')!;
+      searchField.value = value;
+    },
+    getParams(): string {
+      const params = new URLSearchParams();
+
+      params.append('priceMin', this.price.min.toString());
+      params.append('priceMax', this.price.max.toString());
+
+      params.append('StockMin', this.inStock.min.toString());
+      params.append('StockMax', this.inStock.max.toString());
+
+      params.append('search', this.search.toString());
+
+      if (this.brand.length > 0) {
+        params.append('brand', this.brand.join(','))
+      } 
+
+      if (this.categories.length > 0) {
+        params.append('categories', this.categories.join(','))
+      } 
+
+      return '?' + params.toString();
+    },
+    setParams(paramsString: string) {
+      const params = new URLSearchParams(paramsString);
+
+      for (const [key, value] of params.entries()) {
+        if (key == 'priceMin') {
+          this.price.min = +value;
+        }
+    
+        if (key == 'priceMax') {
+          this.price.max = +value;
+        }
+
+        if (key == 'StockMin') {
+          this.inStock.min = +value;
+        }
+    
+        if (key == 'StockMax') {
+          this.inStock.max = +value;
+        }
+
+        if (key == 'search') {
+          this.search = value;
+        }
+
+        if (key == 'brand') {
+          const brands = document.querySelectorAll<HTMLInputElement>('.checkbox__brands');
+          brands.forEach(element => {
+            let elemName = element.parentNode!;
+              if (value.includes(elemName.textContent!)) {
+                element.checked = true;
+              }
+          });
+        }
+
+        if (key == 'categories') {
+          const categories = document.querySelectorAll<HTMLInputElement>('.checkbox__categories');
+          categories.forEach(element => {
+            let elemName = element.parentNode!;
+              if (value.includes(elemName.textContent!)) {
+                element.checked = true;
+              }
+          });
+        }
+     }
+    }
   }
   return filters;
 }
@@ -61,12 +131,14 @@ function getSelectedPriceRange({ fromSilderId, toSliderId, fromValueId, toValueI
       return Math.min(+fromPrice.value, +toPrice.value);
     },
     set min(value: number) {
+      slider.min = value;
       fromPrice.value = value.toString();
     },
     get max(): number {
       return Math.max(+fromPrice.value, +toPrice.value);
     },
     set max(value: number) {
+      slider.max = value;
       toPrice.value = value.toString();
     }
   }

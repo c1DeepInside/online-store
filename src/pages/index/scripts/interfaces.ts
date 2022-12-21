@@ -10,6 +10,8 @@ export interface FilterData {
     };
     brand: string[];
     search: string;
+    getParams(): string;
+    setParams(params: string): void;
 }
 
 export type RangeOptions = {

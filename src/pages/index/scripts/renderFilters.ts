@@ -1,9 +1,8 @@
 import { products } from "../../../data/products";
 import { filterProducts } from "./filter";
-import { FilterData, RangeOptions } from "./interfaces";
+import { RangeOptions } from "./interfaces";
 import { renderGoods } from "./render";
 import { getFiltersData } from "./sendFilters";
-// import { debounce } from "./utils"; old debounce
 
 export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId }: RangeOptions) {
   const fromPrice: HTMLInputElement = document.querySelector(fromSilderId)!;
@@ -17,6 +16,8 @@ export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId
   const resetFilters: HTMLElement = document.querySelector('.filters__btn')!;
 
   function render() {
+    window.history.replaceState({}, '', filtersData.getParams());
+
     const filteredProducts = filterProducts(filtersData, products);
     renderGoods(filteredProducts);
   }
@@ -31,6 +32,7 @@ export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId
   const brands = document.querySelectorAll<HTMLInputElement>('.checkbox__brands')!;
 
   const filtersData = getFiltersData();
+  filtersData.setParams(window.location.search);
 
   categories.forEach(element => {
     element.addEventListener('input', render);
@@ -39,6 +41,5 @@ export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId
   brands.forEach(element => {
     element.addEventListener('input', render);
   });
-
 
 }
