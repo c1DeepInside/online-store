@@ -7,6 +7,7 @@ import { getFiltersData } from "./sendFilters";
 export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId }: RangeOptions) {
   const filtersData = getFiltersData();
   filtersData.setParams(window.location.search);
+  render();
 
   const fromPrice: HTMLInputElement = document.querySelector(fromSilderId)!;
   const toPrice: HTMLInputElement = document.querySelector(toSliderId)!;

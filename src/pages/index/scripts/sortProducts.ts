@@ -1,6 +1,10 @@
+import { changeView } from "./changeView";
+
 export let sortVariable: number = 0; 
 
 export function sortProducts(): void {
+  changeView();
+
   const select: HTMLDivElement = document.querySelector('.select')!;
   const optionsWrap: HTMLDivElement = document.querySelector('.select__options_wrap')!;
   const selectPick: HTMLParagraphElement = document.querySelector('.select__pick')!;
