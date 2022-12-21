@@ -4,16 +4,24 @@ import { RangeOptions } from "./interfaces";
 import { renderGoods } from "./render";
 import { getFiltersData } from "./sendFilters";
 
-export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId }: RangeOptions) {
+export function renderFilters(ranges: RangeOptions[]) {
   const filtersData = getFiltersData();
   filtersData.setParams(window.location.search);
   render();
 
-  const fromPrice: HTMLInputElement = document.querySelector(fromSilderId)!;
-  const toPrice: HTMLInputElement = document.querySelector(toSliderId)!;
+  ranges.forEach(element => {
+    const fromPrice: HTMLInputElement = document.querySelector(element.fromSilderId)!;
+    const toPrice: HTMLInputElement = document.querySelector(element.toSliderId)!;
 
-  const fromSlider: HTMLInputElement = document.querySelector(fromValueId)!;
-  const toSlider: HTMLInputElement = document.querySelector(toValueId)!;
+    const fromSlider: HTMLInputElement = document.querySelector(element.fromValueId)!;
+    const toSlider: HTMLInputElement = document.querySelector(element.toValueId)!;
+
+    fromSlider.addEventListener('mouseup', render);
+    toSlider.addEventListener('mouseup', render);
+    fromPrice.addEventListener('mouseup', render);
+    toPrice.addEventListener('mouseup', render);
+  });
+    
 
   const tiles: HTMLDivElement = document.querySelector('.view__tiles_wrap')!;
   const list: HTMLDivElement = document.querySelector('.view__list_wrap')!;
@@ -34,10 +42,6 @@ export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId
   
   tiles.addEventListener('click', render);
   list.addEventListener('click', render);
-  fromSlider.addEventListener('mouseup', render);
-  toSlider.addEventListener('mouseup', render);
-  fromPrice.addEventListener('mouseup', render);
-  toPrice.addEventListener('mouseup', render);
   searchField.addEventListener('input', render);
 
   resetFilters.addEventListener('click', () => {
