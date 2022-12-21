@@ -16,7 +16,7 @@ export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId
 
   const searchField: HTMLInputElement = document.querySelector('.search__input')!;
 
-  const resetFilters: HTMLElement = document.querySelector('.filters__btn')!;
+  const resetFilters: HTMLElement = document.querySelector('.trash-container')!;
 
   function render() {
     window.history.replaceState({}, '', filtersData.getParams());
@@ -30,6 +30,11 @@ export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId
   fromPrice.addEventListener('mouseup', render);
   toPrice.addEventListener('mouseup', render);
   searchField.addEventListener('input', render);
+
+  resetFilters.addEventListener('click', () => {
+    window.history.replaceState({}, '', window.location.origin);
+    filtersData.reset();
+  });
 
   const categories = document.querySelectorAll<HTMLInputElement>('.checkbox__categories')!;
   const brands = document.querySelectorAll<HTMLInputElement>('.checkbox__brands')!;
