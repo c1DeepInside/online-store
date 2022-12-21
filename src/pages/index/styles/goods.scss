@@ -14,11 +14,6 @@
         flex-wrap: wrap;
         gap: 30px 30px;
     }
-
-    &__filters {
-        display: flex;
-        justify-content: space-between;
-    }
 }
 
 .goods__item {
@@ -100,4 +95,28 @@
     width: 21px;
     height: 21px;
     margin-left: -2px;
+}
+
+.goods__item-list {
+    width: 100%;
+    display: flex;
+    height: auto;
+}
+
+.goods__item-img-list {
+    width: auto;
+    border: none;
+    overflow: initial;
+}
+
+.goods__item-text-list {    
+    flex-grow: 1;
+}
+
+.goods-img-list {
+    margin: 10px;
+    width: 170px;
+    height: 170px;
+    border: none;
+    object-fit: contain;
 }

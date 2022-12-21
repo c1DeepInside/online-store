@@ -93,8 +93,8 @@
   }
   
   &__input::-webkit-slider-thumb:active {
-    box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-    -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+    box-shadow: inset 0 0 3px $MAIN_COLOR_PAGE, 0 0 9px $MAIN_COLOR_PAGE;
+    -webkit-box-shadow: inset 0 0 3px $MAIN_COLOR_PAGE, 0 0 9px $MAIN_COLOR_PAGE;
   }
   
   &__input {

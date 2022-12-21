@@ -1,10 +1,17 @@
 import { Product } from "../../../data/interfaces";
+import { changeView } from "./changeView";
+import { itemsFound } from "./itemsFound";
+import { sortData } from "./sortData";
 
 export function renderGoods(products: Product[]) {
     const catalog: HTMLDivElement = document.querySelector('.catalog__goods')!;
     catalog.innerHTML = '';
 
-    products.forEach((product) => {
+    itemsFound(products);
+
+    const sortProducts = sortData(products);
+
+    sortProducts.forEach((product) => {
         let goodsItem: HTMLDivElement = document.createElement('div');
         goodsItem.classList.add('goods__item');
         catalog.appendChild(goodsItem);
@@ -60,4 +67,6 @@ export function renderGoods(products: Product[]) {
         cartIcon.classList.add('cart');
         priceCart.appendChild(cartIcon);
     });
+
+    changeView();
 }
