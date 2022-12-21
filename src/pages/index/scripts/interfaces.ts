@@ -12,6 +12,7 @@ export interface FilterData {
     search: string;
     getParams(): string;
     setParams(params: string): void;
+    reset(): void;
 }
 
 export type RangeOptions = {

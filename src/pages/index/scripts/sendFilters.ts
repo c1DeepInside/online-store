@@ -99,6 +99,20 @@ export function getFiltersData(): FilterData {
           });
         }
      }
+    },
+    reset() {
+      const checkboxes = document.querySelectorAll<HTMLInputElement>('.checkbox');
+      checkboxes.forEach(element => {
+        element.checked = false;
+      });
+      const maxPrice = document.querySelector<HTMLInputElement>('#from-Slider')!;
+      const maxInStock = document.querySelector<HTMLInputElement>('#from-SliderStock')!;
+      this.search = '';
+      this.price.min = 0;
+      this.price.max = +maxPrice.max;
+      this.inStock.min = 0;
+      this.inStock.max = +maxInStock.max;
+
     }
   }
   return filters;
