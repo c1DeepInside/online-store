@@ -3,7 +3,6 @@ import { filterProducts } from "./filter";
 import { RangeOptions } from "./interfaces";
 import { renderGoods } from "./render";
 import { getFiltersData } from "./sendFilters";
-// import { debounce } from "./utils"; old debounce
 
 export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId }: RangeOptions) {
   const fromPrice: HTMLInputElement = document.querySelector(fromSilderId)!;
@@ -12,16 +11,16 @@ export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId
   const fromSlider: HTMLInputElement = document.querySelector(fromValueId)!;
   const toSlider: HTMLInputElement = document.querySelector(toValueId)!;
 
-  const options = document.querySelectorAll<HTMLDivElement>('.select__option')!;
-  
-  /* old debounce
-  const render = debounce(() => {
-    const filteredProducts = filterProducts(filtersData, products);
-    renderGoods(filteredProducts);
-  }, 200);
-*/
 
-  function render(): void {
+  const options = document.querySelectorAll<HTMLDivElement>('.select__option')!;
+
+  const searchField: HTMLInputElement = document.querySelector('.search__input')!;
+
+  const resetFilters: HTMLElement = document.querySelector('.filters__btn')!;
+
+  function render() {
+    window.history.replaceState({}, '', filtersData.getParams());
+
     const filteredProducts = filterProducts(filtersData, products);
     renderGoods(filteredProducts);
   }
@@ -30,11 +29,13 @@ export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId
   toSlider.addEventListener('mouseup', render);
   fromPrice.addEventListener('mouseup', render);
   toPrice.addEventListener('mouseup', render);
+  searchField.addEventListener('input', render);
 
   const categories = document.querySelectorAll<HTMLInputElement>('.checkbox__categories')!;
   const brands = document.querySelectorAll<HTMLInputElement>('.checkbox__brands')!;
 
   const filtersData = getFiltersData();
+  filtersData.setParams(window.location.search);
 
   categories.forEach(element => {
     element.addEventListener('input', render);
@@ -47,5 +48,4 @@ export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId
   options.forEach(element => {
     element.addEventListener('click', render);
   });
-
 }
