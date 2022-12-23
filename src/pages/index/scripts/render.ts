@@ -19,12 +19,18 @@ export function renderGoods(products: Product[]) {
         let goodsImgContainer: HTMLDivElement = document.createElement('div');
         goodsImgContainer.classList.add('goods__item-img');
         goodsItem.appendChild(goodsImgContainer);
+        goodsItem.appendChild(goodsImgContainer);
+
+        let goodsImgLink: HTMLAnchorElement = document.createElement('a');
+        goodsImgLink.href = `./product/${product.id}`;
+        goodsImgContainer.appendChild(goodsImgLink);
 
         let goodsImg: HTMLImageElement = document.createElement('img');
         goodsImg.classList.add('goods-img');
         goodsImg.src = product.thumbnail;
         goodsImg.alt = product.category;
         goodsImgContainer.appendChild(goodsImg);
+        goodsImgLink.appendChild(goodsImg);
 
         let goodsText: HTMLDivElement = document.createElement('div');
         goodsText.classList.add('goods__item-text');
@@ -35,10 +41,12 @@ export function renderGoods(products: Product[]) {
         goodsInStock.innerHTML = `Quantity in stock: ${product.stock}`;
         goodsText.appendChild(goodsInStock);
 
-        let goodsAboutItem: HTMLDivElement = document.createElement('div');
+        let goodsAboutItem: HTMLAnchorElement = document.createElement('a');
         goodsAboutItem.classList.add('goods__item-about');
+        goodsAboutItem.href = `./product/${product.id}`;
         goodsAboutItem.innerHTML = product.title;
         goodsText.appendChild(goodsAboutItem);
+
 
         let goodsPrice: HTMLDivElement = document.createElement('div');
         goodsPrice.classList.add('goods__item-price');

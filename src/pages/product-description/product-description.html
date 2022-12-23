@@ -1,88 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap" rel="stylesheet">
-  <title>Cart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Marhey&family=Poppins:wght@100;200;300;400;500;700&family=Ubuntu:wght@300;400;700&display=swap"
+    rel="stylesheet">
+  <title>Product description</title>
 </head>
+
 <body>
   <header class="header">
-    <div class="header_container">
-      <div class="logo_wrap">
-      <a class="logo_link" href="/"><span class="logo"></span></a>
-      </div>
-      <div class="space_wrap"></div>
-      <div class="cart_wrap">
-        <a class="cart_link" href="./cart-page.html">
-          <span class="cart_icon"></span>
-          <p class="cart_total"><span class="total_products">3</span> Products - <span class="total_cost">1000$</span></p>
-        </a>
+    <div class="container">
+      <div class="header__inner">
+        <div class="logo_wrap">
+          <a class="logo_link" href="/"><span class="logo"></span>
+          </a>
+        </div>
+        <div class="space_wrap"></div>
+        <div class="cart_wrap">
+          <a class="cart_link" href="/cart">
+            <span class="cart_icon"></span>
+            <p class="cart_total">
+              <span class="total_products">3</span> Products - <span class="total_cost">1000$</span>
+            </p>
+          </a>
+        </div>
       </div>
     </div>
-    
   </header>
 
-  <main class="main">
-    <div class="cart">
-      <div class="cart_param">
-        <h2 class="cart_h2">Your Order</h2>
-        <div class="item_per_wrap">
-          <p class="item_per_text">Items on page:</p>
-          <input type="number" id="item_per_page" class="item_per_page" value="3">
-        </div>
-        <div class="cart_page_wrap">
-          <p class="cart_page_text">Page:</p>
-          <div class="cart_page_minus_wrap"><span class="cart_page_minus">&#60;</span></div>
-          <div class="cart_page"><span class="cart_page_number">1</span></div>
-          <div class="cart_page_plus_wrap"><span class="cart_page_plus">></span></div>
-        </div>
-      </div>
-      <div class="cart_items_wrap">
-        <div class="item_temp">
-          <div class="img_wrap">
-            <img class="item_img" src="https://4lapy.ru/resize/110x110/upload/iblock/95e/95e09f08358f0705355291964b800470.jpg" alt="product">
+  <div class="description">
+    <div class="container">
+      <div class="description__inner">
+        <div class="description__images">
+          <img class="main-img" src="https://4lapy.ru/resize/480x480/upload/iblock/cf6/cf604af5f62886f0698380fb639f8356.jpg" alt="">
+          
+          <div class="description__mini-img">
+          <img class="mini-img" src="https://4lapy.ru/resize/480x480/upload/iblock/cf6/cf604af5f62886f0698380fb639f8356.jpg" alt="">
+          <img class="mini-img" src="https://4lapy.ru/resize/480x480/upload/iblock/cf6/cf604af5f62886f0698380fb639f8356.jpg" alt="">
+          <img class="mini-img" src="https://4lapy.ru/resize/480x480/upload/iblock/cf6/cf604af5f62886f0698380fb639f8356.jpg" alt="">
           </div>
-          <div class="item_info_wrap">
-            <p class="item_name">Aвва Premium Fresh Meat Adult</p>
-            <p class="item_description">Dry food for dogs of all breeds older than 1 year, with salmon and rice, 12 kg</p>
-          </div>
-          <div class="item_count_wrap">
-            <p class="item_stock">Stock: <span class="item_stock_number">95</span></p>
-            <div class="item_count_param">
-              <div class="item_count_minus_wrap"><span class="item_count_minus">-</span></div>
-              <input type="number" id="item_count" class="item_count" value="1">
-              <div class="item_count_plus_wrap"><span class="item_count_plus">+</span></div>
+        </div>
+
+        <div class="description__about-product">
+          <h1 class="product-title">
+            Adult Sterilized Dry Cat Food Sterile with Lamb
+          </h1>
+          <div class="category">
+            <div class="category__name">
+              <p class="category__name-item">category</p>
+              <p class="category__name-item">price</p>
+              <p class="category__name-item">in stock</p>
+              <p class="category__name-item">about product</p>
             </div>
-            <p class="item_cost">500$</p>
+            <div class="category__info">
+              <p class="category__info-item">Cat Food</p>
+              <p class="category__info-item">400$</p>
+              <p class="category__info-item">23</p>
+              <p class="category__info-item">
+                Wellkiss Sterilized food for neutered and sterilized cats with lamb is a complete, balanced diet for
+                adult cats. The composition of the diet includes all the components necessary for the health of the cat.
+                The feed does not contain wheat, thus reducing the risk of allergic reactions.
+              </p>
+            </div>
           </div>
+          <button class="description-btn">ADD TO CART</button>
         </div>
-
       </div>
     </div>
-    <div class="summary_wrap">
-      <div class="summary_h2_wrap">
-        <h2 class="summary_h2">Summary:</h2>
-      </div>
-      <div class="summary">
-        <p class="summary_count">Products: <span class="summary_count_number">4</span></p>
-        <p class="summary_cost">Total: <span class="summary_cost_number">2000$</span></p>
-        <div class="summary_promocode">
-          <div class="summary_arrow"><span class="summary_arrow_arrow">></span></div>
-          <input type="text" id="promocode" placeholder="Promo code">
-        </div>
-        <button class="summary_button">BUY</button>
-      </div>
-    </div>
-  </main>
-
+  </div>
 
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
         <div class="footer__logo">
-          <a href="./index.html"><img class="pet-logo" src="../../assets/icons/logotype.svg" alt="logotype"></a>
+          <a href="./index.html">
+            <img class="pet-logo" src="/src/assets/icons/logotype.svg" alt="logotype">
+          </a>
           <p class="pet-logo__about">the largest chain of pet stores and online store with delivery</p>
         </div>
 
@@ -247,33 +246,9 @@
             <a href="https://github.com/c1DeepInside" class="footer__contacts-item">c1DeepInside</a>
           </div>
         </div>
-
-
-
       </div>
     </div>
   </footer>
-  <div class="overlay_wrap"></div>
-  <div class="overlay">
-    <p class="overlay__text">Personal details</p>
-    <input type="text" id="overlay__name" class="overlay__name" name="name" placeholder="Name">
-    <input type="tel" id="overlay__phone" class="overlay__phone" name="phone" placeholder="Phone number">
-    <input type="text" id="overlay__address" class="overlay__address" name="address" placeholder="Delivery address">
-    <input type="email" id="overlay__email" class="overlay__email" name="email" placeholder="E-mail">
-    <p class="overlay__credit_text">Credit card details</p>
-    <div class="overlay__credit_card">
-      <div class="overlay__credit">
-        <span class="credit__system"></span>
-        <input type="number" id="credit__number" class="credit__number" placeholder="0000 0000 0000 0000">
-        <input type="number" id="credit__date" class="credit__date" placeholder="Valid Thru">
-      </div>  
-      <div class="overlay__credit_back">
-        <div class="credit__line"></div>
-        <input type="number" id="credit__cvv" class="credit__cvv" placeholder="CVV/CVC">
-      </div>
-    </div>
-    <button class="overlay__confirm">CONFIRM</button>
-    <span class="overlay__cross"></span>
-  </div>
 </body>
+
 </html>
