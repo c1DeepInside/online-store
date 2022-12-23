@@ -1,6 +1,6 @@
 
 
-export function addToCard(): void {
+export function addToCart(): void {
   const cartBtn = document.querySelectorAll<HTMLDivElement>('.price__icon')!;
 
   cartBtn.forEach(element => {
@@ -27,4 +27,10 @@ export function addToCard(): void {
       img.classList.add('trash');
     }
   }
+}
+
+
+export function checkInCart(id: number) {
+  let ids: string[] = localStorage.getItem('onlineStoreCartIDs')!.split(',');
+  return ids.includes(id.toString());
 }
