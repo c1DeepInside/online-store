@@ -15,7 +15,7 @@ export const products: Product[] = [
     "images": [
       "https://4lapy.ru/resize/480x480/upload/iblock/cf6/cf604af5f62886f0698380fb639f8356.jpg",
       "https://4lapy.ru/resize/480x480/upload/iblock/4b5/4b565c35463a3170c042be5ebadbc622.jpg",
-      "https://4lapy.ru/resize/480x480/upload/iblock/cf6/cf604af5f62886f0698380fb639f8356.jpg",
+      "https://4lapy.ru/resize/480x480/upload/iblock/3ad/3adc1a72ade1ef3bea768291b3114436.jpg",
     ]
   },
   {
@@ -66,7 +66,7 @@ export const products: Product[] = [
     "images": [
       "https://4lapy.ru/resize/480x480/upload/iblock/54a/54afc2794f106a39a8c79592b3f36306.jpg",
       "https://4lapy.ru/resize/480x480/upload/iblock/63e/63eeb88e0a32d4c0f45a70eb6c1abb4e.jpg",
-      "https://4lapy.ru/resize/480x480/upload/iblock/63e/63eeb88e0a32d4c0f45a70eb6c1abb4e.jpg",
+      "https://4lapy.ru/resize/480x480/upload/iblock/f79/f793b034e7f1ee9a33461e15c6ada734.jpg",
     ]
   },
   {
@@ -151,7 +151,7 @@ export const products: Product[] = [
     "images": [
       "https://4lapy.ru/resize/480x480/upload/iblock/54e/54e44dd268329403b8b79934d5440183.jpg",
       "https://4lapy.ru/resize/480x480/upload/iblock/595/595a46dbb055dc8026a717c0c1e2f28c.jpg",
-      "https://4lapy.ru/resize/480x480/upload/iblock/796/79657f19b46aefbae3ea985d64f36331.jpg",
+      "https://www.markvet.ru/upload/iblock/339/wlwicinuc86rmpw1mf39dz395ot15jhr.jpg",
     ]
   },
   {
@@ -164,11 +164,11 @@ export const products: Product[] = [
     "stock": 2,
     "brand": "Savic",
     "category": "Houses for rodents",
-    "thumbnail": "https://4lapy.ru/resize/480x480/upload/iblock/480/4807696ff06c2cd9517c0eec06bed317.jpg",
+    "thumbnail": "https://imgproxy.sbermarket.ru/imgproxy/size-500-500/aHR0cHM6Ly9zYmVybWFya2V0LnJ1L3N0YXRpY3Mvc3ByZWUvcHJvZHVjdHMvMjE0OTg1Mi9vcmlnaW5hbC8xNTI2NTMzNV81LmpwZz8xNjIzMjM2MDg4.jpg",
     "images": [
-      "https://4lapy.ru/resize/480x480/upload/iblock/480/4807696ff06c2cd9517c0eec06bed317.jpg",
-      "https://4lapy.ru/resize/480x480/upload/iblock/480/4807696ff06c2cd9517c0eec06bed317.jpg",
-      "https://4lapy.ru/resize/480x480/upload/iblock/480/4807696ff06c2cd9517c0eec06bed317.jpg",
+      "https://imgproxy.sbermarket.ru/imgproxy/size-500-500/aHR0cHM6Ly9zYmVybWFya2V0LnJ1L3N0YXRpY3Mvc3ByZWUvcHJvZHVjdHMvMjE0OTg1Mi9vcmlnaW5hbC8xNTI2NTMzNV81LmpwZz8xNjIzMjM2MDg4.jpg",
+      "https://zverek-shop.ru/image/cache/catalog/0staut/x0x0xuxyx6x5c5c6v5cv45v4v3v2vcxcx-0-500x500.JPG",
+      "https://basket-03.wb.ru/vol383/part38318/38318822/images/big/2.jpg",
     ]
   },
   {
@@ -184,8 +184,8 @@ export const products: Product[] = [
     "thumbnail": "https://4lapy.ru/resize/480x480/upload/iblock/eb8/eb83e411da2c576698ab189e6d975ef3.jpg",
     "images": [
       "https://4lapy.ru/resize/480x480/upload/iblock/eb8/eb83e411da2c576698ab189e6d975ef3.jpg",
-      "https://4lapy.ru/resize/480x480/upload/iblock/eb8/eb83e411da2c576698ab189e6d975ef3.jpg",
-      "https://4lapy.ru/resize/480x480/upload/iblock/eb8/eb83e411da2c576698ab189e6d975ef3.jpg",
+      "https://main-cdn.sbermegamarket.ru/mid9/hlr-system/174730287/100024937890b1.jpg",
+      "https://www.bethowen.ru/upload/iblock/203/203e83b6dc6e881ddaca5db298315b1d.jpg",
     ]
   },
   {
@@ -201,8 +201,8 @@ export const products: Product[] = [
     "thumbnail": "https://4lapy.ru/resize/480x480/upload/iblock/12f/12f50d81df94a21b0dbc9c44c8289242.jpg",
     "images": [
       "https://4lapy.ru/resize/480x480/upload/iblock/12f/12f50d81df94a21b0dbc9c44c8289242.jpg",
-      "https://4lapy.ru/resize/480x480/upload/iblock/e5a/e5a8ec8804511462acfbbc05944977eb.jpg",
-      "https://4lapy.ru/resize/480x480/upload/iblock/12f/12f50d81df94a21b0dbc9c44c8289242.jpg",
+      "https://basket-02.wb.ru/vol154/part15400/15400948/images/big/4.jpg",
+      "https://basket-02.wb.ru/vol154/part15400/15400948/images/big/3.jpg",
     ]
   },
   {
@@ -270,7 +270,7 @@ export const products: Product[] = [
     "images": [
       "https://4lapy.ru/resize/480x480/upload/iblock/d71/d717903f46c6ab5367cb3500822705fa.jpeg",
       "https://4lapy.ru/resize/480x480/upload/iblock/e19/e19c12bfe8e8b40341803fdc8da52086.jpg",
-      "https://4lapy.ru/resize/480x480/upload/iblock/cd6/cd61fe204bdc5c797030a18ed764a5a5.jpeg",
+      "https://4lapy.ru/resize/480x480/upload/iblock/93b/93b0671f22de068db60592492d276764.jpg",
     ]
   },
   {
@@ -287,7 +287,7 @@ export const products: Product[] = [
     "images": [
       "https://4lapy.ru/resize/480x480/upload/iblock/d76/d76f3209b038fc05628ba67f586df64f.jpeg",
       "https://4lapy.ru/resize/480x480/upload/iblock/b47/b4709790cc10fb008bf35a1e66ed75d0.jpeg",
-      "https://4lapy.ru/resize/480x480/upload/iblock/807/807f59f8c2176c349a07bfa3d7422c1c.jpeg",
+      "https://4lapy.ru/resize/480x480/upload/iblock/058/05859e1fa4d0c3e2e47cbefdb28f1961.jpeg",
     ]
   },
   {
@@ -371,8 +371,8 @@ export const products: Product[] = [
     "thumbnail": "https://4lapy.ru/resize/480x480/upload/iblock/2f2/2f2329ba535aac6e69a01043ccf22d70.jpg",
     "images": [
       "https://4lapy.ru/resize/480x480/upload/iblock/2f2/2f2329ba535aac6e69a01043ccf22d70.jpg",
-      "https://4lapy.ru/resize/80x80/upload/iblock/f69/f69fe5524bc75de3edbe562da06329e3.jpg",
-      "https://4lapy.ru/resize/80x80/upload/iblock/194/19449cc271e10ff5fcb7f0c45ba28a76.jpg",
+      "https://4lapy.ru/resize/480x480/upload/iblock/f69/f69fe5524bc75de3edbe562da06329e3.jpg",
+      "https://4lapy.ru/resize/480x480/upload/iblock/194/19449cc271e10ff5fcb7f0c45ba28a76.jpg",
     ]
   },
   {
