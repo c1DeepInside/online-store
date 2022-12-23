@@ -22,15 +22,20 @@
 .main-img {
     height: 380px;
     margin-bottom: 20px;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .mini-img {
     width: 100px;
     height: auto;
     border: 1px solid $SUB_COLOR_PAGE;
+    transition: border .2s linear;
 
     &:hover {
         cursor: pointer;
+        border: 3px solid $SUB_COLOR_FONTS;
     }
 }
 
@@ -74,5 +79,37 @@
     &:hover {
       background-color: $MAIN_COLOR_HOVER;
       cursor: pointer;
+    }
+}
+
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.679);
+
+    &__img {
+        position: absolute;
+        width: 500px;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__x {
+        position: fixed;
+        z-index: 200;
+        top: 40px;
+        right: 40px;
+        font-family: $MAIN_FONT;
+        font-size: 40px;
+        color: $SUB_COLOR_PAGE;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
