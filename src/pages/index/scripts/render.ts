@@ -67,11 +67,10 @@ export function renderGoods(products: Product[]) {
 
         let priceCart: HTMLDivElement = document.createElement('div');
         priceCart.classList.add('price__icon');
+        priceCart.id = 'price__icon_' + product.id;
         goodsPrice.appendChild(priceCart);
 
-        let cartIcon: HTMLImageElement = document.createElement('img');
-        cartIcon.src = require('../../../assets/icons/cart-white.svg');
-        cartIcon.alt = 'Cart';
+        let cartIcon: HTMLSpanElement = document.createElement('span');
         cartIcon.classList.add('cart');
         priceCart.appendChild(cartIcon);
     });
