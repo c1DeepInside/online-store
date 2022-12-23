@@ -52,8 +52,12 @@
     &-about {
         font-weight: 500;
         margin-bottom: 20px;
+        display: block;
         height: 36px;
         overflow: hidden;
+        text-decoration: none;
+        color: $MAIN_COLOR_FONTS;
+        margin-bottom: 25px;
 
         &:hover {
             cursor: pointer;
