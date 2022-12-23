@@ -1,3 +1,4 @@
+import { products } from "../../../data/products";
 
 
 export function addToCart(): void {
@@ -26,11 +27,34 @@ export function addToCart(): void {
       localStorage.setItem('onlineStoreCartIDs', id);
       img.classList.add('trash');
     }
+    calculateCart();
   }
 }
 
-
 export function checkInCart(id: number) {
-  let ids: string[] = localStorage.getItem('onlineStoreCartIDs')!.split(',');
+  const ids: string[] = localStorage.getItem('onlineStoreCartIDs')!.split(',');
+  calculateCart();
   return ids.includes(id.toString());
+}
+
+
+export function calculateCart() {
+  let ids: string[] = localStorage.getItem('onlineStoreCartIDs')!.split(',');
+  const totalProducts: HTMLSpanElement = document.querySelector('.total_products')!;
+  const totalCost: HTMLSpanElement = document.querySelector('.total_cost')!;
+  if (ids[0] === '') {
+    totalProducts.textContent = '0';
+    totalCost.textContent = '0₽';
+  } else {
+    totalProducts.textContent = ids.length.toString();
+    let sum: number = 0;
+    ids.forEach(id => {
+      products.forEach(product => {
+        if (Number(id) === product.id) {
+          sum += product.price;
+        }
+      });
+    });
+    totalCost.textContent = sum.toString() + '₽';
+  }
 }
