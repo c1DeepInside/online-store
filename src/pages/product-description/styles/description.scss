@@ -82,6 +82,29 @@
     }
 }
 
+.buy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border: 1px $SUB_COLOR_PAGE solid;
+    border-radius: 50%;
+    color: $MAIN_COLOR_PAGE;
+    font-weight: 500;
+    font-size: 24px;
+    transition: background-color .2s linear;
+
+    &:hover {
+        background-color: $SUB_COLOR_PAGE;
+        cursor: pointer;
+    }
+}
+
+.btn-container {
+    display: flex;
+}
+
 .popup {
     position: fixed;
     width: 100%;
