@@ -90,8 +90,17 @@ export function renderProduct(product: Product) {
     categoryInfo.appendChild(categoryInfoItem);
   });
 
+  const btnContainer: HTMLDivElement = document.createElement('div');
+  btnContainer.classList.add('btn-container');
+  descriptionProduct.appendChild(btnContainer);
+
   const descriptionBtn: HTMLButtonElement = document.createElement('button');
   descriptionBtn.innerHTML = 'ADD TO CART';
   descriptionBtn.classList.add('description-btn');
-  descriptionProduct.appendChild(descriptionBtn);
+  btnContainer.appendChild(descriptionBtn);
+
+  const buyBtn: HTMLDivElement = document.createElement('div');
+  buyBtn.innerHTML = '$';
+  buyBtn.classList.add('buy');
+  btnContainer.appendChild(buyBtn);
 }
