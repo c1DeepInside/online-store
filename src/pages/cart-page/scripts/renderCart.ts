@@ -3,11 +3,11 @@ import { calculateCart } from "../../index/scripts/calculateCart";
 import { changeCount, changeSummary } from "./changeCount";
 
 export function renderCart(products: Product[]) {
+  const itemWrap: HTMLDivElement = document.querySelector('.cart_items_wrap')!;
+  itemWrap.innerHTML = '';
   if (localStorage.getItem('onlineStoreCartIDs')) {
     let ids: string[] = localStorage.getItem('onlineStoreCartIDs')!.split(',');
-    let count: string[] = localStorage.getItem('onlineStoreCartCount')!.split(',');
-    const itemWrap: HTMLDivElement = document.querySelector('.cart_items_wrap')!;
-    itemWrap.innerHTML = '';
+    let count: string[] = localStorage.getItem('onlineStoreCartCount')!.split(','); 
     ids.forEach((id, i) => {
       products.forEach(product => {
         if (Number(id) === product.id) {
