@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 .header {
   border-bottom: $SUB_COLOR_PAGE solid 1px;
 
@@ -10,9 +12,8 @@
 
 .logo_wrap {
   width: 360px;
-  height: 100%;
-  border-right: $SUB_COLOR_PAGE solid 1px;
   display: flex;
+  border-right: $SUB_COLOR_PAGE solid 1px;
   align-items: center;
   justify-content: center;
 }
@@ -28,7 +29,7 @@
 }
 
 .logo {
-  background: url('/src/assets/icons/logotype.svg') center;
+  background: url('../../../assets/icons/logotype.svg') center;
   display: block;
   background-size: cover;
   width: 100%;
@@ -41,8 +42,8 @@
 
 .cart_wrap {
   width: 260px;
-  border-left: $SUB_COLOR_PAGE solid 1px;
   display: flex;
+  border-left: $SUB_COLOR_PAGE solid 1px;
   justify-content: center;
   align-items: center;
 }
@@ -74,7 +75,7 @@
 }
 
 .cart_icon {
-  background: url('/src/assets/icons/cart.svg') center;
+  background: url('../../../assets/icons/cart.svg') center;
   display: block;
   background-size: cover;
   width: 50px;
@@ -83,10 +84,10 @@
 
 .total_products,
 .total_cost {
-  color: $MAIN_COLOR_PAGE;
+  color: $MAIN_COLOR_PAGE; 
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 660px){
   .header {
     height: 190px;
     flex-wrap: wrap;
