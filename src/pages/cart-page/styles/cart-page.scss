@@ -103,14 +103,16 @@ p {
 .item_img {
   width: 110px;
   height: 110px;
+  cursor: pointer;
 }
 
 .item_name {
   font-weight: 600;
+  cursor: pointer;
 }
 
 .item_description {
-  height: 58px;
+  height: 57px;
   overflow: auto;
 }
 
