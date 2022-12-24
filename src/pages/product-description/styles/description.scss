@@ -143,3 +143,21 @@
         }
     }
 }
+
+.rout {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+
+    &__item {
+        color: $SUB_COLOR_FONTS;
+        font-size: 21px;
+        text-decoration: none;
+        transition: color .2s linear;
+
+        &:hover {
+            cursor: pointer;
+            color: $MAIN_COLOR_PAGE;
+        }
+    }
+}
