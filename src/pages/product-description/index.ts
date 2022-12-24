@@ -1,4 +1,5 @@
 import { products } from '../../data/products';
+import { addToCartDes } from './scripts/addToCartDes';
 import { renderProduct } from './scripts/renderProduct';
 import { renderRouting } from './scripts/renderRout';
 import './styles/style.scss';
@@ -14,3 +15,6 @@ if (products[productId] === undefined) {
     renderRouting(products[productId]);
     renderProduct(products[productId]);
 }
+
+
+addToCartDes();

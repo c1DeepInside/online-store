@@ -1,4 +1,6 @@
 import { Product } from "../../../data/interfaces";
+import { checkInCart } from "../../index/scripts/addToCart";
+import { calculateCart } from "../../index/scripts/calculateCart";
 
 export function renderProduct(product: Product) {
   const descriptionBlock: HTMLDivElement = document.querySelector('.description__inner')!;
@@ -96,11 +98,16 @@ export function renderProduct(product: Product) {
 
   const descriptionBtn: HTMLButtonElement = document.createElement('button');
   descriptionBtn.innerHTML = 'ADD TO CART';
+  if (checkInCart(product.id)) {
+    descriptionBtn.innerHTML = 'DROP FROM CART';
+  }
   descriptionBtn.classList.add('description-btn');
   btnContainer.appendChild(descriptionBtn);
 
-  const buyBtn: HTMLDivElement = document.createElement('div');
+  const buyBtn: HTMLButtonElement = document.createElement('button');
   buyBtn.innerHTML = '$';
   buyBtn.classList.add('buy');
   btnContainer.appendChild(buyBtn);
+
+  calculateCart();
 }

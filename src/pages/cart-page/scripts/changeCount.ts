@@ -1,5 +1,5 @@
 import { products } from "../../../data/products";
-import { calculateCart } from "../../index/scripts/addToCart";
+import { calculateCart } from "../../index/scripts/calculateCart";
 import { renderCart } from "./renderCart";
 
 export function changeCount(): void {
