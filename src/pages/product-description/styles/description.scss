@@ -27,7 +27,9 @@
 }
 
 .main-img {
+    object-fit: contain;
     height: 380px;
+    width: 380px;
     margin-bottom: 20px;
     &:hover {
         cursor: pointer;
@@ -36,7 +38,8 @@
 
 .mini-img {
     width: 100px;
-    height: auto;
+    height: 100px;
+    object-fit: contain;
     border: 1px solid $SUB_COLOR_PAGE;
     transition: border .2s linear;
 
@@ -90,16 +93,16 @@
 }
 
 .buy {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    padding-left: 8px;
     width: 45px;
     height: 45px;
     border: 1px $SUB_COLOR_PAGE solid;
     border-radius: 50%;
     color: $MAIN_COLOR_PAGE;
     font-weight: 500;
-    font-size: 24px;
+    font-size: 27px;
     transition: background-color .2s linear;
 
     &:hover {
@@ -147,7 +150,7 @@
 .rout {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 50px;
+    margin: 50px 0;
 
     &__item {
         color: $SUB_COLOR_FONTS;

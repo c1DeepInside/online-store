@@ -38,5 +38,6 @@ export function renderRouting(product: Product) {
   name.classList.add('rout__item');
   const nameCut = product.title.split(' ').splice(0, 3).join(' ');
   name.innerHTML = nameCut;
+  name.href = `./${product.id}`;
   descriptionBlock.appendChild(name);
 }

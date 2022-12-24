@@ -1,11 +1,12 @@
 import { products } from "../../../data/products";
-import { calculateCart } from "../../index/scripts/addToCart";
+import { calculateCart } from "../../index/scripts/calculateCart";
 import { renderCart } from "./renderCart";
 
 export function changeCount(): void {
   const inputs = document.querySelectorAll<HTMLInputElement>('.item_count')!;
   const minuses = document.querySelectorAll<HTMLButtonElement>('.item_count_minus')!;
   const pluses = document.querySelectorAll<HTMLButtonElement>('.item_count_plus')!;
+  const itemCost = document.querySelectorAll<HTMLButtonElement>('.item_cost')!;
 
   inputs.forEach((elem, i) => {
     elem.addEventListener('input', changeInputCount.bind(elem, i));
@@ -27,6 +28,8 @@ export function changeCount(): void {
       count[i] = inputs[i].value;
       localStorage.setItem('onlineStoreCartCount', count.join(','));
     }
+
+    itemCost[i].textContent = (Number(inputs[i].value) * products[Number(ids[i]) - 1].price).toString() + '₽';
 
     calculateCart();
     changeSummary();

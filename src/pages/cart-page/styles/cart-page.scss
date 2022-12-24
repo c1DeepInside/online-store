@@ -109,6 +109,8 @@ p {
 .item_name {
   font-weight: 600;
   cursor: pointer;
+  text-decoration: none;
+  color: $MAIN_COLOR_FONTS;
 }
 
 .item_description {
@@ -134,7 +136,7 @@ p {
   flex-direction: column;
   justify-content: center;
   gap: 20px;
-  margin: 0 20px;
+  margin: 10px 20px;
 }
 
 .item_stock {

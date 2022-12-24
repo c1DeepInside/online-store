@@ -1,17 +1,10 @@
-import { calculateCart } from "./calculateCart";
+import { calculateCart } from "../../index/scripts/calculateCart";
 
+export function addToCartDes(): void {
+  const btn: HTMLButtonElement = document.querySelector('.description-btn')!;
+  const id: string = window.location.pathname.split('/')[window.location.pathname.split('/').length - 1];
 
-export function addToCart(): void {
-  const cartBtn = document.querySelectorAll<HTMLDivElement>('.price__icon')!;
-
-  cartBtn.forEach(element => {
-    element.addEventListener('click', toCart);
-  });
-
-  function toCart(this: HTMLDivElement): void {
-    const img: HTMLSpanElement = this.querySelector('.cart')!;
-
-    const id: string = this.id.split('_')[this.id.split('_').length - 1];
+  btn.addEventListener('click', (): void => {
     if (localStorage.getItem('onlineStoreCartIDs')) {
       let ids: string[] = localStorage.getItem('onlineStoreCartIDs')!.split(',');
       let count: string[] = localStorage.getItem('onlineStoreCartCount')!.split(',');
@@ -20,27 +13,17 @@ export function addToCart(): void {
         ids.splice(ids.indexOf(id), 1);
         localStorage.setItem('onlineStoreCartIDs', ids.join(','));
         localStorage.setItem('onlineStoreCartCount', count.join(','));
-        img.classList.remove('trash');
+        btn.innerHTML = 'ADD TO CART';
       } else {
         localStorage.setItem('onlineStoreCartIDs', localStorage.getItem('onlineStoreCartIDs') + ',' + id);
         localStorage.setItem('onlineStoreCartCount', localStorage.getItem('onlineStoreCartCount') + ',' + 1);
-        img.classList.add('trash');
+        btn.innerHTML = 'DROP FROM CART';
       }
     } else {
       localStorage.setItem('onlineStoreCartIDs', id);
       localStorage.setItem('onlineStoreCartCount', '1');
-      img.classList.add('trash');
+      btn.innerHTML = 'DROP FROM CART';
     }
     calculateCart();
-  }
-}
-
-export function checkInCart(id: number) {
-  const ids: string = localStorage.getItem('onlineStoreCartIDs')!;
-  if (ids === null) {
-    return false;
-  }
-  const idsArr: String[] = ids.split(',');
-  calculateCart();
-  return idsArr.includes(id.toString());
+  });
 }
