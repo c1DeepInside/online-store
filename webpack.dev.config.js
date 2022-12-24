@@ -1,5 +1,7 @@
 const path = require('path');
 
+const target =  'http://localhost:8080';
+
 module.exports = {
     mode: 'development',
     devtool: 'inline-source-map',
@@ -11,12 +13,17 @@ module.exports = {
         proxy: {
           '/product': {
             pattern: /\/product\/\d+/,
-            target: 'http://localhost:8080',
+            target,
             pathRewrite: {'^/product/\\d+' : 'product-description.html'}
           },
           '/cart': {
-            target: 'http://localhost:8080',
+            target,
             pathRewrite: {'^/cart' : 'cart-page.html'}
+          },
+          '/': {
+            target,
+            pattern: /.*/,
+            pathRewrite: {'.*': 'error-page.html'}
           }
         },
     },
