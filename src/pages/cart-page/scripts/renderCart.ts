@@ -86,7 +86,7 @@ export function renderCart(products: Product[]) {
 
           const itemCost: HTMLParagraphElement = document.createElement('p');
           itemCost.classList.add('item_cost');
-          itemCost.textContent = product.price.toString() + '₽';
+          itemCost.textContent = (product.price * Number(count[i])).toString() + '₽';
           itemCountWrap.appendChild(itemCost);
         }
       });
