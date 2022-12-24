@@ -14,8 +14,9 @@ export function renderCart(products: Product[]) {
         item.classList.add('item_temp');
         itemWrap.appendChild(item);
 
-        const imgWrap: HTMLDivElement = document.createElement('div');
+        const imgWrap: HTMLAnchorElement = document.createElement('a');
         imgWrap.classList.add('img_wrap');
+        imgWrap.href = `./product/${product.id}`;
         item.appendChild(imgWrap);
 
         const itemImg: HTMLImageElement = document.createElement('img');
@@ -28,8 +29,9 @@ export function renderCart(products: Product[]) {
         itemInfoWrap.classList.add('item_info_wrap');
         item.appendChild(itemInfoWrap);
 
-        const itemName: HTMLParagraphElement = document.createElement('p');
+        const itemName: HTMLAnchorElement = document.createElement('a');
         itemName.classList.add('item_name');
+        itemName.href = `./product/${product.id}`;
         itemName.textContent = product.title;
         itemInfoWrap.appendChild(itemName);
 
