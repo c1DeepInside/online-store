@@ -4,6 +4,7 @@
   &__btn {
     width: 230px;
     height: 45px;
+    flex-grow: 1;
     margin-right: 15px;
     border: none;
     background-color: $MAIN_COLOR_PAGE;
@@ -11,10 +12,16 @@
     letter-spacing: 2px;
     font-weight: 500;
     transition: background-color .2s linear;
+    text-transform: uppercase;
 
     &:hover {
       background-color: $MAIN_COLOR_HOVER;
       cursor: pointer;
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: $MAIN_COLOR_HOVER;
     }
   }
 
@@ -58,6 +65,7 @@
 
   &__control-panel {
     display: flex;
+    margin-right: 40px;
   }
 }
 

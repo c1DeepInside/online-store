@@ -10,6 +10,8 @@ export interface FilterData {
     };
     brand: string[];
     search: string;
+    view: string;
+    sorting: string;
     getParams(): string;
     setParams(params: string): void;
     reset(): void;

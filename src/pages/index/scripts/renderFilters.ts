@@ -4,13 +4,27 @@ import { RangeOptions } from "./interfaces";
 import { renderGoods } from "./render";
 import { getFiltersData } from "./sendFilters";
 
-export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId }: RangeOptions) {
-  const fromPrice: HTMLInputElement = document.querySelector(fromSilderId)!;
-  const toPrice: HTMLInputElement = document.querySelector(toSliderId)!;
+export function renderFilters(ranges: RangeOptions[]) {
+  const filtersData = getFiltersData();
+  filtersData.setParams(window.location.search);
+  render();
 
-  const fromSlider: HTMLInputElement = document.querySelector(fromValueId)!;
-  const toSlider: HTMLInputElement = document.querySelector(toValueId)!;
+  ranges.forEach(element => {
+    const fromPrice: HTMLInputElement = document.querySelector(element.fromSilderId)!;
+    const toPrice: HTMLInputElement = document.querySelector(element.toSliderId)!;
 
+    const fromSlider: HTMLInputElement = document.querySelector(element.fromValueId)!;
+    const toSlider: HTMLInputElement = document.querySelector(element.toValueId)!;
+
+    fromSlider.addEventListener('mouseup', render);
+    toSlider.addEventListener('mouseup', render);
+    fromPrice.addEventListener('mouseup', render);
+    toPrice.addEventListener('mouseup', render);
+  });
+    
+
+  const tiles: HTMLDivElement = document.querySelector('.view__tiles_wrap')!;
+  const list: HTMLDivElement = document.querySelector('.view__list_wrap')!;
 
   const options = document.querySelectorAll<HTMLDivElement>('.select__option')!;
 
@@ -19,28 +33,25 @@ export function renderFilters({ fromSilderId, toSliderId, fromValueId, toValueId
   const resetFilters: HTMLElement = document.querySelector('.trash-container')!;
 
   function render() {
+    const filtersData = getFiltersData();
     window.history.replaceState({}, '', filtersData.getParams());
 
     const filteredProducts = filterProducts(filtersData, products);
     renderGoods(filteredProducts);
   }
   
-  fromSlider.addEventListener('mouseup', render);
-  toSlider.addEventListener('mouseup', render);
-  fromPrice.addEventListener('mouseup', render);
-  toPrice.addEventListener('mouseup', render);
+  tiles.addEventListener('click', render);
+  list.addEventListener('click', render);
   searchField.addEventListener('input', render);
 
   resetFilters.addEventListener('click', () => {
-    window.history.replaceState({}, '', window.location.origin);
     filtersData.reset();
+    render();
+    window.history.replaceState({}, '', window.location.origin);
   });
 
   const categories = document.querySelectorAll<HTMLInputElement>('.checkbox__categories')!;
   const brands = document.querySelectorAll<HTMLInputElement>('.checkbox__brands')!;
-
-  const filtersData = getFiltersData();
-  filtersData.setParams(window.location.search);
 
   categories.forEach(element => {
     element.addEventListener('input', render);

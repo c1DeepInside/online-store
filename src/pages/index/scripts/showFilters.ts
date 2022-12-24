@@ -1,7 +1,10 @@
 import { Product } from "../../../data/interfaces";
+import { copyFilters } from "./copyFilters";
 import { RangeOptions } from "./interfaces";
 
 export function showFilters(products: Product[]) {
+  copyFilters();
+
   renderCheckboxsFilters(products, 'categories', '.filters__categories');
   renderCheckboxsFilters(products, 'brand', '.filters__brand');
 

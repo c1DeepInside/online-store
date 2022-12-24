@@ -20,11 +20,6 @@
         border-right: none;
         transition: background-color .2s linear;
 
-        &:hover {
-            cursor: pointer;
-            background-color: $SUB_COLOR_PAGE;
-        }
-
         &-icon {
             width: 25px;
             fill: $SUB_COLOR_FONTS;

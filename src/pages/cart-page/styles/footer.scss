@@ -2,12 +2,12 @@
 
 .container {
   width: 100%;
-  max-width: 1300px;
+  max-width: 1360px;
   margin: 0 auto;
 }
 
 .footer {
-  height: 270px;
+  height: 269px;
   border-top: 1px $SUB_COLOR_PAGE solid;
   font-family: $MAIN_FONT;
 
@@ -30,7 +30,7 @@
 
   &__icons {
     width: 50px;
-    height: 220px;
+    height: 219px;
     margin-top: 49px;
     display: flex;
     align-items: center;

@@ -96,9 +96,20 @@
 }
 
 .cart {
-    width: 21px;
+    width: 23px;
     height: 21px;
     margin-left: -2px;
+    background: url('../../../assets/icons/cart-white.svg') center;
+    display: block;
+    background-size: cover;
+}
+
+.trash {
+    width: 29px;
+    height: 29px;
+    margin-left: 0px;
+    background: url('../../../assets/icons/trash.svg') center;
+    background-size: cover;
 }
 
 .goods__item-list {

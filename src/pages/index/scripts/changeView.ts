@@ -6,8 +6,20 @@ export function changeView(): void {
   const goodsItemText = document.querySelectorAll<HTMLDivElement>('.goods__item-text')!;
   const goodsImg = document.querySelectorAll<HTMLDivElement>('.goods-img')!;
 
-  if (list.classList.contains('active_view')){
+  let view: string = 'tiles'; 
+
+  const params = new URLSearchParams(window.location.search);
+
+  for (const [key, value] of params.entries()) {
+    if (key == 'view') {
+      view = value;
+    }
+  }
+
+  if (view === 'list') {
     renderList();
+  } else {
+    renderTiles();
   }
 
   tiles.addEventListener('click', renderTiles);

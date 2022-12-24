@@ -1,6 +1,10 @@
+import { changeView } from "./changeView";
+
 export let sortVariable: number = 0; 
 
 export function sortProducts(): void {
+  changeView();
+
   const select: HTMLDivElement = document.querySelector('.select')!;
   const optionsWrap: HTMLDivElement = document.querySelector('.select__options_wrap')!;
   const selectPick: HTMLParagraphElement = document.querySelector('.select__pick')!;
@@ -9,6 +13,20 @@ export function sortProducts(): void {
 
   select.addEventListener('click', showOptions);
   document.addEventListener('click', hideOptions);
+
+  let sorting: string = "byPriceUp";
+
+  const params = new URLSearchParams(window.location.search);
+
+  for (const [key, value] of params.entries()) {
+    if (key == 'sorting') {
+      sorting = value;
+    }
+  }
+
+  sortVariable = sortS.indexOf(sorting);
+
+  selectPick.textContent = options[sortVariable].querySelector('.select__option__text')!.textContent;
 
   options.forEach(element => {
     element.addEventListener('click', pickOption);
@@ -35,3 +53,4 @@ export function sortProducts(): void {
   }
 }
 
+export const sortS: string[] = ['byPriceUp', 'byPriceDown', 'byStockUp', 'byStockDown'];
