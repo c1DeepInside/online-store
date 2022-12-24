@@ -8,7 +8,6 @@ export function addToCart(): void {
     element.addEventListener('click', toCart)
   });
 
-
   function toCart(this: HTMLDivElement): void {
     const img: HTMLSpanElement = this.querySelector('.cart')!;
 
@@ -49,21 +48,21 @@ export function checkInCart(id: number) {
 
 export function calculateCart() {
   let ids: string[] = localStorage.getItem('onlineStoreCartIDs')!.split(',');
+  let count: string[] = localStorage.getItem('onlineStoreCartCount')!.split(',');
   const totalProducts: HTMLSpanElement = document.querySelector('.total_products')!;
   const totalCost: HTMLSpanElement = document.querySelector('.total_cost')!;
-  if (ids[0] === '') {
-    totalProducts.textContent = '0';
-    totalCost.textContent = '0₽';
-  } else {
-    totalProducts.textContent = ids.length.toString();
-    let sum: number = 0;
-    ids.forEach(id => {
+  let prodCount: number = 0;
+  let sum: number = 0;
+  if (ids[0] !== '') {
+    ids.forEach((id, i) => {
+      prodCount += Number(count[i]);
       products.forEach(product => {
         if (Number(id) === product.id) {
-          sum += product.price;
+          sum += product.price * Number(count[i]);
         }
       });
     });
-    totalCost.textContent = sum.toString() + '₽';
   }
+  totalProducts.textContent = prodCount.toString();
+  totalCost.textContent = sum.toString() + '₽';
 }

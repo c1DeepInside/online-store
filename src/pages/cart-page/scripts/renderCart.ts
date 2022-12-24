@@ -1,6 +1,6 @@
 import { Product } from "../../../data/interfaces";
 import { calculateCart } from "../../index/scripts/addToCart";
-import { changeCount } from "./changeCount";
+import { changeCount, changeSummary } from "./changeCount";
 
 export function renderCart(products: Product[]) {
   let ids: string[] = localStorage.getItem('onlineStoreCartIDs')!.split(',');
@@ -91,6 +91,7 @@ export function renderCart(products: Product[]) {
 
   changeCount();
   calculateCart();
+  changeSummary();
 }
 
 function putBtnMinus(elem: HTMLInputElement, btnMinus: HTMLButtonElement, btnPlus: HTMLButtonElement, product: Product): void {

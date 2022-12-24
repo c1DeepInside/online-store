@@ -29,5 +29,17 @@ export function changeCount(): void {
     }
 
     calculateCart();
+    changeSummary();
   }
+}
+
+export function changeSummary(): void {
+  const totalProducts: HTMLSpanElement = document.querySelector('.total_products')!;
+  const totalCost: HTMLSpanElement = document.querySelector('.total_cost')!;
+
+  const totalProdSum: HTMLSpanElement = document.querySelector('.summary_count_number')!;
+  const totalCostSum: HTMLSpanElement = document.querySelector('.summary_cost_number')!;
+
+  totalProdSum.textContent = totalProducts.textContent;
+  totalCostSum.textContent = totalCost.textContent;
 }
