@@ -1,7 +1,26 @@
 import { products } from '../../data/products';
-import { renderCart } from './scripts/renderCart';
-import { showModal } from './scripts/showModal';
+import { Cart } from './scripts/cart';
+import { setupCheckoutModal } from './scripts/modal';
 import './styles/style.scss';
+import { cartItems, updateCartSummary } from './utils';
 
-showModal();
-renderCart(products);
+setupCheckoutModal();
+
+const cartProducts = products.filter((product) => cartItems.has(product.id));
+const cart = new Cart(cartProducts);
+
+const summaryCount = document.querySelector<HTMLElement>('.summary_count_number')!;
+const totalPrice = document.querySelector<HTMLElement>('.summary_cost_number')!;
+
+function updateSummary() {
+    summaryCount.innerText = cart.itemsCount.toString();
+    totalPrice.innerText = cart.totalPrice.toString();
+}
+
+updateSummary();
+updateCartSummary();
+
+cart.onChange(() => {
+    updateSummary();
+    updateCartSummary();
+})
