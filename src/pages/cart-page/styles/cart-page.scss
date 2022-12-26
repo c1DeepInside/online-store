@@ -37,6 +37,7 @@ p {
 .cart_page_wrap {
   display: flex;
   align-items: center;
+  user-select: none;
 }
 
 .cart_page_text {
@@ -154,6 +155,7 @@ p {
 
 .item_count_param {
   display: flex;
+  user-select: none;
 }
 
 .item_count {
@@ -285,7 +287,7 @@ p {
 
 .summary_button {
   cursor: pointer;
-  width: calc(70% + 40px);
+  width: 230px;
   height: 55px;
   border: none;
   background-color: $MAIN_COLOR_PAGE;
@@ -293,9 +295,21 @@ p {
   font-size: 22px;
   color: white;
   letter-spacing: 3px;
-  transition: 0.5s;
+  transition: background-color .2s linear;
+
+  &:hover {
+    background-color: $MAIN_COLOR_HOVER;
+  }
 }
 
-.summary_button:hover {
-  transform: scale(1.05);
+.empty {
+  border-top: 1px solid $SUB_COLOR_PAGE;
+  padding: 111.5px 0;
+  text-align: center;
+}
+
+.item-id {
+  margin: auto 0;
+  padding: 5px 5px;
+  font-weight: 500;
 }

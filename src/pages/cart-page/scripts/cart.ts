@@ -2,7 +2,7 @@ import { Product } from "../../../data/interfaces";
 import { cartItems } from "../utils";
 
 class CartProduct {
-  private htmlItem?: HTMLDivElement;
+  public htmlItem?: HTMLDivElement;
   private amountHtml?: HTMLInputElement;
 
   private subscribers: ((product: CartProduct) => void)[] = [];
@@ -52,6 +52,10 @@ class CartProduct {
   public createHtmlElement(): HTMLDivElement {
     this.htmlItem = document.createElement('div');
     this.htmlItem.classList.add('item_temp');
+
+    const itemId: HTMLDivElement = document.createElement('div');
+    itemId.classList.add('item-id');
+    this.htmlItem.appendChild(itemId);
 
     const imgWrap: HTMLAnchorElement = document.createElement('a');
     imgWrap.classList.add('img_wrap');
@@ -164,13 +168,23 @@ export class Cart {
   }
 
   private createProducts(products: Product[]) {
-    products.forEach((product) => {
+    products.forEach((product, idx) => {
       const cartProduct = new CartProduct(product);
       cartProduct.onChange((product) => this.onProductChange(product));
 
-      this.itemWrap.appendChild(cartProduct.createHtmlElement());
+      const productHtml = cartProduct.createHtmlElement()
+      this.itemWrap.appendChild(productHtml);
       this.products.push(cartProduct);
-    })
+    });
+
+    this.updateProductIndexes();
+  }
+
+  private updateProductIndexes() {
+    this.products.forEach((product, idx) => {
+      const itemId = product.htmlItem?.querySelector('.item-id')!;
+      itemId.innerHTML = `${idx + 1}`;
+    });
   }
 
   private onProductChange(product: CartProduct) {
@@ -182,5 +196,7 @@ export class Cart {
     this.subscribers.forEach((callback) => {
       callback();
     });
+
+    this.updateProductIndexes();
   }
 }
