@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap" rel="stylesheet">
   <title>Cart</title>
 </head>
+
 <body>
   <header class="header">
     <div class="container">
@@ -52,11 +54,22 @@
       </div>
       <div class="summary">
         <p class="summary_count">Products: <span class="summary_count_number">4</span></p>
-        <p class="summary_cost">Total: <span class="summary_cost_number">2000$</span></p>
+        <p class="summary_cost">Total:
+          <span class="summary_cost_number">2000$</span>
+          <span class="new-cost"></span>
+        </p>
+
+        <div class="drop-promocodes">
+        </div>
+
         <div class="summary_promocode">
           <div class="summary_arrow"><span class="summary_arrow_arrow">></span></div>
           <input type="text" id="promocode" placeholder="Promo code">
         </div>
+
+        <div class="add-promocodes">
+        </div>
+
         <button class="summary_button">BUY</button>
       </div>
     </div>
@@ -251,7 +264,7 @@
         <span class="credit__system"></span>
         <input type="number" id="credit__number" class="credit__number" placeholder="0000 0000 0000 0000">
         <input type="number" id="credit__date" class="credit__date" placeholder="Valid Thru">
-      </div>  
+      </div>
       <div class="overlay__credit_back">
         <div class="credit__line"></div>
         <input type="number" id="credit__cvv" class="credit__cvv" placeholder="CVV/CVC">
@@ -261,4 +274,5 @@
     <span class="overlay__cross"></span>
   </div>
 </body>
+
 </html>

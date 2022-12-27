@@ -313,3 +313,29 @@ p {
   padding: 5px 5px;
   font-weight: 500;
 }
+
+.old-cost {
+  text-decoration: line-through;
+}
+
+.add-item,
+.drop-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $SUB_COLOR_PAGE;
+  padding: 7px 10px;
+  width: 230px;
+}
+
+.add-button,
+.drop-button {
+  border: 1px solid $SUB_COLOR_FONTS;
+  padding: 2px 5px;
+  transition: background-color .2s linear;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $SUB_COLOR_FONTS;
+  }
+}

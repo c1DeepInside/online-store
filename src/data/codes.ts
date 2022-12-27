@@ -1,3 +1,4 @@
 export const promos = {
-    'ZHOPA': 20,
+    'rs': 10,
+    'epm': 15,
 }
