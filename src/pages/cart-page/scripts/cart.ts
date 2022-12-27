@@ -167,6 +167,16 @@ export class Cart {
     );
   }
 
+  public clear() {
+    this.products.forEach((item) => {
+      item.destroy();
+    });
+    this.products = [];
+    this.subscribers.forEach((callback) => {
+      callback();
+    });
+  }
+
   private createProducts(products: Product[]) {
     products.forEach((product, idx) => {
       const cartProduct = new CartProduct(product);
