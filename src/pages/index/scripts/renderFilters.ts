@@ -32,7 +32,7 @@ export function renderFilters(ranges: RangeOptions[]) {
 
   const resetFilters: HTMLElement = document.querySelector('.trash-container')!;
 
-  function render(this: HTMLInputElement | HTMLDivElement) {
+  function render(this: HTMLInputElement | HTMLDivElement | HTMLElement) {
     const filtersData = getFiltersData();
     window.history.replaceState({}, '', filtersData.getParams());
 
@@ -55,7 +55,7 @@ export function renderFilters(ranges: RangeOptions[]) {
 
   resetFilters.addEventListener('click', () => {
     filtersData.reset();
-    render;
+    render.apply(resetFilters);
     window.history.replaceState({}, '', window.location.origin);
   });
 
@@ -74,7 +74,7 @@ export function renderFilters(ranges: RangeOptions[]) {
     element.addEventListener('click', render);
   });
 
-  render;
+  render.apply(searchField);
 }
 
 function setNumbers(products: Product[]): void {
