@@ -4,6 +4,11 @@ export function setupCheckoutModal() {
   const cross = document.querySelector<HTMLElement>('.overlay__cross')!;
   const overlay = document.querySelector<HTMLElement>('.overlay')!;
 
+  if (window.location.search === '?isOpenModal=true') {
+    modalOverlay.classList.add('active');
+    overlay.classList.add('active_flex');
+  }
+
   buyButton.addEventListener('click', () => {
     modalOverlay.classList.add('active');
     overlay.classList.add('active_flex');
