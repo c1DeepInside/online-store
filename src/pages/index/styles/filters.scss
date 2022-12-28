@@ -35,7 +35,7 @@
   &__theme-item {
     margin-bottom: 20px;
     color: $SUB_COLOR_FONTS;
-    display: block;
+    display: flex;
     position: relative;
     padding-left: 35px;
     margin-bottom: 12px;
@@ -48,6 +48,11 @@
 
     &:hover input ~ .checkmark {
       background-color: $SUB_COLOR_FONTS;
+    }
+
+    .categories_name,
+    .brand_name {
+      flex-grow: 1;
     }
   }
 
