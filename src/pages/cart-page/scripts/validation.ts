@@ -300,7 +300,7 @@ function isValidCVV(cvv: HTMLInputElement): boolean {
   let error: string[] = [];
   if (!valid) {
     cvv.classList.add('non_valid');
-    error.push('the number of entered digits in the CVV should be exactly 3');
+    error.push('The number of entered digits in the CVV should be exactly 3');
 
     if (!document.querySelector('.credit__cvv_error')) {
       const cvvError: HTMLParagraphElement = document.createElement('p');
