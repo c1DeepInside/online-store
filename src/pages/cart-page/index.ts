@@ -82,6 +82,8 @@ function onPromoInput() {
 
   if (discount in promos && !discounts[discount]) {
     renderDiscount(discount);
+  } else {
+    addPromo.innerHTML = '';
   }
 }
 
