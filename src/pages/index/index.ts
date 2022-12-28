@@ -7,7 +7,7 @@ import { updateCartSummary } from '../cart-page/utils';
 
 updateCartSummary();
 
-sortProducts();
 showFilters(products);
+sortProducts();
 renderFilters([{ fromSilderId: '#fromInput', toSliderId: '#toInput', fromValueId: '#from-Slider', toValueId: '#to-Slider' },
 { fromSilderId: '#fromInputStock', toSliderId: '#toInputStock', fromValueId: '#from-SliderStock', toValueId: '#to-SliderStock' }]);

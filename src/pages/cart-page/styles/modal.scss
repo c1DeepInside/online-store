@@ -60,6 +60,18 @@
     padding: 20px 20px 0 20px;
   }
 
+  &__credit_master {
+    background: linear-gradient(247.26deg,#eb001b -44.3%,#f79e1b 101.76%);
+  }
+
+  &__credit_visa {
+    background: linear-gradient(249.12deg,#24418e,#046cca);
+  }
+
+  &__credit_american {
+    background: #016fd0;
+  }
+
   &__credit_card {
     position: relative;
   }
@@ -101,9 +113,26 @@
 
 .credit__system {
   display: block;
+  width: 40px;
+  height: 25px;
+  background: url('../../../assets/icons/credit.svg') center;
+  background-size: cover;
+}
+
+.credit__visa {
+  background: url('../../../assets/icons/Visa.svg') center;
+  background-size: cover;
+}
+
+.credit__master {
+  background: url('../../../assets/icons/mastercard-bg.svg') center;
+  background-size: cover;
+}
+
+.credit__american {
   width: 60px;
   height: 25px;
-  background: url('../../../assets/icons/Visa.svg') center;
+  background: url('../../../assets/icons/american-express.svg') center;
   background-size: cover;
 }
 
@@ -179,4 +208,19 @@
 
 .active_flex {
   display: flex;
+}
+
+.non_valid {
+  border: #eb001b 1px solid;
+  color: #eb001b;
+  &::-webkit-input-placeholder {
+    color: #eb001b;
+    opacity: 0.7;
+  }
+}
+
+.valid_error {
+  margin-top: -10px;
+  margin-bottom: -10px;
+  color: #eb001b;
 }

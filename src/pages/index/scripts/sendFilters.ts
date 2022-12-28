@@ -97,20 +97,22 @@ export function getFiltersData(): FilterData {
         if (key == 'brand') {
           const brands = document.querySelectorAll<HTMLInputElement>('.checkbox__brands');
           brands.forEach(element => {
-            let elemName = element.parentNode!;
-              if (value.includes(elemName.textContent!)) {
-                element.checked = true;
-              }
+            let elemParent = element.parentNode!;
+            const elemName: HTMLSpanElement = elemParent.querySelector('.brand_name')!;
+            if (value.includes(elemName.textContent!)) {
+              element.checked = true;
+            }
           });
         }
 
         if (key == 'categories') {
           const categories = document.querySelectorAll<HTMLInputElement>('.checkbox__categories');
           categories.forEach(element => {
-            let elemName = element.parentNode!;
-              if (value.includes(elemName.textContent!)) {
-                element.checked = true;
-              }
+            let elemParent = element.parentNode!;
+            const elemName: HTMLSpanElement = elemParent.querySelector('.categories_name')!;
+            if (value.includes(elemName.textContent!)) {
+              element.checked = true;
+            }
           });
         }
      }

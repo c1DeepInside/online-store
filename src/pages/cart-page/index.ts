@@ -1,10 +1,13 @@
 import { promos } from '../../data/codes';
 import { products } from '../../data/products';
+
 import { Cart } from './scripts/cart';
 import { setupCheckoutModal } from './scripts/modal';
 import { performPagination } from './scripts/pagination';
+
 import './styles/style.scss';
 import { cartItems, updateCartSummary } from './utils';
+
 
 setupCheckoutModal();
 
