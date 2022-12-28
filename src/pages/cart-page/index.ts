@@ -43,6 +43,12 @@ function updateSummary() {
 
 function createCartEmpty() {
   const itemWrap: HTMLDivElement = document.querySelector('.cart_items_wrap')!;
+  const summaryWrap: HTMLDivElement = document.querySelector('.summary_wrap')!;
+  const cart: HTMLDivElement = document.querySelector('.cart')!;
+
+  summaryWrap.style.display = 'none';
+  cart.style.width = '100%';
+
   const empty = document.createElement('div');
   empty.classList.add('empty');
   empty.innerHTML = 'Cart is empty';

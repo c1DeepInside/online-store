@@ -124,18 +124,20 @@ class CartProduct {
     itemCountPlus.textContent = '+';
     itemCountParam.appendChild(itemCountPlus);
 
-    itemCountMinus.addEventListener('click', () => {
-      this.amount -= 1;
-    });
-
-    itemCountPlus.addEventListener('click', () => {
-      this.amount += 1;
-    });
-
     const itemCost: HTMLParagraphElement = document.createElement('p');
     itemCost.classList.add('item_cost');
     itemCost.textContent = `${this.totalPrice}₽`;
     itemCountWrap.appendChild(itemCost);
+
+    itemCountMinus.addEventListener('click', () => {
+      this.amount -= 1;
+      itemCost.textContent = `${this.product.price * this.amount}₽`;
+    });
+
+    itemCountPlus.addEventListener('click', () => {
+      this.amount += 1;
+      itemCost.textContent = `${this.product.price * this.amount}₽`;
+    });
     
     return this.htmlItem;
   }
