@@ -10,7 +10,6 @@ export function setupCheckoutModal() {
   });
 
   cross.addEventListener('click', closeOverlay);
-  modalOverlay.addEventListener('click', closeOverlay);
 
   function closeOverlay() {
     modalOverlay.classList.remove('active');

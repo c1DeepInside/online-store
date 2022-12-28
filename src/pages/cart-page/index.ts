@@ -12,10 +12,12 @@ import { cartItems, updateCartSummary } from './utils';
 
 setupCheckoutModal();
 
-validation();
+
 
 const cartProducts = products.filter((product) => cartItems.has(product.id));
 const cart = new Cart(cartProducts);
+
+validation(cart);
 
 const summaryCount = document.querySelector<HTMLElement>('.summary_count_number')!;
 const totalPrice = document.querySelector<HTMLElement>('.summary_cost_number')!;
