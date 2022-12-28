@@ -20,8 +20,8 @@ if (!product) {
     renderProduct(product);
 }
 
-const descriptionButton = document.querySelector('.description-btn')!;
-descriptionButton.addEventListener('click', () => {
+const descriptionButton: HTMLButtonElement = document.querySelector('.description-btn')!;
+descriptionButton.addEventListener('click', (): void => {
     if (cartItems.has(productId)) {
         cartItems.del(productId);
         descriptionButton.innerHTML = 'ADD TO CART';
@@ -31,4 +31,12 @@ descriptionButton.addEventListener('click', () => {
     }
 
     updateCartSummary();
+});
+
+const buy: HTMLButtonElement = document.querySelector('.buy')!;
+buy.addEventListener('click', (): void => {
+    if (!cartItems.has(productId)) {
+        cartItems.set(productId, 1);
+    }
+    window.location.assign('../cart?isOpenModal=true');
 });
