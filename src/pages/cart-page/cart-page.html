@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap" rel="stylesheet">
   <title>Cart</title>
 </head>
+
 <body>
   <header class="header">
     <div class="container">
@@ -34,7 +36,7 @@
         <h2 class="cart_h2">Your Order</h2>
         <div class="item_per_wrap">
           <p class="item_per_text">Items on page:</p>
-          <input type="number" id="item_per_page" class="item_per_page" value="3">
+          <input type="number" id="item_per_page" class="item_per_page" min="1" value="5">
         </div>
         <div class="cart_page_wrap">
           <p class="cart_page_text">Page:</p>
@@ -52,11 +54,22 @@
       </div>
       <div class="summary">
         <p class="summary_count">Products: <span class="summary_count_number">4</span></p>
-        <p class="summary_cost">Total: <span class="summary_cost_number">2000$</span></p>
+        <p class="summary_cost">Total:
+          <span class="summary_cost_number">2000$</span>
+          <span class="new-cost"></span>
+        </p>
+
+        <div class="drop-promocodes">
+        </div>
+
         <div class="summary_promocode">
           <div class="summary_arrow"><span class="summary_arrow_arrow">></span></div>
           <input type="text" id="promocode" placeholder="Promo code">
         </div>
+
+        <div class="add-promocodes">
+        </div>
+
         <button class="summary_button">BUY</button>
       </div>
     </div>
@@ -261,4 +274,5 @@
     <span class="overlay__cross"></span>
   </div>
 </body>
+
 </html>

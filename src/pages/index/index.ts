@@ -3,6 +3,9 @@ import { products } from "../../data/products";
 import { renderFilters } from './scripts/renderFilters';
 import { showFilters } from './scripts/showFilters';
 import { sortProducts } from './scripts/sortProducts';
+import { updateCartSummary } from '../cart-page/utils';
+
+updateCartSummary();
 
 showFilters(products);
 sortProducts();

@@ -1,6 +1,5 @@
 import { Product } from "../../../data/interfaces";
-import { checkInCart } from "../../index/scripts/addToCart";
-import { calculateCart } from "../../index/scripts/calculateCart";
+import { cartItems } from "../../cart-page/utils";
 
 export function renderProduct(product: Product) {
   const descriptionBlock: HTMLDivElement = document.querySelector('.description__inner')!;
@@ -98,7 +97,7 @@ export function renderProduct(product: Product) {
 
   const descriptionBtn: HTMLButtonElement = document.createElement('button');
   descriptionBtn.innerHTML = 'ADD TO CART';
-  if (checkInCart(product.id)) {
+  if (cartItems.has(product.id)) {
     descriptionBtn.innerHTML = 'DROP FROM CART';
   }
   descriptionBtn.classList.add('description-btn');
@@ -108,6 +107,4 @@ export function renderProduct(product: Product) {
   buyBtn.innerHTML = '$';
   buyBtn.classList.add('buy');
   btnContainer.appendChild(buyBtn);
-
-  calculateCart();
 }
