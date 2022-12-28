@@ -1,4 +1,6 @@
-export function validation(): void {
+import { Cart } from "./cart";
+
+export function validation(cart: Cart): void {
   const name: HTMLInputElement = document.querySelector('#overlay__name')!;
   const phone: HTMLInputElement = document.querySelector('#overlay__phone')!;
   const address: HTMLInputElement = document.querySelector('#overlay__address')!;
@@ -16,7 +18,14 @@ export function validation(): void {
 
   confirm.addEventListener('click', (): void => {
     const valid = new Data(name, phone, address, email, credit, validDate, cvv);
-    console.log(valid.isValid());
+     
+    if (valid.isValid()) {
+      closeModal();
+      cart.clear();
+      setTimeout((): void => {
+        window.location.replace('index.html');
+      }, 3000);   
+    }
   });
 
   phone.addEventListener('input', (): void => {
@@ -65,6 +74,23 @@ export function validation(): void {
       error.remove();
     }
   }
+}
+
+function closeModal(): void {
+  const overlay: HTMLDivElement = document.querySelector('.overlay')!; 
+  const overlayWrap: HTMLDivElement = document.querySelector('.overlay_wrap')!; 
+  overlay.classList.remove('active_flex');
+
+  let sec: number = 3;
+  const overlayRedirect: HTMLDivElement = document.createElement('div');
+  overlayRedirect.classList.add('overlay__redirect');
+  overlayRedirect.innerText = 'Thanks for your order. Redirect to the store ' + sec.toString();
+  overlayWrap.appendChild(overlayRedirect);
+
+  setInterval(() => {
+    sec -= 1;
+    overlayRedirect.innerText = 'Thanks for your order. Redirect to the store ' + sec.toString();
+  }, 1000);
 }
 
 function changeSystem(credit: string): void {
@@ -300,7 +326,7 @@ function isValidCVV(cvv: HTMLInputElement): boolean {
   let error: string[] = [];
   if (!valid) {
     cvv.classList.add('non_valid');
-    error.push('the number of entered digits in the CVV should be exactly 3');
+    error.push('The number of entered digits in the CVV should be exactly 3');
 
     if (!document.querySelector('.credit__cvv_error')) {
       const cvvError: HTMLParagraphElement = document.createElement('p');

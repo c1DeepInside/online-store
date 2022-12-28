@@ -4,6 +4,7 @@ import { products } from '../../data/products';
 import { Cart } from './scripts/cart';
 import { setupCheckoutModal } from './scripts/modal';
 import { performPagination } from './scripts/pagination';
+import { validation } from './scripts/validation';
 
 import './styles/style.scss';
 import { cartItems, updateCartSummary } from './utils';
@@ -11,8 +12,12 @@ import { cartItems, updateCartSummary } from './utils';
 
 setupCheckoutModal();
 
+
+
 const cartProducts = products.filter((product) => cartItems.has(product.id));
 const cart = new Cart(cartProducts);
+
+validation(cart);
 
 const summaryCount = document.querySelector<HTMLElement>('.summary_count_number')!;
 const totalPrice = document.querySelector<HTMLElement>('.summary_cost_number')!;
