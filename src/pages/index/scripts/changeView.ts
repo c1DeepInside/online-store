@@ -1,4 +1,4 @@
-export function changeView(): void {
+export function changeView() {
   const tiles: HTMLDivElement = document.querySelector('.view__tiles_wrap')!;
   const list: HTMLDivElement = document.querySelector('.view__list_wrap')!;
   const goodsItem = document.querySelectorAll<HTMLDivElement>('.goods__item')!;
@@ -26,7 +26,7 @@ export function changeView(): void {
 
   list.addEventListener('click', renderList);
 
-  function renderTiles(): void {
+  function renderTiles() {
     tiles.classList.add('active_view');
     list.classList.remove('active_view');
 
@@ -38,7 +38,7 @@ export function changeView(): void {
     }
   }
 
-  function renderList(): void {
+  function renderList() {
     list.classList.add('active_view');
     tiles.classList.remove('active_view');
 

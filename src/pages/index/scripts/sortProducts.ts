@@ -2,7 +2,7 @@ import { changeView } from "./changeView";
 
 export let sortVariable: number = 0; 
 
-export function sortProducts(): void {
+export function sortProducts() {
   changeView();
 
   const select: HTMLDivElement = document.querySelector('.select')!;
@@ -32,17 +32,17 @@ export function sortProducts(): void {
     element.addEventListener('click', pickOption);
   });
  
-  function showOptions(): void {
+  function showOptions() {
     optionsWrap.classList.toggle('active_flex');
   }
 
-  function hideOptions(event: Event): void {
+  function hideOptions(event: Event) {
     if (event.target !== select && event.target !== selectPick && event.target !== selectArrow) {
       optionsWrap.classList.remove('active_flex');
     }
   }
 
-  function pickOption(this: HTMLDivElement): void {
+  function pickOption(this: HTMLDivElement) {
     const pick: HTMLParagraphElement = this.querySelector('.select__option__text')!;
     selectPick.textContent = pick.textContent;
     for (let i = 0; i < options.length; i++) {

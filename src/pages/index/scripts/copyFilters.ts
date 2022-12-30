@@ -1,4 +1,4 @@
-export function copyFilters(): void {
+export function copyFilters() {
   const btn: HTMLButtonElement = document.querySelector('.filters__btn')!;
 
   btn.addEventListener('click', (): void => {
