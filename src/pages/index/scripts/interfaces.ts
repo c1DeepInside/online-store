@@ -4,7 +4,7 @@ export interface FilterData {
         max: number;
     };
     categories: string[];
-    inStock: {
+    stock: {
         min: number;
         max: number;
     };

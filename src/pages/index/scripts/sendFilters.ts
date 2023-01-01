@@ -15,7 +15,7 @@ export function getFiltersData(): FilterData {
 
       return checkedCategories;
     },
-    inStock: getSelectedPriceRange({ fromSilderId: '#fromInputStock', toSliderId: '#toInputStock', fromValueId: '#from-SliderStock', toValueId: '#to-SliderStock' }),
+    stock: getSelectedPriceRange({ fromSilderId: '#fromInputStock', toSliderId: '#toInputStock', fromValueId: '#from-SliderStock', toValueId: '#to-SliderStock' }),
     get brand(): string[] {
       const checkedBrand: string[] = [];
       const brands = document.querySelectorAll<HTMLInputElement>('.checkbox__brands')!;
@@ -43,8 +43,8 @@ export function getFiltersData(): FilterData {
       params.append('priceMin', this.price.min.toString());
       params.append('priceMax', this.price.max.toString());
 
-      params.append('StockMin', this.inStock.min.toString());
-      params.append('StockMax', this.inStock.max.toString());
+      params.append('StockMin', this.stock.min.toString());
+      params.append('StockMax', this.stock.max.toString());
 
       params.append('search', this.search.toString());
 
@@ -75,11 +75,11 @@ export function getFiltersData(): FilterData {
         }
 
         if (key == 'StockMin') {
-          this.inStock.min = +value;
+          this.stock.min = +value;
         }
     
         if (key == 'StockMax') {
-          this.inStock.max = +value;
+          this.stock.max = +value;
         }
 
         if (key == 'search') {
@@ -127,8 +127,8 @@ export function getFiltersData(): FilterData {
       this.search = '';
       this.price.min = 0;
       this.price.max = +maxPrice.max;
-      this.inStock.min = 0;
-      this.inStock.max = +maxInStock.max;
+      this.stock.min = 0;
+      this.stock.max = +maxInStock.max;
     }
   }
   return filters;

@@ -11,11 +11,11 @@ export function filterProducts(filterData: FilterData, products: Product[]): Pro
       return false;
     }
 
-    if (product.stock < filterData.inStock.min) {
+    if (product.stock < filterData.stock.min) {
       return false;
     }
 
-    if (product.stock > filterData.inStock.max) {
+    if (product.stock > filterData.stock.max) {
       return false;
     }
 

@@ -1,7 +1,7 @@
 import { Product } from "../../../data/interfaces";
 import { products } from "../../../data/products";
 import { filterProducts } from "./filter";
-import { RangeOptions } from "./interfaces";
+import { FilterData, RangeOptions } from "./interfaces";
 import { renderGoods } from "./render";
 import { getFiltersData } from "./sendFilters";
 
@@ -32,21 +32,34 @@ export function renderFilters(ranges: RangeOptions[]) {
 
   const resetFilters: HTMLElement = document.querySelector('.trash-container')!;
 
-  function render(this: HTMLInputElement | HTMLDivElement | HTMLElement) {
+  function render() {
     const filtersData = getFiltersData();
     window.history.replaceState({}, '', filtersData.getParams());
 
-
     const filteredProducts = filterProducts(filtersData, products);
-
-    if (this.classList.contains('checkbox__categories') || this.classList.contains('checkbox__brands')) {
-      filtersData.price = setInputs(filteredProducts, 'price');
-      filtersData.inStock = setInputs(filteredProducts, 'stock');
-      window.history.replaceState({}, '', filtersData.getParams());
-    }
 
     setNumbers(filteredProducts);
     renderGoods(filteredProducts);
+  }
+
+  function resetRanges() {
+      filtersData.price.min = 0;
+      filtersData.price.max = products.reduce((p, c) => Math.max(p, c.price), -Infinity);
+
+      filtersData.stock.min = 0;
+      filtersData.stock.max = products.reduce((p, c) => Math.max(p, c.stock), -Infinity);
+  }
+
+  function setRanges(filteredProducts: Product[]) {
+      const priceData = getRangeForAttribute(filteredProducts, 'price');
+      filtersData.price.min = priceData.min;
+      filtersData.price.max = priceData.max;
+
+      const stockData = getRangeForAttribute(filteredProducts, 'stock');
+      filtersData.stock.min = stockData.min;
+      filtersData.stock.max = stockData.max;
+
+      window.history.replaceState({}, '', filtersData.getParams());
   }
   
   tiles.addEventListener('click', render);
@@ -63,11 +76,21 @@ export function renderFilters(ranges: RangeOptions[]) {
   const brands = document.querySelectorAll<HTMLInputElement>('.checkbox__brands')!;
 
   categories.forEach(element => {
-    element.addEventListener('input', render);
+    element.addEventListener('input', () => {
+      resetRanges();
+      const filteredProducts = filterProducts(filtersData, products);
+      setRanges(filteredProducts);
+      render();
+    });
   });
 
   brands.forEach(element => {
-    element.addEventListener('input', render);
+    element.addEventListener('input', () => {
+      resetRanges();
+      const filteredProducts = filterProducts(filtersData, products);
+      setRanges(filteredProducts);
+      render();
+    });
   });
 
   options.forEach(element => {
@@ -98,40 +121,21 @@ function setNumbers(products: Product[]): void {
   }
 }
 
-function setInputs(products: Product[], theme: string): {min: number, max: number} {
+function getRangeForAttribute(
+  filteredProducts: Product[],
+  attrName: 'price' | 'stock',
+): {min: number, max: number} {
   if (products.length === 0) {
     return {min: 0, max: 0};
   } 
-  let min: number = theme === 'price' ? products[0].price : products[0].stock;
-  let max: number = 0;
 
-  products.forEach(element => {
-    const compare: number = theme === 'price' ? element.price : element.stock;
-    if (compare < min) {
-      min = compare;
-    }
-    if (compare > max) {
-      max = compare;
-    }
+  let min: number = Infinity;
+  let max: number = -Infinity;
+
+  filteredProducts.forEach(element => {
+    const attr: number = element[attrName];
+    [min, max] = [Math.min(min, attr), Math.max(max, attr)]
   });
-
-  let fromPrice: HTMLInputElement = document.querySelector('#fromInputStock')!;
-  let toPrice: HTMLInputElement = document.querySelector('#toInputStock')!;
-  let fromSlider: HTMLInputElement = document.querySelector('#from-SliderStock')!;
-  let toSlider: HTMLInputElement = document.querySelector('#to-SliderStock')!;
-
-  if (theme === 'price') {
-    fromPrice = document.querySelector('#fromInput')!;
-    toPrice = document.querySelector('#toInput')!;
-
-    fromSlider = document.querySelector('#from-Slider')!;
-    toSlider = document.querySelector('#to-Slider')!;
-  } 
-
-  fromPrice.value = min.toString();
-  toPrice.value = max.toString();
-  fromSlider.value = min.toString();
-  toSlider.value = max.toString();
 
   return {min, max};
 }
