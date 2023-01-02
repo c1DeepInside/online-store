@@ -3,6 +3,7 @@ import { cartItems, updateCartSummary } from "../../cart-page/utils";
 import { changeView } from "./changeView";
 import { itemsFound } from "./itemsFound";
 import { sortData } from "./sortData";
+import { sortVariable } from "./sortProducts";
 
 export function renderGoods(products: Product[]) {
     const catalog: HTMLDivElement = document.querySelector('.catalog__goods')!;
@@ -10,7 +11,7 @@ export function renderGoods(products: Product[]) {
 
     itemsFound(products);
 
-    const sortProducts = sortData(products);
+    const sortProducts = sortData(products, sortVariable);
 
     sortProducts.forEach((product) => {
         let goodsItem: HTMLDivElement = document.createElement('div');

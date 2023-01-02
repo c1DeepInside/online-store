@@ -1,4 +1,5 @@
 import { Cart } from "./cart";
+import { ValidData, ErrorDes } from "./interfaces";
 
 export function validation(cart: Cart): void {
   const name: HTMLInputElement = document.querySelector('#overlay__name')!;
@@ -118,23 +119,7 @@ function changeSystem(credit: string): void {
   }
 }
 
-
-interface validData {
-  readonly name: HTMLInputElement;
-  readonly phone: HTMLInputElement;
-  readonly address: HTMLInputElement;
-  readonly email: HTMLInputElement;
-  readonly credit: HTMLInputElement;
-  readonly validDate: HTMLInputElement;
-  readonly cvv: HTMLInputElement;
-}
-
-interface errorDes {
-  valid: boolean,
-  errors: string[]
-}
-
-class Data implements validData {
+class Data implements ValidData {
   name: HTMLInputElement;
   phone: HTMLInputElement;
   address: HTMLInputElement;
@@ -158,16 +143,16 @@ class Data implements validData {
     showErrors(this.name ,isValidName(this.name.value), 'nonCard');
     showErrors(this.phone ,isValidPhone(this.phone.value), 'nonCard');
     showErrors(this.email ,isValidEmail(this.email.value), 'nonCard');
-    showErrors(this.credit ,isValidCredit(this.credit.value), 'Card'); 
-    showErrors(this.validDate ,isValidDate(this.validDate.value), 'Card');
-    showErrors(this.cvv ,isValidCVV(this.cvv.value), 'Card');
+    showErrors(this.credit ,isValidCredit(this.credit.value), 'card'); 
+    showErrors(this.validDate ,isValidDate(this.validDate.value), 'card');
+    showErrors(this.cvv ,isValidCVV(this.cvv.value), 'card');
     return isValidAddress(this.address.value).valid && isValidName(this.name.value).valid && isValidPhone(this.phone.value).valid && isValidEmail(this.email.value).valid 
     && isValidCredit(this.credit.value).valid && isValidCVV(this.cvv.value).valid && isValidDate(this.validDate.value).valid;
   }
 }
 
 
-function isValidName(name: string): errorDes {
+export function isValidName(name: string): ErrorDes {
   const nameArr: string[] = name.split(' ');
   let valid: boolean = true;
   let error: string[] = [];
@@ -186,7 +171,7 @@ function isValidName(name: string): errorDes {
   return {'valid': valid, 'errors': error};
 }
 
-function isValidPhone(phone: string): errorDes {
+export function isValidPhone(phone: string): ErrorDes {
   const phoneText: string = phone;
   let valid: boolean = true;
   let error: string[] = [];
@@ -202,7 +187,7 @@ function isValidPhone(phone: string): errorDes {
   return {'valid': valid, 'errors': error};
 }
 
-function isValidAddress(address: string): errorDes {
+export function isValidAddress(address: string): ErrorDes {
   const addressArr: string[] = address.split(' ');
   let valid: boolean = true;
   let error: string[] = [];
@@ -221,7 +206,7 @@ function isValidAddress(address: string): errorDes {
   return {'valid': valid, 'errors': error};
 }
 
-function isValidEmail(email: string): errorDes {
+function isValidEmail(email: string): ErrorDes {
   const reg: RegExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   let valid = reg.test(email);
   let error: string[] = [];
@@ -232,7 +217,7 @@ function isValidEmail(email: string): errorDes {
   return {'valid': valid, 'errors': error}; 
 }
 
-function isValidCredit(credit: string): errorDes {
+function isValidCredit(credit: string): ErrorDes {
   let valid: boolean = credit.length >= 19;
   let error: string[] = [];
   if (!valid) {
@@ -243,7 +228,7 @@ function isValidCredit(credit: string): errorDes {
 }
 
 
-function isValidDate(date: string): errorDes {
+function isValidDate(date: string): ErrorDes {
   let valid: boolean = true;
   let error: string[] = [];
   if (date.length < 5) {
@@ -257,12 +242,12 @@ function isValidDate(date: string): errorDes {
       error.push('The month in the date cannot be more than 12');
     }
   }
-  
+
   return {'valid': valid, 'errors': error};
 }
 
-export function isValidCVV(cvv: string): errorDes {
-  let valid = cvv.length >= 3;
+export function isValidCVV(cvv: string): ErrorDes {
+  let valid = cvv.length === 3;
   let error: string[] = [];
 
   if (!valid) {
@@ -272,7 +257,7 @@ export function isValidCVV(cvv: string): errorDes {
   return {'valid': valid, 'errors': error};
 }
 
-function showErrors(input: HTMLInputElement, errorProp: errorDes, theme: string): void {
+function showErrors(input: HTMLInputElement, errorProp: ErrorDes, theme: string): void {
   if (!errorProp.valid) {
     input.classList.add('non_valid');
 
@@ -282,7 +267,7 @@ function showErrors(input: HTMLInputElement, errorProp: errorDes, theme: string)
       inputError.classList.add('valid_error');
       inputError.classList.add(input.id + '_error');
 
-      if (theme === 'Card') {
+      if (theme === 'card') {
         const overlayButton: HTMLButtonElement = document.querySelector('.overlay__confirm')!;
         overlayButton.parentNode?.insertBefore(inputError, overlayButton);
       } else {
