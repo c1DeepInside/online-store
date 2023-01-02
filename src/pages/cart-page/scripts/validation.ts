@@ -129,6 +129,11 @@ interface validData {
   readonly cvv: HTMLInputElement;
 }
 
+interface errorDes {
+  valid: boolean,
+  errors: string[]
+}
+
 class Data implements validData {
   name: HTMLInputElement;
   phone: HTMLInputElement;
@@ -149,21 +154,21 @@ class Data implements validData {
   }
 
   isValid(): boolean {    
-    isValidAddress(this.address);
-    isValidName(this.name);
-    isValidPhone(this.phone);
-    isValidEmail(this.email);
-    isValidCredit(this.credit); 
-    isValidCVV(this.cvv);
-    isValidDate(this.validDate);
-    return isValidAddress(this.address) && isValidName(this.name) && isValidPhone(this.phone) && isValidEmail(this.email) 
-    && isValidCredit(this.credit) && isValidCVV(this.cvv) && isValidDate(this.validDate);
+    showErrors(this.address ,isValidAddress(this.address.value), 'nonCard');
+    showErrors(this.name ,isValidName(this.name.value), 'nonCard');
+    showErrors(this.phone ,isValidPhone(this.phone.value), 'nonCard');
+    showErrors(this.email ,isValidEmail(this.email.value), 'nonCard');
+    showErrors(this.credit ,isValidCredit(this.credit.value), 'Card'); 
+    showErrors(this.validDate ,isValidDate(this.validDate.value), 'Card');
+    showErrors(this.cvv ,isValidCVV(this.cvv.value), 'Card');
+    return isValidAddress(this.address.value).valid && isValidName(this.name.value).valid && isValidPhone(this.phone.value).valid && isValidEmail(this.email.value).valid 
+    && isValidCredit(this.credit.value).valid && isValidCVV(this.cvv.value).valid && isValidDate(this.validDate.value).valid;
   }
 }
 
 
-function isValidName(name: HTMLInputElement): boolean {
-  const nameArr: string[] = name.value.split(' ');
+function isValidName(name: string): errorDes {
+  const nameArr: string[] = name.split(' ');
   let valid: boolean = true;
   let error: string[] = [];
   if (nameArr.length < 2) {
@@ -176,25 +181,13 @@ function isValidName(name: HTMLInputElement): boolean {
       error.push('The length of each word is at least 3 characters');
       break;
     }
-  };
-
-  if (!valid) {
-    name.classList.add('non_valid');
-
-    if (!document.querySelector('.overlay__name_error')) {
-      const nameError: HTMLParagraphElement = document.createElement('p');
-      nameError.textContent = error.join(', ');
-      nameError.classList.add('valid_error');
-      nameError.classList.add('overlay__name_error');
-
-      name.parentNode?.insertBefore(nameError, name.nextSibling);
-    }
   }
-  return valid;
+
+  return {'valid': valid, 'errors': error};
 }
 
-function isValidPhone(phone: HTMLInputElement): boolean {
-  const phoneText: string = phone.value;
+function isValidPhone(phone: string): errorDes {
+  const phoneText: string = phone;
   let valid: boolean = true;
   let error: string[] = [];
   if (phoneText[0] !== '+') {
@@ -205,23 +198,12 @@ function isValidPhone(phone: HTMLInputElement): boolean {
     valid = false;
     error.push('Must be at least 9 characters long');
   }
-  if (!valid) {
-    phone.classList.add('non_valid');
 
-    if (!document.querySelector('.overlay__phone_error')) {
-      const phoneError: HTMLParagraphElement = document.createElement('p');
-      phoneError.textContent = error.join(', ');
-      phoneError.classList.add('valid_error');
-      phoneError.classList.add('overlay__phone_error');
-
-      phone.parentNode?.insertBefore(phoneError, phone.nextSibling);
-    }
-  }
-  return valid;
+  return {'valid': valid, 'errors': error};
 }
 
-function isValidAddress(address: HTMLInputElement): boolean {
-  const addressArr: string[] = address.value.split(' ');
+function isValidAddress(address: string): errorDes {
+  const addressArr: string[] = address.split(' ');
   let valid: boolean = true;
   let error: string[] = [];
   if (addressArr.length < 3) {
@@ -234,109 +216,78 @@ function isValidAddress(address: HTMLInputElement): boolean {
       error.push('The length of each word is at least 5 characters');
       break;
     }
-  };
-  if (!valid) {
-    address.classList.add('non_valid');
-
-    if (!document.querySelector('.overlay__address_error')) {
-      const addressError: HTMLParagraphElement = document.createElement('p');
-      addressError.textContent = error.join(', ');
-      addressError.classList.add('valid_error');
-      addressError.classList.add('overlay__address_error');
-
-      address.parentNode?.insertBefore(addressError, address.nextSibling);
-    }
   }
-  return valid;
+
+  return {'valid': valid, 'errors': error};
 }
 
-function isValidEmail(email: HTMLInputElement): boolean {
+function isValidEmail(email: string): errorDes {
   const reg: RegExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  let valid = reg.test(email.value);
+  let valid = reg.test(email);
   let error: string[] = [];
   if (!valid) {
-    email.classList.add('non_valid');
     error.push('Must be an email');
-
-    if (!document.querySelector('.overlay__email_error')) {
-      const emailError: HTMLParagraphElement = document.createElement('p');
-      emailError.textContent = error.join(', ');
-      emailError.classList.add('valid_error');
-      emailError.classList.add('overlay__email_error');
-
-      email.parentNode?.insertBefore(emailError, email.nextSibling);
-    }
   }
-  return valid; 
+  
+  return {'valid': valid, 'errors': error}; 
 }
 
-function isValidCredit(credit: HTMLInputElement): boolean {
-  let valid: boolean = credit.value.length >= 19;
+function isValidCredit(credit: string): errorDes {
+  let valid: boolean = credit.length >= 19;
   let error: string[] = [];
   if (!valid) {
-    credit.classList.add('non_valid');
     error.push('The number of digits in the entered card number must be exactly 16');
-
-    if (!document.querySelector('.credit__number_error')) {
-      const creditError: HTMLParagraphElement = document.createElement('p');
-      creditError.textContent = error.join(', ');
-      creditError.classList.add('valid_error');
-      creditError.classList.add('credit__number_error');
-
-      const overlayButton: HTMLButtonElement = document.querySelector('.overlay__confirm')!;
-      overlayButton.parentNode?.insertBefore(creditError, overlayButton);
-    }
   }
-  return valid;
+
+  return {'valid': valid, 'errors': error};
 }
 
 
-function isValidDate(date: HTMLInputElement): boolean {
+function isValidDate(date: string): errorDes {
   let valid: boolean = true;
   let error: string[] = [];
-  if (date.value.length < 5) {
+  if (date.length < 5) {
     valid = false;
     error.push('The length of date should be equal to 4');
   }
-  if (date.value.length >= 2) {
-    const month: number = Number(date.value.substring(0, 2));
+  if (date.length >= 2) {
+    const month: number = Number(date.substring(0, 2));
     if (month > 12 || month < 1) {
       valid = false;
       error.push('The month in the date cannot be more than 12');
     }
   }
-  if (!valid) {
-    date.classList.add('non_valid');
-
-    if (!document.querySelector('.credit__date_error')) {
-      const dateError: HTMLParagraphElement = document.createElement('p');
-      dateError.textContent = error.join(', ');
-      dateError.classList.add('valid_error');
-      dateError.classList.add('credit__date_error');
-
-      const overlayButton: HTMLButtonElement = document.querySelector('.overlay__confirm')!;
-      overlayButton.parentNode?.insertBefore(dateError, overlayButton);
-    }
-  }
-  return valid;
+  
+  return {'valid': valid, 'errors': error};
 }
 
-function isValidCVV(cvv: HTMLInputElement): boolean {
-  let valid = cvv.value.length >= 3;
+export function isValidCVV(cvv: string): errorDes {
+  let valid = cvv.length >= 3;
   let error: string[] = [];
+
   if (!valid) {
-    cvv.classList.add('non_valid');
     error.push('The number of entered digits in the CVV should be exactly 3');
+  }
 
-    if (!document.querySelector('.credit__cvv_error')) {
-      const cvvError: HTMLParagraphElement = document.createElement('p');
-      cvvError.textContent = error.join(', ');
-      cvvError.classList.add('valid_error');
-      cvvError.classList.add('credit__cvv_error');
+  return {'valid': valid, 'errors': error};
+}
 
-      const overlayButton: HTMLButtonElement = document.querySelector('.overlay__confirm')!;
-      overlayButton.parentNode?.insertBefore(cvvError, overlayButton);
+function showErrors(input: HTMLInputElement, errorProp: errorDes, theme: string): void {
+  if (!errorProp.valid) {
+    input.classList.add('non_valid');
+
+    if (!document.querySelector('.' + input.id + '_error')) {
+      const inputError: HTMLParagraphElement = document.createElement('p');
+      inputError.textContent = errorProp.errors.join(', ');
+      inputError.classList.add('valid_error');
+      inputError.classList.add(input.id + '_error');
+
+      if (theme === 'Card') {
+        const overlayButton: HTMLButtonElement = document.querySelector('.overlay__confirm')!;
+        overlayButton.parentNode?.insertBefore(inputError, overlayButton);
+      } else {
+        input.parentNode?.insertBefore(inputError, input.nextSibling);
+      }
     }
   }
-  return valid;
 }
