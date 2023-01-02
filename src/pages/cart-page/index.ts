@@ -52,15 +52,11 @@ function createCartEmpty() {
   const cart: HTMLDivElement = document.querySelector('.cart')!;
 
   summaryWrap.style.display = 'none';
-  cart.style.width = '100%';
 
   const empty = document.createElement('div');
   empty.classList.add('empty');
   empty.innerHTML = 'Cart is empty';
   itemWrap.appendChild(empty);
-
-  const sum: HTMLDivElement = document.querySelector('.summary_wrap')!;
-  sum.style.display = 'none';
 }
 
 updateSummary();
