@@ -94,6 +94,7 @@ p {
   width: calc(100% - 320px);
   border: $SUB_COLOR_PAGE solid 1px;
   align-self: flex-start;
+  flex-grow: 1;
 }
 
 .img_wrap {

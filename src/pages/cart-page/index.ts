@@ -58,6 +58,9 @@ function createCartEmpty() {
   empty.classList.add('empty');
   empty.innerHTML = 'Cart is empty';
   itemWrap.appendChild(empty);
+
+  const sum: HTMLDivElement = document.querySelector('.summary_wrap')!;
+  sum.style.display = 'none';
 }
 
 updateSummary();

@@ -1,9 +1,9 @@
 import { Product } from "../../../data/interfaces";
 import { sortVariable } from "./sortProducts";
 
-export function sortData(products: Product[]): Product[] {
+export function sortData(products: Product[], sortV: number): Product[] {
   let arr = [];
-  switch(sortVariable) {
+  switch(sortV) {
     case 0:
       arr = products.sort((a: Product, b: Product): number => a.price - b.price);
       break;
