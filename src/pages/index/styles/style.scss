@@ -1,9 +1,9 @@
 @import '../../../normalize.css';
-@import '../../../common/variables.scss';
+@import 'src/common/variables.scss';
 @import './main.scss';
-@import '../../../common/header.scss';
+@import 'src/common/header.scss';
 @import './filters.scss';
 @import './search.scss';
 @import './goods.scss';
-@import '../../../common/footer.scss';
+@import 'src/common/footer.scss';
 
