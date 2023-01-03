@@ -1,6 +1,9 @@
+@import '../../../common/variables.scss';
+
 .description {
     font-family: $MAIN_FONT;
     color: $MAIN_COLOR_FONTS;
+    padding-bottom: 50px;
 
     &__inner {
         display: flex;

@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import '../../../common/variables.scss';
 
 .main {
   display: flex;
@@ -8,7 +8,7 @@
   gap: 20px;
   font-family: $MAIN_FONT;
   color: $MAIN_COLOR_FONTS;
-  min-height: calc(100vh - 270px - 120px);
+  min-height: calc(100vh - 272px - 120px);
 }
 
 .cart_param {

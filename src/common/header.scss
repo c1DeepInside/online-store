@@ -1,5 +1,11 @@
 @import './variables.scss';
 
+.container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
 .header {
   border-bottom: $SUB_COLOR_PAGE solid 1px;
 
