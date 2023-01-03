@@ -147,6 +147,16 @@
     margin-top: 50px;
 }
 
-@media screen and (max-width: 1040px){
-    
+@media screen and (max-width: 768px){
+    .catalog {
+        width: 100%;
+
+        &__title {
+            margin-bottom: 20px;
+        }
+
+        &__search {
+            margin-bottom: 20px;
+        }
+    }
 }

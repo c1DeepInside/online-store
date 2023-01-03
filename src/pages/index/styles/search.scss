@@ -2,7 +2,7 @@
 
 .catalog__filters {
     display: flex;
-    gap: 40px;
+    gap: 20px 40px;
     align-items: center;
 }
 
@@ -28,7 +28,7 @@
 
     &__input {
         height: 50px;
-        width: 310px;
+        width: 300px;
         padding-left: 10px;
         font-weight: 300;
         border: $SUB_COLOR_FONTS 1px solid;
@@ -137,6 +137,13 @@
     }
 }
 
+.show__filters {
+    display: none;
+}
+
+.hide__filters {
+    display: none;
+}
 
 .active_flex {
     display: flex;
@@ -148,7 +155,7 @@
 
 @media screen and (max-width: 1040px){
     .search__input {
-        width: 260px;
+        width: 253px; 
     }
 
     .select {
@@ -163,5 +170,44 @@
 
     .found__text {
         font-size: 18px;
+    }
+}
+
+
+@media screen and (max-width: 768px){
+    .catalog__filters {
+        flex-wrap: wrap;
+    }
+
+    .catalog__param {
+        justify-content: space-around;
+    }
+
+    .view {
+        display: none;
+    }
+
+    .show__filters {
+        cursor: pointer;
+        height: 50px;
+        width: 100%;
+        display: block;
+        background-color: transparent;
+        border: $SUB_COLOR_FONTS 1px solid;
+        color: $SUB_COLOR_FONTS;
+        letter-spacing: 2px;
+        font-size: 18px;
+    }
+
+    .hide__filters {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: url('../../../assets/icons/cross.svg') center;
+        background-size: cover;
+        height: 25px;
+        width: 25px;
+        cursor: pointer;
     }
 }
