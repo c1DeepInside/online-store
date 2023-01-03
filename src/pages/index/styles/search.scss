@@ -153,6 +153,12 @@
 
     .select {
         width: 150px;
+
+        &__option {
+            position: relative;
+            width: 150px;
+            z-index: 1;
+        }
     }
 
     .found__text {
