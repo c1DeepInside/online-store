@@ -1,6 +1,7 @@
 .container {
   width: 100%;
-  max-width: 1360px;
+  max-width: 1400px;
+  padding: 0 20px;
   margin: 0 auto;
 }
 
@@ -91,10 +92,18 @@
   color: $MAIN_COLOR_PAGE; 
 }
 
-@media screen and (max-width: 660px){
+@media screen and (max-width: 768px){
   .header {
-    height: 190px;
-    flex-wrap: wrap;
+
+    &__inner {
+      height: 190px;
+      flex-wrap: wrap;
+    }
+
+    .container {
+      padding: 0;
+    }
+
   }
 
   .space_wrap {
@@ -102,11 +111,14 @@
   }
 
   .logo_wrap {
+    border: none;
     height: 100px;
     width: 100%;
+    border-bottom:  $SUB_COLOR_PAGE solid 1px;
   }
 
   .cart_wrap {
+    border: none;
     height: 90px;
     width: 100%;
   }

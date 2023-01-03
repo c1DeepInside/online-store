@@ -6,11 +6,27 @@ import { RangeOptions } from "./interfaces";
 export function showFilters(products: Product[]) {
   copyFilters();
 
+  openModal();
+
   renderCheckboxsFilters(products, 'categories', '.filters__categories');
   renderCheckboxsFilters(products, 'brand', '.filters__brand');
 
   renderInputsRange(products, 'price', { fromSilderId: '#fromInput', toSliderId: '#toInput', fromValueId: '#from-Slider', toValueId: '#to-Slider' });
   renderInputsRange(products, 'inStock', { fromSilderId: '#fromInputStock', toSliderId: '#toInputStock', fromValueId: '#from-SliderStock', toValueId: '#to-SliderStock' });
+}
+
+function openModal(): void {
+  const show: HTMLButtonElement = document.querySelector('.show__filters')!;
+  const filters: HTMLDivElement = document.querySelector('.filters')!;
+  const crossFilters: HTMLSpanElement = document.querySelector('.hide__filters')!;
+
+  show.addEventListener('click', (): void => {
+    filters.classList.add('active__filters');
+  });
+
+  crossFilters.addEventListener('click', (): void => {
+    filters.classList.remove('active__filters');
+  });
 }
 
 function renderInputsRange(products: Product[], filterElem: string, { fromSilderId, toSliderId, fromValueId, toValueId }: RangeOptions) {

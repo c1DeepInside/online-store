@@ -12,6 +12,8 @@
     &__goods {
         display: flex;
         flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: center;
         gap: 30px 30px;
     }
 }
@@ -141,4 +143,18 @@
     justify-content: center;
     font-size: 21px;
     margin-top: 50px;
+}
+
+@media screen and (max-width: 768px){
+    .catalog {
+        width: 100%;
+
+        &__title {
+            margin-bottom: 20px;
+        }
+
+        &__search {
+            margin-bottom: 20px;
+        }
+    }
 }
