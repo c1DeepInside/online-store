@@ -145,3 +145,17 @@
 .active_view {
     background-color: $MAIN_COLOR_PAGE;
 }
+
+@media screen and (max-width: 1040px){
+    .search__input {
+        width: 260px;
+    }
+
+    .select {
+        width: 150px;
+    }
+
+    .found__text {
+        font-size: 18px;
+    }
+}
