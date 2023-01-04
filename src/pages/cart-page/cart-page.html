@@ -31,46 +31,52 @@
   </header>
 
   <main class="main">
-    <div class="cart">
-      <div class="cart_param">
-        <h2 class="cart_h2">Your Order</h2>
-        <div class="item_per_wrap">
-          <p class="item_per_text">Items on page:</p>
-          <input type="number" id="item_per_page" class="item_per_page" min="1" value="5">
+    <div class="container">
+      <div class="main__inner">
+        <div class="cart">
+          <div class="cart_param">
+            <h2 class="cart_h2">Your Order</h2>
+            <div class="cart_item_wrap">
+              <div class="item_per_wrap">
+                <p class="item_per_text">Items on page:</p>
+                <input type="number" id="item_per_page" class="item_per_page" min="1" value="5">
+              </div>
+              <div class="cart_page_wrap">
+                <p class="cart_page_text">Page:</p>
+                <div class="cart_page_minus_wrap"><span class="cart_page_minus">&#60;</span></div>
+                <div class="cart_page"><span class="cart_page_number">1</span></div>
+                <div class="cart_page_plus_wrap"><span class="cart_page_plus">></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="cart_items_wrap">
+          </div>
         </div>
-        <div class="cart_page_wrap">
-          <p class="cart_page_text">Page:</p>
-          <div class="cart_page_minus_wrap"><span class="cart_page_minus">&#60;</span></div>
-          <div class="cart_page"><span class="cart_page_number">1</span></div>
-          <div class="cart_page_plus_wrap"><span class="cart_page_plus">></span></div>
-        </div>
-      </div>
-      <div class="cart_items_wrap">
-      </div>
-    </div>
-    <div class="summary_wrap">
-      <div class="summary_h2_wrap">
-        <h2 class="summary_h2">Summary:</h2>
-      </div>
-      <div class="summary">
-        <p class="summary_count">Products: <span class="summary_count_number">4</span></p>
-        <p class="summary_cost">Total:
-          <span class="summary_cost_number">2000$</span>
-          <span class="new-cost"></span>
-        </p>
+        <div class="summary_wrap">
+          <div class="summary_h2_wrap">
+            <h2 class="summary_h2">Summary:</h2>
+          </div>
+          <div class="summary">
+            <p class="summary_count">Products: <span class="summary_count_number">4</span></p>
+            <p class="summary_cost">Total:
+              <span class="summary_cost_number">2000$</span>
+              <span class="new-cost"></span>
+            </p>
 
-        <div class="drop-promocodes">
-        </div>
+            <div class="drop-promocodes">
+            </div>
 
-        <div class="summary_promocode">
-          <div class="summary_arrow"><span class="summary_arrow_arrow">></span></div>
-          <input type="text" id="promocode" placeholder="Promo code">
-        </div>
+            <div class="summary_promocode">
+              <div class="summary_arrow"><span class="summary_arrow_arrow">></span></div>
+              <input type="text" id="promocode" placeholder="Promo code">
+            </div>
 
-        <div class="add-promocodes">
-        </div>
+            <div class="add-promocodes">
+            </div>
 
-        <button class="summary_button">BUY</button>
+            <button class="summary_button">BUY</button>
+          </div>
+        </div>
       </div>
     </div>
   </main>
@@ -251,7 +257,7 @@
       </div>
     </div>
   </footer>
-  
+
   <div class="overlay_wrap"></div>
   <div class="overlay">
     <p class="overlay__text">Personal details</p>
@@ -265,7 +271,7 @@
         <span class="credit__system"></span>
         <input type="text" id="credit__number" class="credit__number" placeholder="0000 0000 0000 0000">
         <input type="text" id="credit__date" class="credit__date" placeholder="Valid Thru">
-      </div>  
+      </div>
       <div class="overlay__credit_back">
         <div class="credit__line"></div>
         <input type="number" id="credit__cvv" class="credit__cvv" placeholder="CVV/CVC">
