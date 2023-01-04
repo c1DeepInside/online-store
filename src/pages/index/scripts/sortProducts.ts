@@ -24,6 +24,10 @@ export function sortProducts() {
     }
   }
 
+  if (sortS.indexOf(sorting) === -1) {
+    sorting = 'byPriceUp';
+  }
+
   sortVariable = sortS.indexOf(sorting);
 
   selectPick.textContent = options[sortVariable].querySelector('.select__option__text')!.textContent;
