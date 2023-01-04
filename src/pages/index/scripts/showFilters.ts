@@ -8,6 +8,8 @@ export function showFilters(products: Product[]) {
 
   openModal();
 
+  changeSmallView();
+
   renderCheckboxsFilters(products, 'categories', '.filters__categories');
   renderCheckboxsFilters(products, 'brand', '.filters__brand');
 
@@ -22,6 +24,15 @@ export function showFilters(products: Product[]) {
     toSliderId: '#toInputStock',
     fromValueId: '#from-SliderStock',
     toValueId: '#to-SliderStock',
+  });
+}
+
+function changeSmallView() {
+  const tiles: HTMLDivElement = document.querySelector('.view__tiles_wrap')!;
+  window.addEventListener('resize', (): void => {
+    if (document.documentElement.clientWidth <= 751) {
+      tiles.click();
+    }
   });
 }
 
