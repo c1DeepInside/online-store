@@ -206,8 +206,8 @@ export function isValidAddress(address: string): ErrorDes {
   return {'valid': valid, 'errors': error};
 }
 
-function isValidEmail(email: string): ErrorDes {
-  const reg: RegExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+export function isValidEmail(email: string): ErrorDes {
+  const reg: RegExp = /.+@.+\..+/i;
   let valid = reg.test(email);
   let error: string[] = [];
   if (!valid) {
@@ -217,7 +217,7 @@ function isValidEmail(email: string): ErrorDes {
   return {'valid': valid, 'errors': error}; 
 }
 
-function isValidCredit(credit: string): ErrorDes {
+export function isValidCredit(credit: string): ErrorDes {
   let valid: boolean = credit.length >= 19;
   let error: string[] = [];
   if (!valid) {
@@ -228,7 +228,7 @@ function isValidCredit(credit: string): ErrorDes {
 }
 
 
-function isValidDate(date: string): ErrorDes {
+export function isValidDate(date: string): ErrorDes {
   let valid: boolean = true;
   let error: string[] = [];
   if (date.length < 5) {
