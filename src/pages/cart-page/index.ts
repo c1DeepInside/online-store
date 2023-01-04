@@ -89,10 +89,9 @@ Object.entries(discounts).forEach(([key, value]) => {
 function onPromoInput() {
   const discount = input.value as keyof typeof promos;
 
+  addPromo.innerHTML = '';
   if (discount in promos && !discounts[discount]) {
     renderDiscount(discount);
-  } else {
-    addPromo.innerHTML = '';
   }
 }
 
