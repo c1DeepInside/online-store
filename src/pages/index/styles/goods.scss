@@ -95,6 +95,8 @@
 
 .goods-img {
     height: 230px;
+    width: 230px;
+    object-fit: contain;
 }
 
 .cart {
@@ -143,6 +145,13 @@
     justify-content: center;
     font-size: 21px;
     margin-top: 50px;
+}
+
+@media screen and (max-width: 1000px){
+    .goods-img-list {
+        width: 150px;
+        height: 150px;
+    }
 }
 
 @media screen and (max-width: 768px){
