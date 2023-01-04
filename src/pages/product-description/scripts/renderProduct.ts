@@ -73,10 +73,10 @@ export function renderProduct(product: Product) {
   categoryBlock.appendChild(categoryInfo);
 
   const fieldProducKey = [
-    { name: 'category', value: product.category },
-    { name: 'price', value: `${product.price.toString()} ₽` },
-    { name: 'in stock', value: product.stock.toString() },
-    { name: 'about product', value: product.description },
+    { name: 'Category', value: product.category },
+    { name: 'Price', value: `${product.price.toString()} ₽` },
+    { name: 'In stock', value: product.stock.toString() },
+    { name: 'About product', value: product.description },
   ];
 
   fieldProducKey.forEach((item) => {
