@@ -1,4 +1,4 @@
-import { isValidName } from "../pages/cart-page/scripts/validation";
+import { isValidName } from '../pages/cart-page/scripts/validation';
 
 describe('isValidName', () => {
   it('there should be 2 or more than 2 words', () => {
@@ -13,5 +13,5 @@ describe('isValidName', () => {
     expect(isValidName('Kekov Lo Lulzov').valid).toEqual(false);
     expect(isValidName('Kekov Lo Lu').valid).toEqual(false);
     expect(isValidName('Ke Lo Lu').valid).toEqual(false);
-  })
-})
+  });
+});

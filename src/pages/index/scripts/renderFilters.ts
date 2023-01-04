@@ -1,27 +1,25 @@
-import { Product } from "../../../data/interfaces";
-import { products } from "../../../data/products";
-import { filterProducts } from "./filter";
-import { FilterData, RangeOptions } from "./interfaces";
-import { renderGoods } from "./render";
-import { getFiltersData } from "./sendFilters";
+import { Product } from '../../../data/interfaces';
+import { products } from '../../../data/products';
+import { filterProducts } from './filter';
+import { RangeOptions } from './interfaces';
+import { renderGoods } from './render';
+import { getFiltersData } from './sendFilters';
 
 export function renderFilters(ranges: RangeOptions[]) {
   const filtersData = getFiltersData();
   filtersData.setParams(window.location.search);
 
-  ranges.forEach(element => {
-    const fromPrice: HTMLInputElement = document.querySelector(element.fromSilderId)!;
-    const toPrice: HTMLInputElement = document.querySelector(element.toSliderId)!;
-
-    const fromSlider: HTMLInputElement = document.querySelector(element.fromValueId)!;
-    const toSlider: HTMLInputElement = document.querySelector(element.toValueId)!;
+  ranges.forEach((element) => {
+    const fromPrice = document.querySelector<HTMLInputElement>(element.fromSilderId)!;
+    const toPrice = document.querySelector<HTMLInputElement>(element.toSliderId)!;
+    const fromSlider = document.querySelector<HTMLInputElement>(element.fromValueId)!;
+    const toSlider = document.querySelector<HTMLInputElement>(element.toValueId)!;
 
     fromSlider.addEventListener('mouseup', render);
     toSlider.addEventListener('mouseup', render);
     fromPrice.addEventListener('mouseup', render);
     toPrice.addEventListener('mouseup', render);
   });
-    
 
   const tiles: HTMLDivElement = document.querySelector('.view__tiles_wrap')!;
   const list: HTMLDivElement = document.querySelector('.view__list_wrap')!;
@@ -43,25 +41,25 @@ export function renderFilters(ranges: RangeOptions[]) {
   }
 
   function resetRanges() {
-      filtersData.price.min = 0;
-      filtersData.price.max = products.reduce((p, c) => Math.max(p, c.price), -Infinity);
+    filtersData.price.min = 0;
+    filtersData.price.max = products.reduce((p, c) => Math.max(p, c.price), -Infinity);
 
-      filtersData.stock.min = 0;
-      filtersData.stock.max = products.reduce((p, c) => Math.max(p, c.stock), -Infinity);
+    filtersData.stock.min = 0;
+    filtersData.stock.max = products.reduce((p, c) => Math.max(p, c.stock), -Infinity);
   }
 
   function setRanges(filteredProducts: Product[]) {
-      const priceData = getRangeForAttribute(filteredProducts, 'price');
-      filtersData.price.min = priceData.min;
-      filtersData.price.max = priceData.max;
+    const priceData = getRangeForAttribute(filteredProducts, 'price');
+    filtersData.price.min = priceData.min;
+    filtersData.price.max = priceData.max;
 
-      const stockData = getRangeForAttribute(filteredProducts, 'stock');
-      filtersData.stock.min = stockData.min;
-      filtersData.stock.max = stockData.max;
+    const stockData = getRangeForAttribute(filteredProducts, 'stock');
+    filtersData.stock.min = stockData.min;
+    filtersData.stock.max = stockData.max;
 
-      window.history.replaceState({}, '', filtersData.getParams());
+    window.history.replaceState({}, '', filtersData.getParams());
   }
-  
+
   tiles.addEventListener('click', render);
   list.addEventListener('click', render);
   searchField.addEventListener('input', render);
@@ -75,7 +73,7 @@ export function renderFilters(ranges: RangeOptions[]) {
   const categories = document.querySelectorAll<HTMLInputElement>('.checkbox__categories')!;
   const brands = document.querySelectorAll<HTMLInputElement>('.checkbox__brands')!;
 
-  categories.forEach(element => {
+  categories.forEach((element) => {
     element.addEventListener('input', () => {
       resetRanges();
       const filteredProducts = filterProducts(filtersData, products);
@@ -84,7 +82,7 @@ export function renderFilters(ranges: RangeOptions[]) {
     });
   });
 
-  brands.forEach(element => {
+  brands.forEach((element) => {
     element.addEventListener('input', () => {
       resetRanges();
       const filteredProducts = filterProducts(filtersData, products);
@@ -93,7 +91,7 @@ export function renderFilters(ranges: RangeOptions[]) {
     });
   });
 
-  options.forEach(element => {
+  options.forEach((element) => {
     element.addEventListener('click', render);
   });
 
@@ -105,13 +103,14 @@ function setNumbers(products: Product[]): void {
   setByTheme(products, 'brand');
 
   function setByTheme(products: Product[], theme: string): void {
-    let numbers = document.querySelectorAll('.current_number_' + theme);
-    
-    let categories: string[] = theme === 'categories' ? products.map(item => item.category) : products.map(item => item.brand);
+    const numbers = document.querySelectorAll('.current_number_' + theme);
 
-    numbers.forEach(number => {
-      let sum: number = 0;
-      categories.forEach(category => {
+    const categories: string[] =
+      theme === 'categories' ? products.map((item) => item.category) : products.map((item) => item.brand);
+
+    numbers.forEach((number) => {
+      let sum = 0;
+      categories.forEach((category) => {
         if (number.id.includes(category)) {
           sum += 1;
         }
@@ -121,21 +120,18 @@ function setNumbers(products: Product[]): void {
   }
 }
 
-function getRangeForAttribute(
-  filteredProducts: Product[],
-  attrName: 'price' | 'stock',
-): {min: number, max: number} {
+function getRangeForAttribute(filteredProducts: Product[], attrName: 'price' | 'stock'): { min: number; max: number } {
   if (products.length === 0) {
-    return {min: 0, max: 0};
-  } 
+    return { min: 0, max: 0 };
+  }
 
-  let min: number = Infinity;
-  let max: number = -Infinity;
+  let min = Infinity;
+  let max = -Infinity;
 
-  filteredProducts.forEach(element => {
+  filteredProducts.forEach((element) => {
     const attr: number = element[attrName];
-    [min, max] = [Math.min(min, attr), Math.max(max, attr)]
+    [min, max] = [Math.min(min, attr), Math.max(max, attr)];
   });
 
-  return {min, max};
+  return { min, max };
 }

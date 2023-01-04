@@ -1,5 +1,5 @@
-import { Product } from "../../../data/interfaces";
-import { cartItems } from "../../cart-page/utils";
+import { Product } from '../../../data/interfaces';
+import { cartItems } from '../../cart-page/utils';
 
 export function renderProduct(product: Product) {
   const descriptionBlock: HTMLDivElement = document.querySelector('.description__inner')!;
@@ -76,7 +76,7 @@ export function renderProduct(product: Product) {
     { name: 'category', value: product.category },
     { name: 'price', value: `${product.price.toString()} ₽` },
     { name: 'in stock', value: product.stock.toString() },
-    { name: 'about product', value: product.description }
+    { name: 'about product', value: product.description },
   ];
 
   fieldProducKey.forEach((item) => {

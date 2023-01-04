@@ -9,10 +9,7 @@ import { validation } from './scripts/validation';
 import './styles/style.scss';
 import { cartItems, updateCartSummary } from './utils';
 
-
 setupCheckoutModal();
-
-
 
 const cartProducts = products.filter((product) => cartItems.has(product.id));
 const cart = new Cart(cartProducts);
@@ -21,7 +18,7 @@ validation(cart);
 
 const summaryCount = document.querySelector<HTMLElement>('.summary_count_number')!;
 const totalPrice = document.querySelector<HTMLElement>('.summary_cost_number')!;
-let discounts: Partial<Record<keyof typeof promos, boolean>> = JSON.parse(localStorage.getItem('discounts') || '{}');
+const discounts: Partial<Record<keyof typeof promos, boolean>> = JSON.parse(localStorage.getItem('discounts') || '{}');
 
 const newCost: HTMLElement = document.querySelector('.new-cost')!;
 
@@ -31,11 +28,11 @@ function updateSummary() {
       return sum + promos[key as keyof typeof promos];
     }
     return sum;
-  }, 0)
+  }, 0);
 
   if (discount) {
     totalPrice.classList.add('old-cost');
-    const newPrice = Math.ceil(cart.totalPrice - (cart.totalPrice * discount / 100));
+    const newPrice = Math.ceil(cart.totalPrice - (cart.totalPrice * discount) / 100);
     newCost.innerHTML = `${newPrice}₽`;
   } else {
     totalPrice.classList.remove('old-cost');
@@ -49,7 +46,6 @@ function updateSummary() {
 function createCartEmpty() {
   const itemWrap: HTMLDivElement = document.querySelector('.cart_items_wrap')!;
   const summaryWrap: HTMLDivElement = document.querySelector('.summary_wrap')!;
-  const cart: HTMLDivElement = document.querySelector('.cart')!;
 
   summaryWrap.style.display = 'none';
 
@@ -88,7 +84,7 @@ Object.entries(discounts).forEach(([key, value]) => {
   if (value) {
     renderDiscount(key as keyof typeof promos);
   }
-})
+});
 
 function onPromoInput() {
   const discount = input.value as keyof typeof promos;
@@ -107,7 +103,7 @@ function renderDiscount(key: keyof typeof promos) {
 
   const actionButton = document.createElement('div');
   actionButton.classList.add('add-button');
-  
+
   if (discounts[key]) {
     actionButton.innerHTML = `DROP`;
     dropPromo.appendChild(promoItem);
@@ -124,9 +120,9 @@ function renderDiscount(key: keyof typeof promos) {
       actionButton.innerHTML = `DROP`;
       dropPromo.appendChild(promoItem);
     }
-    
+
     discounts[key] = !discounts[key];
-    onPromoInput()
+    onPromoInput();
 
     updateSummary();
   });

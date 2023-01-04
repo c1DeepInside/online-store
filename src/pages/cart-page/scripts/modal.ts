@@ -21,4 +21,3 @@ export function setupCheckoutModal() {
     overlay.classList.remove('active_flex');
   }
 }
-

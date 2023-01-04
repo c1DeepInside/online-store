@@ -1,5 +1,5 @@
-import { Product } from "../../../data/interfaces";
-import { FilterData } from "./interfaces";
+import { Product } from '../../../data/interfaces';
+import { FilterData } from './interfaces';
 
 export function filterProducts(filterData: FilterData, products: Product[]): Product[] {
   return products.filter((product) => {
@@ -31,14 +31,17 @@ export function filterProducts(filterData: FilterData, products: Product[]): Pro
       }
     }
 
-    if (filterData.search !== '' && !product.title.toLowerCase().includes(filterData.search.toLowerCase()) 
-      && !product.brand.toLowerCase().includes(filterData.search.toLowerCase()) 
-      && !product.description.toLowerCase().includes(filterData.search.toLowerCase())
-      && !product.price.toString().includes(filterData.search.toString())
-      && !product.stock.toString().includes(filterData.search.toString())) {
+    if (
+      filterData.search !== '' &&
+      !product.title.toLowerCase().includes(filterData.search.toLowerCase()) &&
+      !product.brand.toLowerCase().includes(filterData.search.toLowerCase()) &&
+      !product.description.toLowerCase().includes(filterData.search.toLowerCase()) &&
+      !product.price.toString().includes(filterData.search.toString()) &&
+      !product.stock.toString().includes(filterData.search.toString())
+    ) {
       return false;
     }
 
     return true;
-  })
+  });
 }

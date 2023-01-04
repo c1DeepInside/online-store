@@ -6,7 +6,7 @@ export function changeView() {
   const goodsItemText = document.querySelectorAll<HTMLDivElement>('.goods__item-text')!;
   const goodsImg = document.querySelectorAll<HTMLDivElement>('.goods-img')!;
 
-  let view: string = 'tiles'; 
+  let view = 'tiles';
 
   const params = new URLSearchParams(window.location.search);
 

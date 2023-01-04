@@ -1,4 +1,4 @@
-import { isValidPhone } from "../pages/cart-page/scripts/validation";
+import { isValidPhone } from '../pages/cart-page/scripts/validation';
 
 describe('isValidPhone', () => {
   it('the length should be more than 9', () => {
@@ -13,4 +13,4 @@ describe('isValidPhone', () => {
     expect(isValidPhone('375296073494').valid).toEqual(false);
     expect(isValidPhone('3752960666666').valid).toEqual(false);
   });
-})
+});

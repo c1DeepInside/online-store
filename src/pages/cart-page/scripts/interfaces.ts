@@ -9,6 +9,6 @@ export interface ValidData {
 }
 
 export interface ErrorDes {
-  valid: boolean,
-  errors: string[]
+  valid: boolean;
+  errors: string[];
 }

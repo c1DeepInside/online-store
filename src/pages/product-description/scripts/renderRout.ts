@@ -1,4 +1,4 @@
-import { Product } from "../../../data/interfaces";
+import { Product } from '../../../data/interfaces';
 
 export function renderRouting(product: Product) {
   const descriptionBlock: HTMLDivElement = document.querySelector('.rout')!;

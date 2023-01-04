@@ -1,4 +1,4 @@
-import { isValidCVV } from "../pages/cart-page/scripts/validation";
+import { isValidCVV } from '../pages/cart-page/scripts/validation';
 
 describe('isValidCVV', () => {
   it('the length should be exactly 3', () => {
@@ -7,4 +7,4 @@ describe('isValidCVV', () => {
     expect(isValidCVV('6666').valid).toEqual(false);
     expect(isValidCVV('').valid).toEqual(false);
   });
-})
+});

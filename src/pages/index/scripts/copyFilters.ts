@@ -7,10 +7,10 @@ export function copyFilters() {
       btn.innerText = 'Copy Filters';
       btn.disabled = false;
     }, 1000);
-    if(navigator.clipboard) {
+    if (navigator.clipboard) {
       navigator.clipboard.writeText(window.location.href);
     } else {
       console.log('Browser Not compatible');
     }
-  })
+  });
 }

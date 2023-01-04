@@ -1,5 +1,5 @@
-import { Product } from "../../../data/interfaces";
-import { cartItems } from "../utils";
+import { Product } from '../../../data/interfaces';
+import { cartItems } from '../utils';
 
 class CartProduct {
   public htmlItem?: HTMLDivElement;
@@ -7,9 +7,7 @@ class CartProduct {
 
   private subscribers: ((product: CartProduct) => void)[] = [];
 
-  constructor(
-    private product: Product,
-  ) {}
+  constructor(private product: Product) {}
 
   public get amount(): number {
     if (this.amountHtml == null) {
@@ -31,12 +29,12 @@ class CartProduct {
     cartItems.set(this.product.id, value);
     this.amountHtml.value = value.toString();
 
-    this.subscribers?.forEach(callback => {
+    this.subscribers?.forEach((callback) => {
       callback(this);
     });
   }
 
-  public get totalPrice(): number{
+  public get totalPrice(): number {
     return this.product.price * this.amount;
   }
 
@@ -138,7 +136,7 @@ class CartProduct {
       this.amount += 1;
       itemCost.textContent = `${this.product.price * this.amount}₽`;
     });
-    
+
     return this.htmlItem;
   }
 }
@@ -158,15 +156,11 @@ export class Cart {
   }
 
   public get itemsCount(): number {
-    return this.products.reduce(
-      (acc, cartProduct) => acc + cartProduct.amount, 0
-    )
+    return this.products.reduce((acc, cartProduct) => acc + cartProduct.amount, 0);
   }
 
   public get totalPrice(): number {
-    return this.products.reduce(
-      (acc, cartProduct) => acc + cartProduct.totalPrice, 0
-    );
+    return this.products.reduce((acc, cartProduct) => acc + cartProduct.totalPrice, 0);
   }
 
   public clear() {
@@ -180,11 +174,11 @@ export class Cart {
   }
 
   private createProducts(products: Product[]) {
-    products.forEach((product, idx) => {
+    products.forEach((product) => {
       const cartProduct = new CartProduct(product);
       cartProduct.onChange((product) => this.onProductChange(product));
 
-      const productHtml = cartProduct.createHtmlElement()
+      const productHtml = cartProduct.createHtmlElement();
       this.itemWrap.appendChild(productHtml);
       this.products.push(cartProduct);
     });
@@ -194,7 +188,8 @@ export class Cart {
 
   private updateProductIndexes() {
     this.products.forEach((product, idx) => {
-      const itemId = product.htmlItem?.querySelector('.item-id')!;
+      const itemId = product.htmlItem?.querySelector('.item-id');
+      if (!itemId) return;
       itemId.innerHTML = `${idx + 1}`;
     });
   }
@@ -203,7 +198,7 @@ export class Cart {
     if (product.amount == 0) {
       this.products.splice(this.products.indexOf(product), 1);
       product.destroy();
-    };
+    }
 
     this.subscribers.forEach((callback) => {
       callback();

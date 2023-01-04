@@ -1,7 +1,7 @@
-import { Product } from "../../../data/interfaces";
-import { products } from "../../../data/products";
-import { copyFilters } from "./copyFilters";
-import { RangeOptions } from "./interfaces";
+import { Product } from '../../../data/interfaces';
+import { products } from '../../../data/products';
+import { copyFilters } from './copyFilters';
+import { RangeOptions } from './interfaces';
 
 export function showFilters(products: Product[]) {
   copyFilters();
@@ -11,8 +11,18 @@ export function showFilters(products: Product[]) {
   renderCheckboxsFilters(products, 'categories', '.filters__categories');
   renderCheckboxsFilters(products, 'brand', '.filters__brand');
 
-  renderInputsRange(products, 'price', { fromSilderId: '#fromInput', toSliderId: '#toInput', fromValueId: '#from-Slider', toValueId: '#to-Slider' });
-  renderInputsRange(products, 'inStock', { fromSilderId: '#fromInputStock', toSliderId: '#toInputStock', fromValueId: '#from-SliderStock', toValueId: '#to-SliderStock' });
+  renderInputsRange(products, 'price', {
+    fromSilderId: '#fromInput',
+    toSliderId: '#toInput',
+    fromValueId: '#from-Slider',
+    toValueId: '#to-Slider',
+  });
+  renderInputsRange(products, 'inStock', {
+    fromSilderId: '#fromInputStock',
+    toSliderId: '#toInputStock',
+    fromValueId: '#from-SliderStock',
+    toValueId: '#to-SliderStock',
+  });
 }
 
 function openModal(): void {
@@ -29,11 +39,15 @@ function openModal(): void {
   });
 }
 
-function renderInputsRange(products: Product[], filterElem: string, { fromSilderId, toSliderId, fromValueId, toValueId }: RangeOptions) {
-  
-  const selectedCategory: number[] = filterElem === 'price' ? products.map(item => item.price) : products.map(item => item.stock);
+function renderInputsRange(
+  products: Product[],
+  filterElem: string,
+  { fromSilderId, toSliderId, fromValueId, toValueId }: RangeOptions
+) {
+  const selectedCategory: number[] =
+    filterElem === 'price' ? products.map((item) => item.price) : products.map((item) => item.stock);
 
-  const minNumber: number = 0;
+  const minNumber = 0;
   const maxNumber: number = Math.max.apply(null, selectedCategory);
 
   const fromPrice: HTMLInputElement = document.querySelector(fromSilderId)!;
@@ -61,18 +75,19 @@ function renderInputsRange(products: Product[], filterElem: string, { fromSilder
 }
 
 function renderCheckboxsFilters(products: Product[], theme: string, themeBlock: string) {
-  let categories: string[] = theme === 'categories' ? products.map(item => item.category) : products.map(item => item.brand);
-  let classInput = theme === 'categories' ? 'checkbox__categories': 'checkbox__brands';
+  let categories: string[] =
+    theme === 'categories' ? products.map((item) => item.category) : products.map((item) => item.brand);
+  const classInput = theme === 'categories' ? 'checkbox__categories' : 'checkbox__brands';
   categories = [...new Set(categories)];
 
   categories.sort((a: string, b: string): number => findMax(b, theme) - findMax(a, theme));
-  
+
   const filterCategories: HTMLDivElement = document.querySelector(themeBlock)!;
 
-  categories.forEach(category => {
+  categories.forEach((category) => {
     const filterItem: HTMLLabelElement = document.createElement('label');
     filterItem.classList.add('filters__theme-item');
-    
+
     const categoryName: HTMLSpanElement = document.createElement('span');
     categoryName.classList.add(theme + '_name');
     categoryName.innerHTML = category;
@@ -106,8 +121,8 @@ function renderCheckboxsFilters(products: Product[], theme: string, themeBlock: 
 }
 
 function findMax(category: string, theme: string): number {
-  let max: number = 0;
-  products.forEach(elem => {
+  let max = 0;
+  products.forEach((elem) => {
     if (theme === 'categories') {
       if (elem.category === category) {
         max++;

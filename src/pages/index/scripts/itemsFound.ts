@@ -1,4 +1,4 @@
-import { Product } from "../../../data/interfaces";
+import { Product } from '../../../data/interfaces';
 
 export function itemsFound(products: Product[]) {
   const foundText: HTMLSpanElement = document.querySelector('.found__number')!;
