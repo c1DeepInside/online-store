@@ -10,6 +10,8 @@
   &__container {
     display: flex;
     gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   &__img {
@@ -51,6 +53,26 @@
 
     &:hover {
       transform: scale(1.05);
+    }
+  }
+}
+
+
+@media screen and (max-width: 779px){
+  .main {
+
+    &__error {
+      font-size: 64px;
+      margin-top: 0px;
+    }
+
+    &__des {
+      margin-top: 0px;
+      font-size: 32px;
+    }
+    
+    &__info_wrap {
+      gap: 20px;
     }
   }
 }
