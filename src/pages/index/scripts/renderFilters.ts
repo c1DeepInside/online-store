@@ -62,7 +62,12 @@ export function renderFilters(ranges: RangeOptions[]) {
 
   tiles.addEventListener('click', render);
   list.addEventListener('click', render);
-  searchField.addEventListener('input', render);
+  searchField.addEventListener('input', () => {
+    resetRanges();
+    const filteredProducts = filterProducts(filtersData, products);
+    setRanges(filteredProducts);
+    render();
+  });
 
   resetFilters.addEventListener('click', () => {
     filtersData.reset();
