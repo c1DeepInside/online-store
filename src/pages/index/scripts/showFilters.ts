@@ -31,7 +31,9 @@ function changeSmallView() {
   const tiles: HTMLDivElement = document.querySelector('.view__tiles_wrap')!;
   window.addEventListener('resize', (): void => {
     if (document.documentElement.clientWidth <= 751) {
-      tiles.click();
+      if (!tiles.classList.contains('active_view')) {
+        tiles.click();
+      }
     }
   });
 }
