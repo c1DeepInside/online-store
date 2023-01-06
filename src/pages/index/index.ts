@@ -18,3 +18,5 @@ renderFilters([
     toValueId: '#to-SliderStock',
   },
 ]);
+
+console.log('300/300 All tasks are completed! \nPromo codes: rs, epm.');
