@@ -1,5 +1,3 @@
-@import './variables.scss';
-
 .overlay_wrap {
   position: fixed;
   top: 0;
@@ -9,7 +7,6 @@
   overflow: auto;
   background-color: rgba($color: #000000, $alpha: 0.85);
   display: none;
-  cursor: pointer;
 }
 
 .overlay {
@@ -60,6 +57,18 @@
     padding: 20px 20px 0 20px;
   }
 
+  &__credit_master {
+    background: linear-gradient(247.26deg, #eb001b -44.3%, #f79e1b 101.76%);
+  }
+
+  &__credit_visa {
+    background: linear-gradient(249.12deg, #24418e, #046cca);
+  }
+
+  &__credit_american {
+    background: #016fd0;
+  }
+
   &__credit_card {
     position: relative;
   }
@@ -101,9 +110,26 @@
 
 .credit__system {
   display: block;
+  width: 40px;
+  height: 25px;
+  background: url('../../../assets/icons/credit.svg') center;
+  background-size: cover;
+}
+
+.credit__visa {
+  background: url('../../../assets/icons/Visa.svg') center;
+  background-size: cover;
+}
+
+.credit__master {
+  background: url('../../../assets/icons/mastercard-bg.svg') center;
+  background-size: cover;
+}
+
+.credit__american {
   width: 60px;
   height: 25px;
-  background: url('../../../assets/icons/Visa.svg') center;
+  background: url('../../../assets/icons/american-express.svg') center;
   background-size: cover;
 }
 
@@ -179,4 +205,89 @@
 
 .active_flex {
   display: flex;
+}
+
+.non_valid {
+  border: #eb001b 1px solid;
+  color: #eb001b;
+
+  &::-webkit-input-placeholder {
+    color: #eb001b;
+    opacity: 0.7;
+  }
+}
+
+.valid_error {
+  margin-top: -10px;
+  margin-bottom: -10px;
+  color: #eb001b;
+}
+
+.overlay__redirect {
+  padding: 15px;
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  font-size: 21px;
+  transform: translate(-50%, -50%);
+  color: $MAIN_COLOR_FONTS;
+  font-family: $MAIN_FONT;
+  background-color: #fff;
+  border: $SUB_COLOR_PAGE 1px solid;
+}
+
+@media screen and (max-width: 890px) {
+  .overlay {
+    width: 90%;
+  }
+
+  .overlay__name, 
+  .overlay__phone, 
+  .overlay__address, 
+  .overlay__email {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 545px) {
+  .overlay__credit {
+    width: 250px;
+  }
+
+  .overlay__credit_back {
+    width: 250px;
+  }
+
+  .credit__number {
+    width: 200px;
+  }
+
+  .overlay__confirm {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .overlay__credit {
+    width: 300px;
+    margin-right: 0;
+  }
+
+  .overlay__credit_back {
+    width: 300px;
+    top: 100px;
+    left: 0;
+  }
+
+  .credit__number {
+    width: 210px;
+  }
+
+  .overlay__confirm {
+    margin-top: 100px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+
 }

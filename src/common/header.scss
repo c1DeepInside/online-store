@@ -1,5 +1,11 @@
+.container {
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
 .header {
-  margin-bottom: 50px;
   border-bottom: $SUB_COLOR_PAGE solid 1px;
 
   &__inner {
@@ -10,10 +16,9 @@
 }
 
 .logo_wrap {
-  width: 400px;
-  height: 100%;
-  border-right: $SUB_COLOR_PAGE solid 1px;
+  width: 360px;
   display: flex;
+  border-right: $SUB_COLOR_PAGE solid 1px;
   align-items: center;
   justify-content: center;
 }
@@ -29,7 +34,7 @@
 }
 
 .logo {
-  background: url('/src/assets/icons/logotype.svg') center;
+  background: url('../../../assets/icons/logotype.svg') center;
   display: block;
   background-size: cover;
   width: 100%;
@@ -42,8 +47,8 @@
 
 .cart_wrap {
   width: 260px;
-  border-left: $SUB_COLOR_PAGE solid 1px;
   display: flex;
+  border-left: $SUB_COLOR_PAGE solid 1px;
   justify-content: center;
   align-items: center;
 }
@@ -75,7 +80,7 @@
 }
 
 .cart_icon {
-  background: url('/src/assets/icons/cart.svg') center;
+  background: url('../../../assets/icons/cart.svg') center;
   display: block;
   background-size: cover;
   width: 50px;
@@ -84,13 +89,21 @@
 
 .total_products,
 .total_cost {
-  color: $MAIN_COLOR_PAGE;
+  color: $MAIN_COLOR_PAGE; 
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 768px){
   .header {
-    height: 190px;
-    flex-wrap: wrap;
+
+    &__inner {
+      height: 190px;
+      flex-wrap: wrap;
+    }
+
+    .container {
+      padding: 0;
+    }
+
   }
 
   .space_wrap {
@@ -98,11 +111,14 @@
   }
 
   .logo_wrap {
+    border: none;
     height: 100px;
     width: 100%;
+    border-bottom:  $SUB_COLOR_PAGE solid 1px;
   }
 
   .cart_wrap {
+    border: none;
     height: 90px;
     width: 100%;
   }

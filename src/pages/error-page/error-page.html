@@ -8,16 +8,21 @@
 </head>
 <body>
   <header class="header">
-    <div class="header_container">
-      <div class="logo_wrap">
-      <a class="logo_link" href="./index.html"><span class="logo"></span></a>
-      </div>
-      <div class="space_wrap"></div>
-      <div class="cart_wrap">
-        <a class="cart_link" href="./cart-page.html">
-          <span class="cart_icon"></span>
-          <p class="cart_total"><span class="total_products">3</span> Products - <span class="total_cost">1000$</span></p>
-        </a>
+    <div class="container">
+      <div class="header__inner">
+        <div class="logo_wrap">
+          <a class="logo_link" href="/"><span class="logo"></span>
+          </a>
+        </div>
+        <div class="space_wrap"></div>
+        <div class="cart_wrap">
+          <a class="cart_link" href="/cart">
+            <span class="cart_icon"></span>
+            <p class="cart_total">
+              <span class="total_products">3</span> Products - <span class="total_cost">1000$</span>
+            </p>
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -29,7 +34,7 @@
       <div class="main__info_wrap">
         <p class="main__error">404</p>
         <p class="main__des">Page not found</p>
-        <button class="main__button">Go Home</button>
+        <a href="/"><button class="main__button">Go Home</button></a>
       </div>
     </div>
   </main>
@@ -39,7 +44,9 @@
     <div class="container">
       <div class="footer__inner">
         <div class="footer__logo">
-          <a href="./index.html"><img class="pet-logo" src="../../assets/icons/logotype.svg" alt="logotype"></a>
+          <a href="./index.html">
+            <img class="pet-logo" src="/src/assets/icons/logotype.svg" alt="logotype">
+          </a>
           <p class="pet-logo__about">the largest chain of pet stores and online store with delivery</p>
         </div>
 
@@ -172,6 +179,7 @@
               </g>
             </svg>
           </a>
+          <p class="footer__year">2023</p>
         </div>
 
         <div class="footer__contacts">
@@ -204,9 +212,6 @@
             <a href="https://github.com/c1DeepInside" class="footer__contacts-item">c1DeepInside</a>
           </div>
         </div>
-
-
-
       </div>
     </div>
   </footer>

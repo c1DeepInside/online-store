@@ -1,5 +1,6 @@
 @import '../../../normalize.css';
-@import './header.scss';
+@import 'src/common/variables.scss';
+@import 'src/common/header.scss';
 @import './cart-page.scss';
-@import './footer.scss';
+@import 'src/common/footer.scss';
 @import './modal.scss';

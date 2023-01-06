@@ -61,7 +61,8 @@ const baseConfig = {
             new HtmlWebpackPlugin({
                 template: path.resolve(__dirname, `./src/pages/${page}/${page}.html`),
                 filename: `${page}.html`,
-                chunks: [getChunk(page)]
+                chunks: [getChunk(page)],
+                favicon: path.resolve(__dirname, './src/assets/icons/cart.ico'),
             })
         )),
         new CleanWebpackPlugin(),
