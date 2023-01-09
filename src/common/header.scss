@@ -34,7 +34,7 @@
 }
 
 .logo {
-  background: url('../../../assets/icons/logotype.svg') center;
+  background: url('/src/assets/icons/logotype.svg') center;
   display: block;
   background-size: cover;
   width: 100%;
@@ -80,7 +80,7 @@
 }
 
 .cart_icon {
-  background: url('../../../assets/icons/cart.svg') center;
+  background: url('/src/assets/icons/cart.svg') center;
   display: block;
   background-size: cover;
   width: 50px;

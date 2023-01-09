@@ -19,5 +19,8 @@ export function setupCheckoutModal() {
   function closeOverlay() {
     modalOverlay.classList.remove('active');
     overlay.classList.remove('active_flex');
+    if (window.location.search === '?isOpenModal=true') {
+      window.location.href = window.location.pathname;
+    }
   }
 }
