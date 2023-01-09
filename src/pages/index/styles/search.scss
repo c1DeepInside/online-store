@@ -1,6 +1,6 @@
 .catalog__filters {
     display: flex;
-    gap: 20px 40px;
+    gap: 20px 50px;
     align-items: center;
 }
 
@@ -25,6 +25,7 @@
     }
 
     &__input {
+        border-radius: 0;
         height: 50px;
         width: 300px;
         padding-left: 10px;
