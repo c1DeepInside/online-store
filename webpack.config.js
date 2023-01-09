@@ -40,7 +40,7 @@ const baseConfig = {
                 use: 'ts-loader' },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
+                type: 'asset/resource'
             },
             {
                 test: /\.html$/i,
@@ -50,19 +50,22 @@ const baseConfig = {
     },
     resolve: {
         extensions: ['.ts', '.js'],
+        alias: {
+            '/src': path.resolve(__dirname, 'src')
+        }
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, '../dist'),
-        assetModuleFilename: './src/assets/[name].[ext]'
+        path: path.resolve(__dirname, 'dist'),
+        assetModuleFilename: 'src/assets/[name][ext]'
     },
     plugins: [
         ...getPages().map((page) => (
             new HtmlWebpackPlugin({
-                template: path.resolve(__dirname, `./src/pages/${page}/${page}.html`),
+                template: path.resolve(__dirname, `src/pages/${page}/${page}.html`),
                 filename: `${page}.html`,
                 chunks: [getChunk(page)],
-                favicon: path.resolve(__dirname, './src/assets/icons/cart.ico'),
+                favicon: path.resolve(__dirname, 'src/assets/icons/cart.ico'),
             })
         )),
         new CleanWebpackPlugin(),
