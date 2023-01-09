@@ -47,7 +47,7 @@ itemPerPageHtml.addEventListener('input', () => {
 });
 
 pageMinus.addEventListener('click', () => {
-  if (page - 1 == 0) {
+  if (page - 1 <= 0) {
     return;
   }
 
