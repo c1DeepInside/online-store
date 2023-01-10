@@ -191,7 +191,7 @@ export function isValidPhone(phone: string): ErrorDes {
     valid = false;
     error.push('Must start with "+"');
   }
-  if (phoneText.length < 9) {
+  if (phoneText.length < 10) {
     valid = false;
     error.push('Must be at least 9 characters long');
   }
