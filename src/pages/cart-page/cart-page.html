@@ -75,6 +75,8 @@
             </div>
 
             <button class="summary_button">BUY</button>
+
+            <p class="test_promo">Test promo codes: 'rs', 'epm'</p>
           </div>
         </div>
       </div>
@@ -258,28 +260,30 @@
     </div>
   </footer>
 
-  <div class="overlay_wrap"></div>
-  <div class="overlay">
-    <p class="overlay__text">Personal details</p>
-    <input type="text" id="overlay__name" class="overlay__name" name="name" placeholder="Name">
-    <input type="tel" id="overlay__phone" class="overlay__phone" name="phone" placeholder="Phone number">
-    <input type="text" id="overlay__address" class="overlay__address" name="address" placeholder="Delivery address">
-    <input type="email" id="overlay__email" class="overlay__email" name="email" placeholder="E-mail">
-    <p class="overlay__credit_text">Credit card details</p>
-    <div class="overlay__credit_card">
-      <div class="overlay__credit">
-        <span class="credit__system"></span>
-        <input type="text" id="credit__number" class="credit__number" placeholder="0000 0000 0000 0000">
-        <input type="text" id="credit__date" class="credit__date" placeholder="Valid Thru">
+  <div class="overlay_wrap">
+    <div class="overlay">
+      <p class="overlay__text">Personal details</p>
+      <input type="text" id="overlay__name" class="overlay__name" name="name" placeholder="Name">
+      <input type="tel" id="overlay__phone" class="overlay__phone" name="phone" placeholder="Phone number">
+      <input type="text" id="overlay__address" class="overlay__address" name="address" placeholder="Delivery address">
+      <input type="email" id="overlay__email" class="overlay__email" name="email" placeholder="E-mail">
+      <p class="overlay__credit_text">Credit card details</p>
+      <div class="overlay__credit_card">
+        <div class="overlay__credit">
+          <span class="credit__system"></span>
+          <input type="text" id="credit__number" class="credit__number" placeholder="0000 0000 0000 0000">
+          <input type="text" id="credit__date" class="credit__date" placeholder="Valid Thru">
+        </div>
+        <div class="overlay__credit_back">
+          <div class="credit__line"></div>
+          <input type="number" id="credit__cvv" class="credit__cvv" placeholder="CVV/CVC">
+        </div>
       </div>
-      <div class="overlay__credit_back">
-        <div class="credit__line"></div>
-        <input type="number" id="credit__cvv" class="credit__cvv" placeholder="CVV/CVC">
-      </div>
+      <button class="overlay__confirm">CONFIRM</button>
+      <span class="overlay__cross"></span>
     </div>
-    <button class="overlay__confirm">CONFIRM</button>
-    <span class="overlay__cross"></span>
   </div>
+ 
 </body>
 
 </html>

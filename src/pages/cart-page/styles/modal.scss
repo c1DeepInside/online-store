@@ -4,9 +4,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
   background-color: rgba($color: #000000, $alpha: 0.85);
   display: none;
+  overflow: auto;
 }
 
 .overlay {
@@ -18,10 +18,8 @@
   display: none;
   flex-direction: column;
   padding: 20px;
-  position: fixed;
-  left: 50%;
-  top: 45%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  margin: 100px auto;
   gap: 20px;
   align-items: center;
 
@@ -236,6 +234,11 @@
   border: $SUB_COLOR_PAGE 1px solid;
 }
 
+.test_promo {
+  font-size: 16px;
+  color: $SUB_COLOR_FONTS;
+}
+
 @media screen and (max-width: 890px) {
   .overlay {
     width: 90%;
@@ -269,12 +272,12 @@
 
 @media screen and (max-width: 470px) {
   .overlay__credit {
-    width: 300px;
+    width: 260px;
     margin-right: 0;
   }
 
   .overlay__credit_back {
-    width: 300px;
+    width: 260px;
     top: 100px;
     left: 0;
   }
@@ -286,8 +289,4 @@
   .overlay__confirm {
     margin-top: 100px;
   }
-}
-
-@media screen and (max-width: 470px) {
-
 }
