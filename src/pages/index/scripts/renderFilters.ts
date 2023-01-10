@@ -9,17 +9,37 @@ export function renderFilters(ranges: RangeOptions[]) {
   const filtersData = getFiltersData();
   filtersData.setParams(window.location.search);
 
+  const inputArr: string[][] = [];
+
   ranges.forEach((element) => {
     const fromPrice = document.querySelector<HTMLInputElement>(element.fromSilderId)!;
     const toPrice = document.querySelector<HTMLInputElement>(element.toSliderId)!;
     const fromSlider = document.querySelector<HTMLInputElement>(element.fromValueId)!;
     const toSlider = document.querySelector<HTMLInputElement>(element.toValueId)!;
 
-    fromSlider.addEventListener('mouseup', render);
-    toSlider.addEventListener('mouseup', render);
-    fromPrice.addEventListener('mouseup', render);
-    toPrice.addEventListener('mouseup', render);
+    inputArr.push(Object.values(element));
+
+    fromSlider.addEventListener('mouseup', slidersRender);
+    toSlider.addEventListener('mouseup', slidersRender);
+    fromPrice.addEventListener('mouseup', slidersRender);
+    toPrice.addEventListener('mouseup', slidersRender);
   });
+
+  function slidersRender(this: HTMLInputElement) {
+    if (inputArr[0].includes('#' + this.id)) {
+      resetRanges('price');
+      const filteredProducts = filterProducts(filtersData, products);
+      setRanges(filteredProducts, 'price');
+    }
+
+    if (inputArr[1].includes('#' + this.id)) {
+      resetRanges('stock');
+      const filteredProducts = filterProducts(filtersData, products);
+      setRanges(filteredProducts, 'stock');
+    }
+
+    render();
+  }
 
   const tiles: HTMLDivElement = document.querySelector('.view__tiles_wrap')!;
   const list: HTMLDivElement = document.querySelector('.view__list_wrap')!;
@@ -40,22 +60,29 @@ export function renderFilters(ranges: RangeOptions[]) {
     renderGoods(filteredProducts);
   }
 
-  function resetRanges() {
-    filtersData.price.min = 0;
-    filtersData.price.max = products.reduce((p, c) => Math.max(p, c.price), -Infinity);
-
-    filtersData.stock.min = 0;
-    filtersData.stock.max = products.reduce((p, c) => Math.max(p, c.stock), -Infinity);
+  function resetRanges(range = 'all') {
+    if (range === 'stock' || range === 'all') {
+      filtersData.price.min = 0;
+      filtersData.price.max = products.reduce((p, c) => Math.max(p, c.price), -Infinity);
+    }
+    if (range === 'price' || range === 'all') {
+      filtersData.stock.min = 0;
+      filtersData.stock.max = products.reduce((p, c) => Math.max(p, c.stock), -Infinity);
+    }
   }
 
-  function setRanges(filteredProducts: Product[]) {
-    const priceData = getRangeForAttribute(filteredProducts, 'price');
-    filtersData.price.min = priceData.min;
-    filtersData.price.max = priceData.max;
+  function setRanges(filteredProducts: Product[], range = 'all') {
+    if (range === 'stock' || range === 'all') {
+      const priceData = getRangeForAttribute(filteredProducts, 'price');
+      filtersData.price.min = priceData.min;
+      filtersData.price.max = priceData.max;
+    }
 
-    const stockData = getRangeForAttribute(filteredProducts, 'stock');
-    filtersData.stock.min = stockData.min;
-    filtersData.stock.max = stockData.max;
+    if (range === 'price' || range === 'all') {
+      const stockData = getRangeForAttribute(filteredProducts, 'stock');
+      filtersData.stock.min = stockData.min;
+      filtersData.stock.max = stockData.max;
+    }
 
     window.history.replaceState({}, '', filtersData.getParams());
   }
@@ -100,7 +127,7 @@ export function renderFilters(ranges: RangeOptions[]) {
     element.addEventListener('click', render);
   });
 
-  render.apply(searchField);
+  render();
 }
 
 function setNumbers(products: Product[]): void {
