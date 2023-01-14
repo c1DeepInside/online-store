@@ -1,6 +1,8 @@
+import { assertUnreachable } from '../../../common/scripts/utils';
 import { Product } from '../../../data/interfaces';
 import { products } from '../../../data/products';
 import { copyFilters } from './copyFilters';
+import { CheckboxTheme } from './enums';
 import { RangeOptions } from './interfaces';
 
 export function showFilters(products: Product[]) {
@@ -10,8 +12,8 @@ export function showFilters(products: Product[]) {
 
   changeSmallView();
 
-  renderCheckboxsFilters(products, 'categories', '.filters__categories');
-  renderCheckboxsFilters(products, 'brand', '.filters__brand');
+  renderCheckboxsFilters(products, CheckboxTheme.categories, '.filters__categories');
+  renderCheckboxsFilters(products, CheckboxTheme.brand, '.filters__brand');
 
   renderInputsRange(products, 'price', {
     fromSilderId: '#fromInput',
@@ -87,10 +89,13 @@ function renderInputsRange(
   }
 }
 
-function renderCheckboxsFilters(products: Product[], theme: string, themeBlock: string) {
+const CHECKBOX_CATEGORIES_CLASS = 'checkbox__categories';
+const CHECKBOX_BRANDS_CLASS = 'checkbox__brands';
+
+function renderCheckboxsFilters(products: Product[], theme: CheckboxTheme, themeBlock: string) {
   let categories: string[] =
-    theme === 'categories' ? products.map((item) => item.category) : products.map((item) => item.brand);
-  const classInput = theme === 'categories' ? 'checkbox__categories' : 'checkbox__brands';
+    theme === CheckboxTheme.categories ? products.map((item) => item.category) : products.map((item) => item.brand);
+  const classInput = theme === CheckboxTheme.categories ? CHECKBOX_CATEGORIES_CLASS : CHECKBOX_BRANDS_CLASS;
   categories = [...new Set(categories)];
 
   categories.sort((a: string, b: string): number => findMax(b, theme) - findMax(a, theme));
@@ -133,17 +138,22 @@ function renderCheckboxsFilters(products: Product[], theme: string, themeBlock: 
   });
 }
 
-function findMax(category: string, theme: string): number {
+function findMax(category: string, theme: CheckboxTheme): number {
   let max = 0;
   products.forEach((elem) => {
-    if (theme === 'categories') {
-      if (elem.category === category) {
-        max++;
-      }
-    } else {
-      if (elem.brand === category) {
-        max++;
-      }
+    switch (theme) {
+      case CheckboxTheme.categories:
+        if (elem.category === category) {
+          max++;
+        }
+        break;
+      case CheckboxTheme.brand:
+        if (elem.brand === category) {
+          max++;
+        }
+        break;
+      default:
+        return assertUnreachable(theme);
     }
   });
   return max;

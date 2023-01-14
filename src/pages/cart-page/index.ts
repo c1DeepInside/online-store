@@ -16,16 +16,18 @@ const cart = new Cart(cartProducts);
 
 validation(cart);
 
+type KeyPromos = keyof typeof promos;
+
 const summaryCount = document.querySelector<HTMLElement>('.summary_count_number')!;
 const totalPrice = document.querySelector<HTMLElement>('.summary_cost_number')!;
-const discounts: Partial<Record<keyof typeof promos, boolean>> = JSON.parse(localStorage.getItem('discounts') || '{}');
+const discounts: Partial<Record<KeyPromos, boolean>> = JSON.parse(localStorage.getItem('discounts') || '{}');
 
 const newCost: HTMLElement = document.querySelector('.new-cost')!;
 
 function updateSummary() {
   const discount = Object.entries(discounts).reduce((sum, [key, value]) => {
     if (value) {
-      return sum + promos[key as keyof typeof promos];
+      return sum + promos[key as KeyPromos];
     }
     return sum;
   }, 0);
@@ -82,12 +84,12 @@ input.addEventListener('input', () => onPromoInput());
 
 Object.entries(discounts).forEach(([key, value]) => {
   if (value) {
-    renderDiscount(key as keyof typeof promos);
+    renderDiscount(key as KeyPromos);
   }
 });
 
 function onPromoInput() {
-  const discount = input.value as keyof typeof promos;
+  const discount = input.value as KeyPromos;
 
   addPromo.innerHTML = '';
   if (discount in promos && !discounts[discount]) {
@@ -95,7 +97,7 @@ function onPromoInput() {
   }
 }
 
-function renderDiscount(key: keyof typeof promos) {
+function renderDiscount(key: KeyPromos) {
   const promoItem = document.createElement('div');
   promoItem.classList.add('add-item');
   promoItem.innerHTML = `${key} - ${promos[key]}%`;

@@ -1,3 +1,4 @@
+import { FilterParams } from './enums';
 import { FilterData, RangeOptions } from './interfaces';
 import { sortS, sortVariable } from './sortProducts';
 
@@ -76,35 +77,35 @@ export function getFiltersData(): FilterData {
       const params = new URLSearchParams(paramsString);
 
       for (const [key, value] of params.entries()) {
-        if (key == 'priceMin') {
+        if (key == FilterParams.priceMin) {
           this.price.min = +value;
         }
 
-        if (key == 'priceMax') {
+        if (key == FilterParams.priceMax) {
           this.price.max = +value;
         }
 
-        if (key == 'StockMin') {
+        if (key == FilterParams.stockMin) {
           this.stock.min = +value;
         }
 
-        if (key == 'StockMax') {
+        if (key == FilterParams.stockMax) {
           this.stock.max = +value;
         }
 
-        if (key == 'search') {
+        if (key == FilterParams.search) {
           this.search = value;
         }
 
-        if (key == 'view') {
+        if (key == FilterParams.view) {
           this.view = value;
         }
 
-        if (key == 'sorting') {
+        if (key == FilterParams.sorting) {
           this.sorting = value;
         }
 
-        if (key == 'brand') {
+        if (key == FilterParams.brand) {
           const brands = document.querySelectorAll<HTMLInputElement>('.checkbox__brands');
           brands.forEach((element) => {
             const elemParent = element.parentNode!;
@@ -115,7 +116,7 @@ export function getFiltersData(): FilterData {
           });
         }
 
-        if (key == 'categories') {
+        if (key == FilterParams.categories) {
           const categories = document.querySelectorAll<HTMLInputElement>('.checkbox__categories');
           categories.forEach((element) => {
             const elemParent = element.parentNode!;
