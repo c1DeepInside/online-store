@@ -1,0 +1,41 @@
+<svg width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect width="18" height="18" fill="url(#pattern0)"/>
+<rect y="44" width="18" height="18" fill="url(#pattern1)"/>
+<rect x="44" y="44" width="18" height="18" fill="url(#pattern2)"/>
+<rect x="22" y="44" width="18" height="18" fill="url(#pattern3)"/>
+<rect x="22" width="18" height="18" fill="url(#pattern4)"/>
+<rect x="44" y="21" width="18" height="18" fill="url(#pattern5)"/>
+<rect x="22" y="22" width="18" height="18" fill="url(#pattern6)"/>
+<rect y="22" width="18" height="18" fill="url(#pattern7)"/>
+<rect x="44" width="18" height="18" fill="url(#pattern8)"/>
+<defs>
+<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_46_16" transform="scale(0.0078125)"/>
+</pattern>
+<pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_46_16" transform="scale(0.0078125)"/>
+</pattern>
+<pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_46_16" transform="scale(0.0078125)"/>
+</pattern>
+<pattern id="pattern3" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_46_16" transform="scale(0.0078125)"/>
+</pattern>
+<pattern id="pattern4" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_46_16" transform="scale(0.0078125)"/>
+</pattern>
+<pattern id="pattern5" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_46_16" transform="scale(0.0078125)"/>
+</pattern>
+<pattern id="pattern6" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_46_16" transform="scale(0.0078125)"/>
+</pattern>
+<pattern id="pattern7" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_46_16" transform="scale(0.0078125)"/>
+</pattern>
+<pattern id="pattern8" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_46_16" transform="scale(0.0078125)"/>
+</pattern>
+<image id="image0_46_16" width="128" height="128" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAALCSURBVHja7N1BaxxlHMDhZzexNJG2IEI919RSESJeLD3mUKGKoJ/Gb6BY/AKieBIPnvUiOXrQk6noKW2v1aDQ0kZJCvWwE6ilYEKVuDu/B95DJgks//eXmWGWJROHdxpvYQPrOIdTeEaO0z7u4ha2sImvhmP/igv4DH/gYWsu1i4+xfmn2fhVfIQHDXRu1z6uYeWom/8SfmqAC7OuY+2wm/8adhrawq1f8erjmz15wl/+t3i+e6uFtIPL2H5SAM/ie7zcnBbaj3h9uKm39Mg3PsDbzWfhncUJfPPoGeDCcNO31HxG4QEuYns6HHivzR+V5WHPTXAGt3GyuYzKLl6Y4s02f5RWcXVq9mw/47QxNXtjJ+O0PsFveK5ZjNLOBHt6S3es9iZmz4kzUtNGUAApgBRACiAFkAJIAaQAUgApgBRACiAFkALIIlr+H7yGycj34GFngBRACiAFkAJIAaQAUgApgBRACiAFkAJIAaQAUgApgBRACiAFkAJIAaQAUgApgBRACiAFkAJIAaQAUgApgBRACiAFkAJIAaQAUgApgBRAAaQAUgApgBRACiAFkAJIAaQAUgApgBRACiAFkAJIAaQAUgApgBRA5t7EMf//+nQGSAGkAFIAKYAUQAogBZACSAGkAFIAKYAUQAog/0kA+41htPamuNscRuvOFLeaw2jdnGKrOYzW1hSbzWG0Nic4jdtYaR6jsouzBzeBXzSP0fkc9ybDF+fxM5abyyjs4yJuLA0Hfh8uBZebzShcw5fMPhhyYBXf4ZXms9h3/riEP/n7o+BdvIOdZrSwfsG7B5v/eACwjStFsLCb/wZuHuaH13Dd7HODrflfP+DcUYtZwYfDHWNDnM+1h/dx8mlOHWv4BPcb6Nys+/gYL/7T5k6OEMIpXMUG1odTyhmc6PJ6rPZwZ7i2b5k92v8a9w7zy38NABi0XCvzyHZ0AAAAAElFTkSuQmCC"/>
+</defs>
+</svg>

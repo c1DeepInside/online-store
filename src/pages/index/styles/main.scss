@@ -1,0 +1,11 @@
+.main {
+    padding: 30px 0;
+    width: 100%;
+    font-family: $MAIN_FONT;
+    color: $MAIN_COLOR_FONTS;
+    
+    &__inner {
+        display: flex;
+        gap: 40px;
+    }
+}

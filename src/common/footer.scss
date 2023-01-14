@@ -1,0 +1,127 @@
+.footer {
+  height: 270px;
+  border-top: 1px $SUB_COLOR_PAGE solid;
+  font-family: $MAIN_FONT;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px 40px;
+  }
+
+  &__contacts {
+    display: flex;
+  }
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__year {
+    margin-top: 10px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+    color: $MAIN_COLOR_FONTS;
+  }
+
+  &__icons {
+    width: 50px;
+    height: 220px;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: $MAIN_COLOR_PAGE;
+  }
+
+  &__icon-item {
+    height: 40px;
+    width: 40px;
+    margin-top: 20px;
+    fill: #fff;
+    transition: fill .2s linear;
+
+    &:hover {
+      fill: $MAIN_COLOR_FONTS;
+      cursor: pointer;
+    }
+  }
+
+  &__contacts-about {
+    margin-top: 80px;
+    margin-left: 20px;
+    color: $MAIN_COLOR_FONTS;
+  }
+
+  &__contacts-item {
+    display: block;
+    margin-bottom: 40px;
+    font-size: 18px;
+    text-decoration: none;
+    color: $MAIN_COLOR_FONTS;
+    font-weight: 300;
+    letter-spacing: 1px;
+    transition: color .2s linear;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      color: $MAIN_COLOR_PAGE;
+    }
+  }
+}
+
+.pet-logo {
+  width: 300px;
+
+  &__about {
+    font-weight: 200;
+    color: $SUB_COLOR_FONTS;
+    width: 300px;
+    text-align: center;
+  }
+}
+
+.rs-chool {
+  width: 200px;
+  transition: fill .2s linear;
+  fill: $MAIN_COLOR_FONTS;
+
+  &:hover {
+    fill: $MAIN_COLOR_PAGE;
+    cursor: pointer;
+  }
+}
+
+
+@media screen and (max-width: 890px){
+  .footer {
+    height: auto;
+
+    &__inner {
+      padding-top: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    &__contacts {
+      align-self: end;
+    }
+
+    &__icons {
+      margin-top: 0px;
+      height: 200px;
+    }
+
+    &__contacts-about {
+      margin-top: 30px;
+    }
+  }
+}
